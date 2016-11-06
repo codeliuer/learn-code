@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	}
 	else if (pid == 0)
 	{
-		pr_ctl(PR_SET_PDEATHSIG, SIGHUP);
+		prctl(PR_SET_PDEATHSIG, SIGHUP);
 
 		while (1)
 		{
