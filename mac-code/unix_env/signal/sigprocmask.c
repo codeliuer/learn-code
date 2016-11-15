@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 //	block(SIGQUIT);
 	
 	signal(SIGINT, do_func);
+	signal(SIGQUIT, do_func);
 
 	sleep(3);
 	clear(SIGINT);
