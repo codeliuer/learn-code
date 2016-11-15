@@ -39,15 +39,27 @@ int main(int argc, char *argv[])
 
 	block(SIGINT);
 	block(SIGQUIT);
+	block(SIGSEGV);
 	sigprocmask(SIG_SETMASK, &set, &oset);
 //	block(SIGQUIT);
 	
-	signal(SIGINT, do_func);
 	signal(SIGQUIT, do_func);
+	signal(SIGINT, do_func);
+	signal(SIGSEGV, do_func);
 
+	kill(getpid(), SIGQUIT);
+	kill(getpid(), SIGSEGV);
+	kill(getpid(), SIGINT);
+	kill(getpid(), SIGSEGV);
+	kill(getpid(), SIGQUIT);
+	kill(getpid(), SIGSEGV);
+	kill(getpid(), SIGINT);
+	kill(getpid(), SIGQUIT);
+	kill(getpid(), SIGINT);
 	sleep(3);
 	clear(SIGINT);
 	clear(SIGQUIT);
+	clear(SIGSEGV);
 	sigprocmask(SIG_SETMASK, &set, &oset);
 	printf("sleep = %d\n", sleep(2));
 
