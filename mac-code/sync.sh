@@ -31,6 +31,7 @@ function git_push()
 
 
 git_pull
+git_add
 ls -al -R ${workdir} | egrep '^-' | awk '{print $9}' | egrep '.*(\.(c|C|c(pp|\+\+)|sh|php|h|python))$' | while read file
 do
 	git_add ${file}
