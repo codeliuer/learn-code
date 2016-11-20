@@ -19,13 +19,15 @@ function add_file()
 
 function add_dir()
 {
-	local tmpfile=`pwd`
+	local tmpdir=`pwd`
 
-	ls -al ${tmpfile} | egrep '^d' | awk '$9!="." && $9!=".." {print $9}' | while read file
+	ls -al ${tmpdir} | egrep '^d' | awk '$9!="." && $9!=".." {print $9}' | while read file
 	do
-		cd "${tmpfile}/${file}"
+		cd "${tmpdir}/${file}"
 
 		git_add
+
+		cd ".."
 	done
 }
 
