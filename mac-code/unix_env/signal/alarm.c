@@ -24,11 +24,11 @@ static void do_func(int signo)
 	struct passwd *rootptr = NULL;
 
 	printf("in signal handler\n");
-	if ((rootptr = getpwnam("root")) == NULL)
-	{
-		perror("getpwnam root info error");
-		exit(EXIT_FAILURE);
-	}
+//	if ((rootptr = getpwnam("root")) == NULL)
+//	{
+//		perror("getpwnam root info error");
+//		exit(EXIT_FAILURE);
+//	}
 
 	alarm(1);
 }
@@ -43,12 +43,13 @@ int main(int argc, char *argv[])
 
 	for (;;)
 	{
+	//	getpwnam("weiliu");
 		if ((ptr = getpwnam(get_username())) == NULL)
 		{
 			perror("getpwnam error");
 			exit(EXIT_FAILURE);
 		}
-
+	
 		if (strcmp(ptr->pw_name, get_username()) != 0)
 		{
 			printf("return value corrupted!, pw_name = %s\n", ptr->pw_name);

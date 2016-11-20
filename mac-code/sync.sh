@@ -23,7 +23,7 @@ function add_dir()
 
 	ls -al ${tmpfile} | egrep '^d' | awk '$9!="." && $9!=".." {print $9}' | while read file
 	do
-		cd ${file}
+		cd "${tmpfile}/${file}"
 
 		git_add
 	done
