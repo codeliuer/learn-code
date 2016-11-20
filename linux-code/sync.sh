@@ -21,9 +21,9 @@ function add_dir()
 {
 	local tmpdir=`pwd`
 
-	ls -al ${tmpdir} | egrep '^d' | awk '$9!="." && $9!=".." {print $9}' | while read file
+	ls -al ${tmpdir} | egrep '^d' | awk '$3=="parallels" && $4=="parallels" && $9!="." && $9!=".." {print $9}' | while read file
 	do
-		cd "${tmpdir}/${file}"
+		cd "${file}"
 
 		git_add
 
