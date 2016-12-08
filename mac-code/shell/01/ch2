@@ -1,0 +1,5 @@
+UNIX process UNIX is system operator
+LINUX process
+exec UNIX cat UNIX LINUX
+UNIX process is UNIX command sed 's/UNIX/UNIX(tm)/g' ch2 -o ch2
+sed 's/UNIX/UNIX(tm)/g' ch2 | overwrite ch2

@@ -1,4 +1,4 @@
-#! /bin/bash
+ #! /bin/bash
 ##########################################################################
 # local and git sync
 ##########################################################################
@@ -9,6 +9,7 @@ curtm=`date "+%Y-%m-%d %H:%M:%S"`
 
 function add_file()
 {
+	local file=
 	local tmpdir=`pwd`
 
 	ls -al ${tmpdir} | egrep '^-' | awk '{print $9}' | egrep '.*(\.(c|C|c(pp|\+\+)|sh|php|h|python))$' | while read file
@@ -19,11 +20,17 @@ function add_file()
 
 function add_dir()
 {
+	local file=
 	local tmpdir=`pwd`
 
-	ls -al ${tmpdir} | egrep '^d' | awk '$3=="weiliu" && $9!="." && $9!=".." {print $9}' | while read file
+	if [[ -z "${user}" ]]
+	then
+		user=`id -un`
+	fi
+
+	ls -al ${tmpdir} | egrep '^d' | awk '$3==user && $9!="." && $9!=".." {print $9}' user="${user}" | while read dir
 	do
-		cd "${tmpdir}/${file}"
+		cd "${tmpdir}/${dir}"
 
 		git_add
 
@@ -52,7 +59,7 @@ function git_push()
 	git push
 }
 
-git_pull
-git_add
-git_commit
-git_push
+#git_pull
+#git_add
+#git_commit
+#git_push
