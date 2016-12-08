@@ -21,7 +21,7 @@ function add_dir()
 {
 	local tmpdir=`pwd`
 
-	ls -al ${tmpdir} | egrep '^d' | awk '$9!="." && $9!=".." {print $9}' | while read file
+	ls -al ${tmpdir} | egrep '^d' | awk '$3=="weiliu" && $9!="." && $9!=".." {print $9}' | while read file
 	do
 		cd "${tmpdir}/${file}"
 
