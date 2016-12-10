@@ -8,6 +8,7 @@ using namespace std;
 static void quote_func(int a, int &qa, int b)
 {
 	printf("quote_func a address: %p\n", &a);
+	printf("quote_func qa address: %p\n", &qa);
 	printf("quote_func b address: %p\n", &b);
 }
 
