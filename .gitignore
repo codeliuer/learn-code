@@ -1,0 +1,6 @@
+# midfile and executable
+a.out
+*.o
+*.so*
+*.a*
+*.db
