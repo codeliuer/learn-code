@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
 //	int *&pa = aa;
 //	int &&qqa = a;
 
+#if defined(__APPLE__)
 	int *p1 = &a;
 	int *p2 = p1-1;
 	printf("sizeof(long) = %lu\n", sizeof(long));
@@ -37,6 +38,7 @@ int main(int argc, char *argv[])
 	printf("next a = %d\n", *p2);
 	printf("main a address = %#x%x\n", *(p2-1), *(p2-2));
 	printf("main a address = %#lx\n", *(long *)(p2-2));
+#endif //__APPLE__
 
 	printf("a address: %p\n", &a);
 	printf("qa address: %p\n", &qa);
