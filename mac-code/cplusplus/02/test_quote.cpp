@@ -8,7 +8,8 @@ using namespace std;
 static void quote_func(int a, int &qa, int b)
 {
 	printf("quote_func a address: %p\n", &a);
-	printf("quote_func qa address: %p\n", &qa);
+
+	//printf("quote_func qa address: %p\n", &qa);
 	printf("quote_func b address: %p\n", &b);
 }
 
@@ -24,6 +25,18 @@ int main(int argc, char *argv[])
 	int a = 100;
 	int &qa = a;
 	int b = 200;
+//	int *aa = &a;
+//	int *&pa = aa;
+//	int &&qqa = a;
+
+	int *p1 = &a;
+	int *p2 = p1-1;
+	printf("sizeof(long) = %lu\n", sizeof(long));
+
+	printf("a = %d\n", *p1);
+	printf("next a = %d\n", *p2);
+	printf("main a address = %#x%x\n", *(p2-1), *(p2-2));
+	printf("main a address = %#lx\n", *(long *)(p2-2));
 
 	printf("a address: %p\n", &a);
 	printf("qa address: %p\n", &qa);
