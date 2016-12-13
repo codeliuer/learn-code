@@ -15,5 +15,7 @@ int main(int argc, char *argv[])
 {
 	printf("%lu\n", OFFSET(dummy_t, slot));
 
+    printf("sizeof(void *) = %lu\n", sizeof(void *));
+
 	return EXIT_SUCCESS;
 }
