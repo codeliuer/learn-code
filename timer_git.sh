@@ -77,7 +77,7 @@ function git_opt()
 
 ############################################################################
 
-current=${HOME}/learn-code
+current="${HOME}/learn-code"
 
 cd ${current}
 
