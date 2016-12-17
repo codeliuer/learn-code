@@ -58,6 +58,11 @@ function commit()
 	git commit -m "${name} ${curt}"
 }
 
+function push()
+{
+	git push
+}
+
 function git_opt()
 {
 	update
@@ -65,19 +70,20 @@ function git_opt()
 	addfile
 
 	commit
+
+	push
 }
 
 
 ############################################################################
+
+current=${HOME}/learn-code
+
+cd ${current}
+
 network
 
 git_opt >/dev/null 2>&1
-
-
-
-
-
-
 
 
 
