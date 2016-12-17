@@ -2,20 +2,16 @@
 #include <stdlib.h>
 
 
-typedef struct dummy
-{
-	void *p;
-	unsigned char slot;
-} dummy_t;
+#define print(a)		printf("%s", #a)
+#define print2(a)		print(a)
+#define newline			putchar('\n')
 
-#define OFFSET(type, member)			\
-	(((size_t)&((type *)0)->member))
+#define b				2
 
 int main(int argc, char *argv[])
 {
-	printf("%lu\n", OFFSET(dummy_t, slot));
-
-    printf("sizeof(void *) = %lu\n", sizeof(void *));
+	print2(b);
+	newline;
 
 	return EXIT_SUCCESS;
 }
