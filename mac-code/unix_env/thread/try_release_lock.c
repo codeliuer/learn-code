@@ -18,5 +18,11 @@ int main(int argc, char *argv[])
 	pthread_t tid1;
 	pthread_t tid2;
 
+	if ((retcode = pthread_create(&tid1, NULL, thread_func1, NULL)) != 0)
+	{
+		fprintf(stderr, "pthread_create called failure\n");
+		return EXIT_SUCCESS;
+	}
+
 	return EXIT_SUCCESS;
 }
