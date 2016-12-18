@@ -10,7 +10,13 @@ static pthread_mutex_t locka = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t lockb = PTHREAD_MUTEX_INITIALIZER;
 
 
+static void *thread_func1(void *arg)
+{
+}
 
+static void *thread_func2(void *arg)
+{
+}
 
 int main(int argc, char *argv[])
 {
