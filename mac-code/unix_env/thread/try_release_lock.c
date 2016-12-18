@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 #include <unistd.h>
 #include <pthread.h>
@@ -19,7 +20,7 @@ static void *thread_func1(void *arg)
 	{
 		pthread_mutex_lock(&lockb);
 
-		printf("lock b get success\n");
+		printf("thread_func1 lock b get success\n");
 
 		if (pthread_mutex_lock(&locka) != 0)
 		{
@@ -32,7 +33,7 @@ static void *thread_func1(void *arg)
 			}
 		}
 
-		printf("all lock get success\n");
+		printf("thread_func1 all lock get success\n");
 
 		break;
 	}
@@ -44,7 +45,7 @@ static void *thread_func2(void *arg)
 	{
 		pthread_mutex_lock(&locka);
 
-		printf("lock a get success\n");
+		printf("thread_func2 lock a get success\n");
 
 		if (pthread_mutex_lock(&lockb) != 0)
 		{
@@ -56,6 +57,8 @@ static void *thread_func2(void *arg)
 				continue;
 			}
 		}
+
+		printf("thread_func2 all lock get success\n");
 
 		break;
 	}
