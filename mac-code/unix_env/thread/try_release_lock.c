@@ -16,7 +16,11 @@ static void *thread_func1(void *arg)
 
 static void *thread_func2(void *arg)
 {
-	if (pthread_mutex_lock(&locka))
+	if (pthread_mutex_lock(&locka) != 0)
+	{
+		fprintf(stderr, "pthread_mutex_lock failure\n");
+		return EXIT_FAILURE;
+	}
 }
 
 int main(int argc, char *argv[])
