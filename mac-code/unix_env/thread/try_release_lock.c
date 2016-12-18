@@ -22,7 +22,15 @@ static void *thread_func2(void *arg)
 	infinite()
 	{
 		pthread_mutex_lock(&locka);
-		pthread_mutex_lock(&lockb);
+
+		if (pthread_mutex_lock(&lockb) != 0)
+		{
+			if (errno = EBUSY)
+			{
+				printf("lock b busy\n");
+				pthread_mutex_lock(&locka);
+			}
+		}
 	}
 }
 
