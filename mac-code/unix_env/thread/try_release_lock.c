@@ -42,6 +42,8 @@ static void *thread_func2(void *arg)
 	{
 		pthread_mutex_lock(&locka);
 
+		printf("lock a get success\n");
+
 		if (pthread_mutex_lock(&lockb) != 0)
 		{
 			if (errno = EBUSY)
