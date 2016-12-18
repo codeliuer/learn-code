@@ -15,6 +15,9 @@ static pthread_mutex_t lockb = PTHREAD_MUTEX_INITIALIZER;
 
 static void *thread_func1(void *arg)
 {
+	infinite()
+	{
+	}
 }
 
 static void *thread_func2(void *arg)
@@ -29,8 +32,12 @@ static void *thread_func2(void *arg)
 			{
 				printf("lock b busy\n");
 				pthread_mutex_lock(&locka);
+
+				continue;
 			}
 		}
+
+		break;
 	}
 }
 
