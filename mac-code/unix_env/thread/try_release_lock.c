@@ -20,6 +20,8 @@ static void *thread_func1(void *arg)
 {
 	infinite()
 	{
+		sleep(1);
+
 		pthread_mutex_lock(&lockb);
 
 		printf("thread_func1 lock b get success\n");
@@ -30,7 +32,7 @@ static void *thread_func1(void *arg)
 			if (errno == EBUSY)
 			{
 				printf("lock a busy\n");
-				pthread_mutex_lock(&lockb);
+				pthread_mutex_unlock(&lockb);
 
 				continue;
 			}
@@ -50,6 +52,8 @@ static void *thread_func2(void *arg)
 	{
 		pthread_mutex_lock(&locka);
 
+		sleep(1);
+
 		printf("thread_func2 lock a get success\n");
 
 		errno = 0;
@@ -58,7 +62,7 @@ static void *thread_func2(void *arg)
 			if (errno == EBUSY)
 			{
 				printf("lock b busy\n");
-				pthread_mutex_lock(&locka);
+				pthread_mutex_unlock(&locka);
 
 				continue;
 			}
