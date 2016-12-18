@@ -21,17 +21,8 @@ static void *thread_func2(void *arg)
 {
 	infinite()
 	{
-		if (pthread_mutex_lock(&locka) != 0)
-		{
-			fprintf(stderr, "pthread_mutex_lock a failure\n");
-			return EXIT_FAILURE;
-		}
-
-		if (pthread_mutex_lock(&lockb) != 0)
-		{
-			fprintf(stderr, "pthread_mutex_lock b failure\n");
-			return EXIT_FAILURE;
-		}
+		pthread_mutex_lock(&locka);
+		pthread_mutex_lock(&lockb);
 	}
 }
 
