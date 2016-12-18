@@ -16,6 +16,7 @@ static void *thread_func1(void *arg)
 
 static void *thread_func2(void *arg)
 {
+	
 }
 
 int main(int argc, char *argv[])
