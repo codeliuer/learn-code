@@ -6,6 +6,9 @@
 #include <pthread.h>
 
 
+#define infinite()		for (;;)
+
+
 static pthread_mutex_t locka = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t lockb = PTHREAD_MUTEX_INITIALIZER;
 
@@ -16,16 +19,19 @@ static void *thread_func1(void *arg)
 
 static void *thread_func2(void *arg)
 {
-	if (pthread_mutex_lock(&locka) != 0)
+	infinite()
 	{
-		fprintf(stderr, "pthread_mutex_lock a failure\n");
-		return EXIT_FAILURE;
-	}
+		if (pthread_mutex_lock(&locka) != 0)
+		{
+			fprintf(stderr, "pthread_mutex_lock a failure\n");
+			return EXIT_FAILURE;
+		}
 
-	if (pthread_mutex_lock(&lockb) != 0)
-	{
-		fprintf(stderr, "pthread_mutex_lock b failure\n");
-		return EXIT_FAILURE;
+		if (pthread_mutex_lock(&lockb) != 0)
+		{
+			fprintf(stderr, "pthread_mutex_lock b failure\n");
+			return EXIT_FAILURE;
+		}
 	}
 }
 
