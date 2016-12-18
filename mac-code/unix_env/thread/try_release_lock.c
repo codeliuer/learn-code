@@ -37,6 +37,8 @@ static void *thread_func1(void *arg)
 
 		break;
 	}
+
+	pthread_exit(NULL);
 }
 
 static void *thread_func2(void *arg)
@@ -49,7 +51,7 @@ static void *thread_func2(void *arg)
 
 		if (pthread_mutex_lock(&lockb) != 0)
 		{
-			if (errno = EBUSY)
+			if (errno == EBUSY)
 			{
 				printf("lock b busy\n");
 				pthread_mutex_lock(&locka);
@@ -62,6 +64,8 @@ static void *thread_func2(void *arg)
 
 		break;
 	}
+
+	pthread_exit(NULL);
 }
 
 int main(int argc, char *argv[])
@@ -82,7 +86,7 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
-	if (pthread_join(tid1, NULL) != 0 && pthread_join(tid, NULL) != 0)
+	if (pthread_join(tid1, NULL) != 0 && pthread_join(tid2, NULL) != 0)
 	{
 		fprintf(stderr, "pthread_join failure\n");
 		return EXIT_FAILURE;
