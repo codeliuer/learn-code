@@ -32,6 +32,8 @@ static void *thread_func1(void *arg)
 			}
 		}
 
+		printf("all lock get success\n");
+
 		break;
 	}
 }
