@@ -30,7 +30,11 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
-	if (pthread_join(&tid1, NULL) == 0)
+	if (pthread_join(tid1, NULL) != 0 && pthread_join(tid, NULL) != 0)
+	{
+		fprintf(stderr, "pthread_join failure\n");
+		return EXIT_FAILURE;
+	}
 
 	return EXIT_SUCCESS;
 }
