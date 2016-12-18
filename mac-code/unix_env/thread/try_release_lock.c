@@ -17,6 +17,20 @@ static void *thread_func1(void *arg)
 {
 	infinite()
 	{
+		pthread_mutex_lock(&lockb);
+
+		if (pthread_mutex_lock(&locka) != 0)
+		{
+			if (errno == EBUSY)
+			{
+				printf("lock a busy\n");
+				pthread_mutex_lock(&lockb);
+
+				continue;
+			}
+		}
+
+		break;
 	}
 }
 
