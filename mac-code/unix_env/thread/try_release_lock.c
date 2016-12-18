@@ -18,16 +18,17 @@ extern int errno;
 
 static void *thread_func1(void *arg)
 {
+	int retcode = 0;
+
 	infinite()
 	{
 		pthread_mutex_lock(&lockb);
 
 		printf("thread_func1 lock b get success\n");
 
-		errno = 0;
-		if (pthread_mutex_trylock(&locka) != 0)
+		if ((retcode = pthread_mutex_trylock(&locka)) != 0)
 		{
-			if (errno == EBUSY)
+			if (retcode == EBUSY)
 			{
 				printf("lock a busy\n");
 				pthread_mutex_unlock(&lockb);
@@ -41,21 +42,25 @@ static void *thread_func1(void *arg)
 		break;
 	}
 
+	pthread_mutex_unlock(&locka);
+	pthread_mutex_unlock(&lockb);
+
 	pthread_exit(NULL);
 }
 
 static void *thread_func2(void *arg)
 {
+	int retcode = 0;
+
 	infinite()
 	{
 		pthread_mutex_lock(&locka);
 
 		printf("thread_func2 lock a get success\n");
 
-		errno = 0;
-		if (pthread_mutex_trylock(&lockb) != 0)
+		if ((retcode = pthread_mutex_trylock(&lockb)) != 0)
 		{
-			if (errno == EBUSY)
+			if (retcode == EBUSY)
 			{
 				printf("lock b busy\n");
 				pthread_mutex_unlock(&locka);
@@ -68,6 +73,9 @@ static void *thread_func2(void *arg)
 
 		break;
 	}
+
+	pthread_mutex_unlock(&lockb);
+	pthread_mutex_unlock(&locka);
 
 	pthread_exit(NULL);
 }
@@ -95,8 +103,6 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "pthread_join failure\n");
 		return EXIT_FAILURE;
 	}
-
-	sleep(1);
 
 	return EXIT_SUCCESS;
 }
