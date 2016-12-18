@@ -22,7 +22,7 @@ static void *thread_func1(void *arg)
 
 		printf("thread_func1 lock b get success\n");
 
-		if (pthread_mutex_lock(&locka) != 0)
+		if (pthread_mutex_trylock(&locka) != 0)
 		{
 			if (errno == EBUSY)
 			{
@@ -49,7 +49,7 @@ static void *thread_func2(void *arg)
 
 		printf("thread_func2 lock a get success\n");
 
-		if (pthread_mutex_lock(&lockb) != 0)
+		if (pthread_mutex_trylock(&lockb) != 0)
 		{
 			if (errno == EBUSY)
 			{
