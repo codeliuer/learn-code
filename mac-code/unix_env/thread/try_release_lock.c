@@ -21,8 +21,16 @@ int main(int argc, char *argv[])
 	if ((retcode = pthread_create(&tid1, NULL, thread_func1, NULL)) != 0)
 	{
 		fprintf(stderr, "pthread_create called failure\n");
-		return EXIT_SUCCESS;
+		return EXIT_FAILURE;
 	}
+
+	if ((retcode = pthread_create(&tid2, NULL, thread_func2, NULL)) != 0)
+	{
+		fprintf(stderr, "pthread_create called failure\n");
+		return EXIT_FAILURE;
+	}
+
+	if (pthread_join(&tid1, NULL) == 0)
 
 	return EXIT_SUCCESS;
 }
