@@ -20,8 +20,6 @@ static void *thread_func1(void *arg)
 {
 	infinite()
 	{
-		sleep(1);
-
 		pthread_mutex_lock(&lockb);
 
 		printf("thread_func1 lock b get success\n");
@@ -51,8 +49,6 @@ static void *thread_func2(void *arg)
 	infinite()
 	{
 		pthread_mutex_lock(&locka);
-
-		sleep(1);
 
 		printf("thread_func2 lock a get success\n");
 
