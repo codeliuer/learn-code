@@ -21,8 +21,13 @@ static void enter_mul(unsigned long long *ptr)
 	}
 }
 
+static int *get_buffer(unsigned long long mul)
+{
+}
+
 static void factorial(unsigned long long mul)
 {
+	int *array = get_buffer(mul);
 }
 
 int main(int argc, char *argv[])
