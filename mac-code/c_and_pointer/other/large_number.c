@@ -21,14 +21,14 @@ static void enter_mul(unsigned int *ptr)
 	}
 }
 
-static int *get_buffer(unsigned int mul)
+static unsigned int *get_buffer(unsigned int mul)
 {
 	int *array = malloc(mul * 4);
 }
 
 static void factorial(unsigned int mul)
 {
-	int *array = get_buffer(mul);
+	unsigned int *array = get_buffer(mul);
 }
 
 int main(int argc, char *argv[])
