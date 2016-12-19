@@ -5,10 +5,10 @@
 
 #define print_msg		printf("Enter multiplier: ")
 
-static void clear(void)
+static void clear_stdin_buffer(void)
 {
-	scanf();
-	scanf();
+	scanf("%*[^\n]");
+	scanf("%*c");
 }
 
 static void enter_mul(unsigned long long *ptr)
@@ -17,7 +17,7 @@ static void enter_mul(unsigned long long *ptr)
 	{
 		printf("Enter invalid\n");
 
-		clear();
+		clear_stdin_buffer();
 	}
 }
 
@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
 	unsigned long long mul = 0;
 
 	enter_mul(&mul);
+
+	printf("mul = %llu\n", mul);
 
 	return EXIT_SUCCESS;
 }
