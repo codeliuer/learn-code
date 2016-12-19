@@ -11,9 +11,9 @@ static void clear_stdin_buffer(void)
 	scanf("%*c");
 }
 
-static void enter_mul(unsigned long long *ptr)
+static void enter_mul(unsigned int *ptr)
 {
-	for (print_msg; scanf("%llu", ptr) != 1; print_msg)
+	for (print_msg; scanf("%u", ptr) != 1; print_msg)
 	{
 		printf("Enter invalid\n");
 
@@ -21,18 +21,19 @@ static void enter_mul(unsigned long long *ptr)
 	}
 }
 
-static int *get_buffer(unsigned long long mul)
+static int *get_buffer(unsigned int mul)
 {
+	int *array = malloc(mul * 4);
 }
 
-static void factorial(unsigned long long mul)
+static void factorial(unsigned int mul)
 {
 	int *array = get_buffer(mul);
 }
 
 int main(int argc, char *argv[])
 {
-	unsigned long long mul = 0;
+	unsigned int mul = 0;
 
 	enter_mul(&mul);
 
