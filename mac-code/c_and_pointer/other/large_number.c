@@ -21,11 +21,17 @@ static void enter_mul(unsigned long long *ptr)
 	}
 }
 
+static void factorial(unsigned long long mul)
+{
+}
+
 int main(int argc, char *argv[])
 {
 	unsigned long long mul = 0;
 
 	enter_mul(&mul);
+
+	factorial(mul);
 
 	return EXIT_SUCCESS;
 }
