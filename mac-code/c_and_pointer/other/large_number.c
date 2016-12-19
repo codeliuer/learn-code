@@ -27,7 +27,5 @@ int main(int argc, char *argv[])
 
 	enter_mul(&mul);
 
-	printf("mul = %llu\n", mul);
-
 	return EXIT_SUCCESS;
 }
