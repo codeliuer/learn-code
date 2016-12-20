@@ -41,11 +41,50 @@ static u32int_t get_zero(unsigned int max)
 	return n;
 }
 
+static u32int_t to_space(u32int_t x)
+{
+    u32int_t a = 1;
+    u32int_t sum = 0;
+    u32int_t base = 9;  // 0 - 9 (1) | 10-99 (2) | 100-999 (3) ...
+    u32int_t other = 1;
+
+    while (x / BASE_DATA)
+    {
+        sum += base * a;
+        a += 1;
+        base *= BASE_DATA;
+        other *= BASE_DATA;
+
+        x /= BASE_DATA;
+    }
+
+    sum += ((x-1) * other + 1) * a;
+
+    return sum;
+}
+
+static u32int_t get_space(u32int_t mul)
+{
+    u32int_t x = 0;
+    u32int_t sum = 0;
+    u32int_t base = BASE_DATA;
+
+    while (mul > 0)
+    {
+        x = mul % base;
+        sum += to_space(x);
+        mul -= x;
+        base *= BASE_DATA;
+    }
+
+    return sum;
+}
+
 static u32int_t *get_buffer(u32int_t mul)
 {
 	u32int_t bits = get_zero(mul);
 
-	u32int_t *array = malloc(( get_space(mul) * 4 )/bits);
+	u32int_t *array = malloc(( get_space(mul) * 4 )/bits+1);
 
 	if (array == NULL)
 	{
