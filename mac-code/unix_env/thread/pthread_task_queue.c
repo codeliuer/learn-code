@@ -6,11 +6,14 @@
 #include <pthread.h>
 
 
+typedef unsigned int    u64_t;
+typedef u64_t           job_id_t;
+
 typedef struct job
 {
     struct job          *j_next;
     struct job          *j_prev;
-    
+    job_id_t            id;   
 } job_t;
 
 
