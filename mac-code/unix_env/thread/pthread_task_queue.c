@@ -48,7 +48,13 @@ static int append_task(task_t *head, job_t *job)
 {
 }
 
-static int
+static int remove_task(task_t *head, job_t *job)
+{
+}
+
+static int find_task(task_t *head, job_t *job)
+{
+}
 
 
 int main(int argc, char *argv[])
