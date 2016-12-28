@@ -32,6 +32,11 @@ typedef struct task
 } task_t;
 
 
+static void queue_init(task_t *head)
+{
+}
+
+
 int main(int argc, char *argv[])
 {
     return EXIT_SUCCESS;
