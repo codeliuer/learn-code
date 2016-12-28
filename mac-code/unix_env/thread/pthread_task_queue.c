@@ -40,9 +40,14 @@ static void queue_init(task_t *head)
     pthread_rwlock_init(&head->t_lock, NULL);
 }
 
+static job_id_t global_thread_id = 0;
+
 static int insert_task(task_t *queue, job_t *job)
 {
     pthread_rwlock_wrlock(&queue->t_lock);
+
+    job->
+
     pthread_rwlock_unlock(&queue->t_lock);
 }
 
