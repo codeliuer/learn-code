@@ -49,6 +49,8 @@ static int insert_task(task_t *queue, job_t *job)
     job->j_next = queue->t_head;
     job->j_prev = NULL;
 
+    j_id = ++global_thread_id;
+
     pthread_rwlock_unlock(&queue->t_lock);
 }
 
