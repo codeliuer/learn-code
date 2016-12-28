@@ -27,13 +27,17 @@ typedef struct job
 typedef struct task 
 {
     job_t               *t_head;
-    job_t               *p_tail;
-    pthread_rwlock_t    tid;
+    job_t               *t_tail;
+    pthread_rwlock_t    t_lock;
 } task_t;
 
 
 static void queue_init(task_t *head)
 {
+    head->t_head = NULL;
+    head->t_tail = NULL;
+
+    pthread_rwlock_init(&head->t_lock);
 }
 
 
