@@ -37,7 +37,7 @@ static void queue_init(task_t *head)
     head->t_head = NULL;
     head->t_tail = NULL;
 
-    pthread_rwlock_init(&head->t_lock);
+    pthread_rwlock_init(&head->t_lock, NULL);
 }
 
 
