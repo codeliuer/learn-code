@@ -40,6 +40,16 @@ static void queue_init(task_t *head)
     pthread_rwlock_init(&head->t_lock, NULL);
 }
 
+static int insert_task(task_t *head, job_t *job)
+{
+}
+
+static int append_task(task_t *head, job_t *job)
+{
+}
+
+static int
+
 
 int main(int argc, char *argv[])
 {
