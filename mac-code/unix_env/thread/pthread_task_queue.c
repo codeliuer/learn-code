@@ -40,19 +40,21 @@ static void queue_init(task_t *head)
     pthread_rwlock_init(&head->t_lock, NULL);
 }
 
-static int insert_task(task_t *head, job_t *job)
+static int insert_task(task_t *queue, job_t *job)
+{
+    pthread_rwlock_wrlock(&queue->t_lock);
+    pthread_rwlock_unlock(&queue->t_lock);
+}
+
+static int append_task(task_t *queue, job_t *job)
 {
 }
 
-static int append_task(task_t *head, job_t *job)
+static int remove_task(task_t *queue, job_t *job)
 {
 }
 
-static int remove_task(task_t *head, job_t *job)
-{
-}
-
-static int find_task(task_t *head, job_t *job)
+static int find_task(task_t *queue, job_t *job)
 {
 }
 
