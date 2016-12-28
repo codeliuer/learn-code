@@ -48,11 +48,10 @@ static int insert_task(task_t *queue, job_t *job)
 
     job->j_next = queue->t_head;
     job->j_prev = NULL;
+    queue->t_head = job;
     if (queue->t_head != NULL)
     {
-    }
-    else
-    {
+        queue->t_tail = job;
     }
 
     pthread_rwlock_unlock(&queue->t_lock);
