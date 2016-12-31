@@ -51,11 +51,11 @@ int main(int argc, char *argv[])
 
 //    product_data();
 
-    pthread_barrier_init(&barrier, NULL, count);
+    pthread_barrier_init(&barrier, NULL, count+1);
 
     for (i = 0; i < count; i++)
     {
-        pthread_create(&thid[i], NULL, thread, data+i*(MAX_RANGE/count)*sizeof(int));
+        pthread_create(&thid[i], NULL, thread, data+i*(MAX_RANGE/count));
     }
 
     pthread_barrier_wait(&barrier);
