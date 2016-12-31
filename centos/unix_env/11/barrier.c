@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 
     for (i = 0; i < count; i++)
     {
-        pthread_create(&thid[i], NULL, thread, data+i*(MAX_RANGE/count));
+        pthread_create(&thid[i], NULL, thread, data+i*(MAX_RANGE/count)*sizeof(int));
     }
 
     pthread_barrier_destroy(&barrier);
