@@ -14,6 +14,11 @@
 static pthread_barrier_t barrier;
 
 
+static int cmp(const void *data1, const void *data2)
+{
+    return *(const int *)data1 - *(const int *)data2;
+}
+
 static void product_data(void)
 {
     int i = 0;
