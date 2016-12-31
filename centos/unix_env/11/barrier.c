@@ -34,13 +34,16 @@ static void product_data(void)
 
 int main(int argc, char *argv[])
 {
+    int i = 0;
     int count = THREAD_COUNT;
 
 //    product_data();
 
     pthread_barrier_init(&barrier, NULL, count);
 
-
+    for (i = 0; i < count; i++)
+    {
+    }
 
     pthread_barrier_destroy(&barrier);
 
