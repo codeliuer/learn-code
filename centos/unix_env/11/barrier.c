@@ -7,6 +7,7 @@
 
 #define THREAD_COUNT            (8)
 
+
 static pthread_barrier_t barrier;
 
 
