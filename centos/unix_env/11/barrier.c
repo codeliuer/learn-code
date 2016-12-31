@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 {
     int count = THREAD_COUNT;
 
+    product_data();
 
     pthread_barrier_init(&barrier, NULL, count);
 
