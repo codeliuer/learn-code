@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include <unistd.h>
 #include <pthread.h>
@@ -15,6 +16,9 @@ static pthread_barrier_t barrier;
 
 static void product_data(void)
 {
+    int i = 0;
+
+    for ()
 }
 
 int main(int argc, char *argv[])
