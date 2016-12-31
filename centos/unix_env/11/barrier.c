@@ -32,11 +32,16 @@ static void product_data(void)
     qsort(data, MAX_RANGE, sizeof(int), cmp);
 }
 
+static void *thread(void *arg)
+{
+}
+
 int main(int argc, char *argv[])
 {
     int i = 0;
     int count = THREAD_COUNT;
     pthread_t thid[THREAD_COUNT];
+    int *data = malloc(sizeof(int) * MAX_RANGE);
 
 //    product_data();
 
@@ -44,7 +49,7 @@ int main(int argc, char *argv[])
 
     for (i = 0; i < count; i++)
     {
-        pthread_create(&thid[i], );
+        pthread_create(&thid[i], NULL, thread, NULL);
     }
 
     pthread_barrier_destroy(&barrier);
