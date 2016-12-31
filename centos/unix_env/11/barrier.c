@@ -34,6 +34,7 @@ static void product_data(void)
 
 static void *thread(void *arg)
 {
+    qsort(arg, MAX_RANGE/THREAD_COUNT, sizeof(int), cmp);
 }
 
 int main(int argc, char *argv[])
