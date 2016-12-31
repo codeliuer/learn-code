@@ -31,7 +31,7 @@ static void product_data(void)
     }
 
     printf("test data\n");
-    qsort(data, MAX_RANGE, sizeof(int), cmp);
+//    qsort(data, MAX_RANGE, sizeof(int), cmp);
 }
 
 int main(int argc, char *argv[])
