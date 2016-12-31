@@ -23,6 +23,8 @@ static void product_data(void)
     {
         data[i] = rand() % MAX_RANGE+1;
     }
+
+    qsort();
 }
 
 int main(int argc, char *argv[])
