@@ -17,8 +17,12 @@ static pthread_barrier_t barrier;
 static void product_data(void)
 {
     int i = 0;
+    int data[MAX_RANGE] = {0};
 
-    for ()
+    for (i = 0; i < MAX_RANGE; i++)
+    {
+        data[i] = rand() % MAX_RANGE+1;
+    }
 }
 
 int main(int argc, char *argv[])
