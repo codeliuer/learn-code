@@ -58,6 +58,8 @@ int main(int argc, char *argv[])
         pthread_create(&thid[i], NULL, thread, data+i*(MAX_RANGE/count)*sizeof(int));
     }
 
+    pthread_barrier_wait(&barrier);
+
     pthread_barrier_destroy(&barrier);
 
     return EXIT_SUCCESS;
