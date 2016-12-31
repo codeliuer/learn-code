@@ -22,6 +22,7 @@ static int cmp(const void *data1, const void *data2)
 static void product_data(void)
 {
     int i = 0;
+    printf("!!!!!!!!!!!!!!!!!!!\n");
     int data[MAX_RANGE] = {0};
 
     for (i = 0; i < MAX_RANGE; i++)
@@ -29,6 +30,7 @@ static void product_data(void)
         data[i] = rand() % MAX_RANGE+1;
     }
 
+    printf("test data\n");
     qsort(data, MAX_RANGE, sizeof(int), cmp);
 }
 
