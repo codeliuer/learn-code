@@ -35,6 +35,11 @@ static void product_data(void)
 static void *thread(void *arg)
 {
     qsort(arg, MAX_RANGE/THREAD_COUNT, sizeof(int), cmp);
+    pthread_barrier_wait(&barrier);
+
+    printf("thread id = %d\n", pthread_self());
+
+    pthread_exit(NULL);
 }
 
 int main(int argc, char *argv[])
