@@ -22,8 +22,7 @@ static int cmp(const void *data1, const void *data2)
 static void product_data(void)
 {
     int i = 0;
-    printf("!!!!!!!!!!!!!!!!!!!\n");
-    int data[MAX_RANGE] = {0};
+    int *data = malloc(sizeof(int) * MAX_RANGE);
 
     for (i = 0; i < MAX_RANGE; i++)
     {
@@ -31,7 +30,7 @@ static void product_data(void)
     }
 
     printf("test data\n");
-//    qsort(data, MAX_RANGE, sizeof(int), cmp);
+    qsort(data, MAX_RANGE, sizeof(int), cmp);
 }
 
 int main(int argc, char *argv[])
