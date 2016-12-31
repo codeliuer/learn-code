@@ -8,7 +8,7 @@
 
 #define THREAD_COUNT            (8)
 
-#define MAX_RANGE               (10000000)
+#define MAX_RANGE               (80000000)
 
 
 static pthread_barrier_t barrier;
@@ -29,7 +29,6 @@ static void product_data(void)
         data[i] = rand() % MAX_RANGE+1;
     }
 
-    printf("test data\n");
     qsort(data, MAX_RANGE, sizeof(int), cmp);
 }
 
