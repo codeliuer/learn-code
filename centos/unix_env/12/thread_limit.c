@@ -8,7 +8,8 @@
 
 int main(int argc, char *argv[])
 {
-    printf("thread quit max number = %d\n", sysconf());
+    printf("thread quit max number = %d\n", sysconf(_SC_THREAD_DESTRUCTOR_ITERATIONS));
+    printf("");
 
     return EXIT_SUCCESS;
 }
