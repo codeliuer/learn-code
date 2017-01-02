@@ -28,5 +28,13 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    if (pthread_attr_destroy(&attr) != 0)
+    {
+        fprintf(stderr, "thread destroy\n");
+        return EXIT_FAILURE;
+    }
+
+    printf("thread stack size = %lu\n", size);
+
     return EXIT_SUCCESS;
 }
