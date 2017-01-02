@@ -16,5 +16,17 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    if (pthread_create(&thid, &attr, thread, NULL) != 0)
+    {
+        fprintf("thread create failure\n");
+        return EXIT_FAILURE;
+    }
+
+    if (pthread_attr_getstacksize(&attr, &size) != 0)
+    {
+        fprintf(stderr, "get stack size failure\n");
+        return EXIT_FAILURE;
+    }
+
     return EXIT_SUCCESS;
 }
