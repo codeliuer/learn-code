@@ -5,6 +5,11 @@
 #include <pthread.h>
 
 
+static void *thread(void *arg)
+{
+    pthread_exit(NULL);
+}
+
 int main(int argc, char *argv[])
 {
     pthread_t thid;
