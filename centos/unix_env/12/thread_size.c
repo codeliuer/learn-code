@@ -12,7 +12,8 @@ int main(int argc, char *argv[])
 
     if (pthread_attr_init(&attr) != 0)
     {
-        fprintf(stderr, "");
+        fprintf(stderr, "thread attribute init failure\n");
+        return EXIT_FAILURE;
     }
 
     return EXIT_SUCCESS;
