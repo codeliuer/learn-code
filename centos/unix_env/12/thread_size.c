@@ -12,6 +12,7 @@ static void *thread(void *arg)
 
 int main(int argc, char *argv[])
 {
+    size_t size = 0;
     pthread_t thid;
     pthread_attr_t attr;
 
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
 
     if (pthread_create(&thid, &attr, thread, NULL) != 0)
     {
-        fprintf("thread create failure\n");
+        fprintf(stderr, "thread create failure\n");
         return EXIT_FAILURE;
     }
 
