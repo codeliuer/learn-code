@@ -8,6 +8,9 @@
 
 int self_print(const char *file, const char *func, int line, const char *format, ...)
 {
+    va_list ap;
+
+    va_start(ap, format);
 }
 
 
