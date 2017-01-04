@@ -11,6 +11,6 @@ int self_print(const char *file, const char *func, int line, const char *format,
 }
 
 
-int self_fprint()
+int self_fprint(const char *file, const char *func, int line, FILE *stream, const char *format, ...)
 {
 }
