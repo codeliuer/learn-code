@@ -9,7 +9,7 @@ int self_print(const char *file, const char *func, int line, const char *format,
     va_list ap;
     int bytes = 0;
 
-    printf("%s(%s)[%d]", file, func, line);
+    printf("%s(%s)[%d]: ", file, func, line);
 
     va_start(ap, format);
     bytes = vprintf(format, ap);
@@ -24,7 +24,7 @@ int self_fprint(const char *file, const char *func, int line, FILE *stream, cons
     va_list ap;
     int bytes = 0;
 
-    fprintf(stream, "%s(%s)[%d]", file, func, line);
+    fprintf(stream, "%s(%s)[%d]: ", file, func, line);
 
     va_start(ap, format);
     bytes = vfprintf(stream, format, ap);

@@ -6,9 +6,9 @@
 
 int main(int argc, char *argv[])
 {
-    printinfo("3");
+    printinfo("3\n");
 
-    fprintinfo(stderr, "3");
+    fprintinfo(stderr, "3\n");
 
     return EXIT_SUCCESS;
 }
