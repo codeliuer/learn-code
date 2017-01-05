@@ -6,7 +6,7 @@
 #include <bits/posix1_lim.h>
 
 
-static void thread_func(void *arg)
+static void *thread_func(void *arg)
 {
     pthread_exit(NULL);
 }
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    if (pthread_attr_destroy(&attr) !0 0)
+    if (pthread_attr_destroy(&attr) != 0)
     {
         fprintf(stderr, "thread attrabute destroy faialure\n");
         return EXIT_FAILURE;
