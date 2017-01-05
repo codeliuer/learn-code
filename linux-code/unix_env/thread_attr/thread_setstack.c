@@ -3,6 +3,7 @@
 
 #include <unistd.h>
 #include <pthread.h>
+#include <bits/posix1_lim.h>
 
 
 static void thread_func(void *arg)
