@@ -8,6 +8,10 @@
 
 static void *thread_func(void *arg)
 {
+    int valu = 0;
+
+    printf("valu address = %p\n", &valu);
+
     pthread_exit(NULL);
 }
 
@@ -16,6 +20,8 @@ int main(int argc, char *argv[])
     pthread_t thid;
     pthread_attr_t attr;
     void *base = (void *)malloc(PTHREAD_STACK_MIN + 0x4000);
+
+    printf("base address = %p\n", base);
 
     if (pthread_attr_init(&attr) != 0)
     {
