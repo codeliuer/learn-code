@@ -17,6 +17,8 @@ static void *thread_func(void *arg)
 
 int main(int argc, char *argv[])
 {
+    void *addr = NULL;
+    size_t size = 0;
     pthread_t thid;
     pthread_attr_t attr;
     void *base = (void *)malloc(PTHREAD_STACK_MIN*2/* + 0x4000*/);
