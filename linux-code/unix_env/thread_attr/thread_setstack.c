@@ -5,6 +5,11 @@
 #include <pthread.h>
 
 
+static void thread_func(void *arg)
+{
+    pthread_exit(NULL);
+}
+
 int main(int argc, char *argv[])
 {
     pthread_t thid;
@@ -26,6 +31,12 @@ int main(int argc, char *argv[])
     if (pthread_create(&thid, &attr, thread_func, NULL) != 0)
     {
         fprintf(stderr, "create thread failure\n");
+        return EXIT_FAILURE;
+    }
+
+    if (pthread_attr_destroy(&attr) !0 0)
+    {
+        fprintf(stderr, "thread attrabute destroy faialure\n");
         return EXIT_FAILURE;
     }
 
