@@ -43,6 +43,8 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    printf("addr address = %p, size = %lu\n", addr, size);
+
     if (pthread_create(&thid, &attr, thread_func, NULL) != 0)
     {
         fprintf(stderr, "create thread failure\n");
