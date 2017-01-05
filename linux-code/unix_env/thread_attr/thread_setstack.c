@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 {
     pthread_t thid;
     pthread_attr_t attr;
-    void *base = (void *)malloc(PTHREAD_STACK_MIN + 0x4000);
+    void *base = (void *)malloc(PTHREAD_STACK_MIN*2/* + 0x4000*/);
 
     printf("base address = %p\n", base);
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    if (pthread_attr_setstack(&attr, base, PTHREAD_STACK_MIN + 0x4000) != 0)
+    if (pthread_attr_setstack(&attr, base, PTHREAD_STACK_MIN*2/* + 0x4000*/) != 0)
     {
         fprintf(stderr, "thread attrabute stack set failure\n");
         return EXIT_FAILURE;
