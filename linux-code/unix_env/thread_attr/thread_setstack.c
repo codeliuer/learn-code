@@ -35,6 +35,12 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    if (pthread_attr_getstack(&attr, &addr, &size) != 0)
+    {
+        fprintf(stderr, "get stack failure\n");
+        return EXIT_FAILURE;
+    }
+
     if (pthread_create(&thid, &attr, thread_func, NULL) != 0)
     {
         fprintf(stderr, "create thread failure\n");
