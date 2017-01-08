@@ -8,6 +8,15 @@
 #include <bits/local_lim.h>
 
 
+static void *make_space(void)
+{
+    void *stack = (void *)malloc(PTHREAD_STACK_MIN);
+    assert(stack);
+
+    return stack;
+}
+
+
 int main(int argc, char *argv[])
 {
     void *stack = make_space();
