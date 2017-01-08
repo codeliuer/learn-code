@@ -42,6 +42,8 @@ static void create_thread(void *stack)
         self_fprint(stderr, "create thread failure\n", strerror(errno));
         return;
     }
+
+    pthread_attr_destroy(&attr);
 }
 
 
