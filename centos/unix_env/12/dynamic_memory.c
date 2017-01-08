@@ -23,6 +23,11 @@ static void destroy_space(void *stack)
 }
 
 
+static void create_thread(void)
+{
+}
+
+
 int main(int argc, char *argv[])
 {
     void *stack = make_space();
