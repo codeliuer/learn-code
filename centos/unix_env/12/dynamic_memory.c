@@ -17,6 +17,12 @@ static void *make_space(void)
 }
 
 
+static void destroy_space(void *stack)
+{
+    free(stack);
+}
+
+
 int main(int argc, char *argv[])
 {
     void *stack = make_space();
