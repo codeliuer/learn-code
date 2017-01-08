@@ -10,7 +10,11 @@
 
 int main(int argc, char *argv[])
 {
-    void *stack = (void *)malloc(PTHREAD_STACK_MIN);
+    void *stack = make_space();
+
+    create_thread(stack);
+
+    destroy_space(stack);
 
     return EXIT_SUCCESS;
 }
