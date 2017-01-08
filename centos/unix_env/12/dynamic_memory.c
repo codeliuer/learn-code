@@ -31,6 +31,13 @@ static void create_thread(void *stack)
 
     pthread_attr_init(&attr, NULL);
     pthread_attr_setstack(&attr, stack, PTHREAD_STACK_MIN);
+
+    retcode = pthread_create(&thid, &attr, thread_func, NULL);
+    if (retcode != 0)
+    {
+        self_fprint(stderr, "create thread failure\n", perror());
+        return;
+    }
 }
 
 
