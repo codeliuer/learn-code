@@ -25,11 +25,12 @@ static void destroy_space(void *stack)
 
 static void create_thread(void *stack)
 {
+    int retcode = 0;
     pthread_t thid;
     pthread_attr_t attr;
 
     pthread_attr_init(&attr, NULL);
-    pthread_stack_setstack();
+    pthread_attr_setstack(&attr, stack, PTHREAD_STACK_MIN);
 }
 
 
