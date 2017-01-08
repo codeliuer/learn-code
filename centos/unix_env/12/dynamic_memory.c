@@ -26,6 +26,15 @@ static void destroy_space(void *stack)
     free(stack);
 }
 
+static void *thread_func(void *arg)
+{
+    int var = 0;
+
+    self_print("var address = %p\n", &var);
+
+    pthread_exit(NULL);
+}
+
 static void create_thread(void *stack)
 {
     int retcode = 0;
