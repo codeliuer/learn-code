@@ -23,8 +23,12 @@ static void destroy_space(void *stack)
 }
 
 
-static void create_thread(void)
+static void create_thread(void *stack)
 {
+    pthread_t thid;
+    pthread_attr_t attr;
+
+    pthread_attr_init(&attr, NULL);
 }
 
 
