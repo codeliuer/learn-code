@@ -55,6 +55,10 @@ static void create_thread(void *stack)
     pthread_attr_destroy(&attr);
 }
 
+static void quit(void)
+{
+    pthread_exit(NULL);
+}
 
 int main(int argc, char *argv[])
 {
