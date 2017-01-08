@@ -29,6 +29,7 @@ static void create_thread(void *stack)
     pthread_attr_t attr;
 
     pthread_attr_init(&attr, NULL);
+    pthread_stack_setstack();
 }
 
 
