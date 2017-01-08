@@ -41,7 +41,7 @@ static void create_thread(void *stack)
     pthread_t thid;
     pthread_attr_t attr;
 
-    pthread_attr_init(&attr, NULL);
+    pthread_attr_init(&attr);
     pthread_attr_setstack(&attr, stack, PTHREAD_STACK_MIN);
 
     errno = 0;
@@ -64,5 +64,7 @@ int main(int argc, char *argv[])
 
     destroy_space(stack);
 
-    return EXIT_SUCCESS;
+    quit();
+
+//    return EXIT_SUCCESS;
 }
