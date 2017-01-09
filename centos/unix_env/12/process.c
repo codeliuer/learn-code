@@ -14,7 +14,7 @@
 #define SHARED_FILE         "shared"
 
 
-static int getfd(void)
+static int getfd(size_t len)
 {
     int fd = 0;
 
@@ -25,14 +25,19 @@ static int getfd(void)
         assert(fd < 0);
     }
 
-    if (truncate)
+    if (truncate(fd, len) < 0)
+    {
+        fprintinfo("truncate executable failure\n");
+        assert(0);
+    }
 }
 
 static pthread_mutexattr_t *getmapspace(void)
 {
+    size_t len = sizeof(pthread_mutexattr_t);
     pthread_mutexattr_t *attr = NULL;
 
-    attr = (pthread_mutexattr_t *)mmap(NULL, sizeof(*attr), PROT_WRITE|PROT_READ, MAP_SHARED, getfd(), 0);
+    attr = (pthread_mutexattr_t *)mmap(NULL, len, PROT_WRITE|PROT_READ, MAP_SHARED, len, 0);
 //    assert(attr);
 
     printinfo("thread attribute address = %p\n", attr);
