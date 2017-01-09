@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
     printinfo("main function\n");
 
     attr = getmapspace();
+    pthread_attr_init(attr);
 
     return EXIT_SUCCESS;
 }
