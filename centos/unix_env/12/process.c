@@ -60,7 +60,10 @@ int main(int argc, char *argv[])
 
     printinfo("main function\n");
 
+    printinfo("enter getmapspace function\n");
     attr = getmapspace();
+    printinfo("quit getmapspace function\n");
+
     pthread_mutexattr_init(attr);
     pthread_mutexattr_setpshared(attr, PTHREAD_PROCESS_SHARED);
     pthread_mutex_init(&mutex, attr);
