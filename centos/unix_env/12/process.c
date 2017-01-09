@@ -69,8 +69,9 @@ int main(int argc, char *argv[])
     if (retcode < 0)
     {
         fprintinfo(stderr, "pthread_mutexattr_init failure\n");
-        return EXIT_SUCCESS;
+        return EXIT_FAILURE;
     }
+    printinfo("pthread_mutexattr_init success\n");
     pthread_mutexattr_setpshared(attr, PTHREAD_PROCESS_SHARED);
     pthread_mutex_init(&mutex, attr);
 
