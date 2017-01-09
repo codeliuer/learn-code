@@ -30,6 +30,8 @@ static int getfd(size_t len)
         fprintinfo("truncate executable failure\n");
         assert(0);
     }
+
+    return fd;
 }
 
 static pthread_mutexattr_t *getmapspace(void)
