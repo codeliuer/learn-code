@@ -26,6 +26,12 @@ static int getfd(void)
     }
 }
 
+static pthread_attr_t *getmapspace(void)
+{
+    pthread_attr_t *attr = NULL;
+
+    attr = mmap();
+}
 
 int main(int argc, char *argv[])
 {
@@ -34,7 +40,7 @@ int main(int argc, char *argv[])
 
     printinfo("main function\n");
 
-    attr = getspace();
+    attr = getmapspace();
 
     return EXIT_SUCCESS;
 }
