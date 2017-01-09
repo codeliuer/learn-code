@@ -25,9 +25,9 @@ static int getfd(size_t len)
         assert(fd < 0);
     }
 
-    if (truncate(fd, len) < 0)
+    if (ftruncate(fd, len) < 0)
     {
-        fprintinfo("truncate executable failure\n");
+        fprintinfo(stderr, "truncate executable failure\n");
         assert(0);
     }
 
@@ -40,7 +40,7 @@ static pthread_mutexattr_t *getmapspace(void)
     pthread_mutexattr_t *attr = NULL;
 
     attr = (pthread_mutexattr_t *)mmap(NULL, len, PROT_WRITE|PROT_READ, MAP_SHARED, len, 0);
-//    assert(attr);
+    assert(attr);
 
     printinfo("thread attribute address = %p\n", attr);
 
