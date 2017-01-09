@@ -30,7 +30,7 @@ static pthread_mutexattr_t *getmapspace(void)
 {
     pthread_mutexattr_t *attr = NULL;
 
-    attr = mmap(NULL, sizeof(*attr), PROT_WRITE|PROT_READ, MAP_SHARED, getfd(), 0);
+    attr = malloc(sizeof(*attr));//(pthread_mutexattr_t *)mmap(NULL, sizeof(*attr), PROT_WRITE|PROT_READ, MAP_SHARED, getfd(), 0);
     assert(attr);
 
     printinfo("thread attribute address = %p\n", attr);
@@ -66,12 +66,6 @@ int main(int argc, char *argv[])
     printinfo("quit getmapspace function\n");
 
     retcode = pthread_mutexattr_init(attr);
-    if (retcode < 0)
-    {
-        fprintinfo(stderr, "pthread_mutexattr_init failure\n");
-        return EXIT_FAILURE;
-    }
-    printinfo("pthread_mutexattr_init success\n");
     pthread_mutexattr_setpshared(attr, PTHREAD_PROCESS_SHARED);
     pthread_mutex_init(&mutex, attr);
 
