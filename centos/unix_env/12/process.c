@@ -30,7 +30,7 @@ static pthread_mutexattr_t *getmapspace(void)
 {
     pthread_mutexattr_t *attr = NULL;
 
-    attr = malloc(sizeof(*attr));//(pthread_mutexattr_t *)mmap(NULL, sizeof(*attr), PROT_WRITE|PROT_READ, MAP_SHARED, getfd(), 0);
+    attr = (pthread_mutexattr_t *)mmap(NULL, sizeof(*attr), PROT_WRITE|PROT_READ, MAP_SHARED, getfd(), 0);
     assert(attr);
 
     printinfo("thread attribute address = %p\n", attr);
