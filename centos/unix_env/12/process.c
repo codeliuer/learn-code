@@ -47,8 +47,12 @@ int main(int argc, char *argv[])
 
     attr = getmapspace();
     pthread_mutexattr_init(attr);
+    pthread_mutexattr_setpshared(attr, PTHREAD_PROCESS_SHARED);
 
-    pthread_
+    pthread_mutex_lock(attr);
+
+    printinfo("sleep 10 second\n");
+    sleep(10);
 
     return EXIT_SUCCESS;
 }
