@@ -56,21 +56,23 @@ int main(int argc, char *argv[])
 {
     int fd = 0;
     pthread_mutexattr_t *attr = NULL;
+    pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
     printinfo("main function\n");
 
     attr = getmapspace();
     pthread_mutexattr_init(attr);
     pthread_mutexattr_setpshared(attr, PTHREAD_PROCESS_SHARED);
+    pthread_mutex_init(&mutex, attr);
 
-    pthread_mutex_lock(attr);
+    pthread_mutex_lock(&mutex);
 
     printinfo("sleep 10 second\n");
     sleep(10);
     printinfo("process start run\n");
 
-    pthread_mutex_unlock(attr);
-    pthread_mutex_destroy(attr);
+    pthread_mutex_unlock(&mutex);
+    pthread_mutex_destroy(&mutex);
 
     attr = freemapspace(attr);
 
