@@ -54,7 +54,8 @@ static pthread_mutexattr_t *freemapspace(pthread_mutexattr_t *attr)
 
 int main(int argc, char *argv[])
 {
-    int fd = 0;
+    int retcode = 0;
+
     pthread_mutexattr_t *attr = NULL;
     pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -64,9 +65,16 @@ int main(int argc, char *argv[])
     attr = getmapspace();
     printinfo("quit getmapspace function\n");
 
-    pthread_mutexattr_init(attr);
+    retcode = pthread_mutexattr_init(attr);
+    if (retcode < 0)
+    {
+        fprintinfo(stderr, "pthread_mutexattr_init failure\n");
+        return EXIT_SUCCESS;
+    }
     pthread_mutexattr_setpshared(attr, PTHREAD_PROCESS_SHARED);
     pthread_mutex_init(&mutex, attr);
+
+    printinfo("thread lock attribute set success\n");
 
     pthread_mutex_lock(&mutex);
 
