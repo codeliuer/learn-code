@@ -28,7 +28,7 @@ static int getfd(void)
 
 static pthread_mutexattr_t *getmapspace(void)
 {
-    pthread_attr_t *attr = NULL;
+    pthread_mutexattr_t *attr = NULL;
 
     attr = mmap(NULL, sizeof(*attr), PROT_WRITE|PROT_READ, MAP_SHARED, getfd(), 0);
     assert(attr);
@@ -45,7 +45,7 @@ static pthread_mutexattr_t *freemapspace(pthread_mutexattr_t *attr)
     retcode = munmap(attr, sizeof(*attr));
     if (retcode < 0)
     {
-        fprintinfo("munmap failure\n");
+        fprintinfo(stderr, "munmap failure\n");
         assert(retcode);
     }
 
