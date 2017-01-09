@@ -26,7 +26,7 @@ static int getfd(void)
     }
 }
 
-static pthread_attr_t *getmapspace(void)
+static pthread_mutexattr_t *getmapspace(void)
 {
     pthread_attr_t *attr = NULL;
 
@@ -38,10 +38,15 @@ static pthread_attr_t *getmapspace(void)
     return attr;
 }
 
+static pthread_mutexattr_t *freemapspace(pthread_mutexattr_t *attr)
+{
+    return NULL;
+}
+
 int main(int argc, char *argv[])
 {
     int fd = 0;
-    pthread_attr_t *attr = NULL;
+    pthread_mutexattr_t *attr = NULL;
 
     printinfo("main function\n");
 
