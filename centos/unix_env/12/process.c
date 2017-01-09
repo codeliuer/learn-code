@@ -24,6 +24,8 @@ static int getfd(void)
         fprintinfo(stderr, "open %s file failure\n", SHARED_FILE);
         assert(fd < 0);
     }
+
+    if (truncate)
 }
 
 static pthread_mutexattr_t *getmapspace(void)
