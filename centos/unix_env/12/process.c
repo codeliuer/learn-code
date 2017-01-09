@@ -40,6 +40,15 @@ static pthread_mutexattr_t *getmapspace(void)
 
 static pthread_mutexattr_t *freemapspace(pthread_mutexattr_t *attr)
 {
+    int retcode = 0;
+
+    retcode = munmap(attr, sizeof(*attr));
+    if (retcode < 0)
+    {
+        fprintinfo("munmap failure\n");
+        assert(retcode);
+    }
+
     return NULL;
 }
 
