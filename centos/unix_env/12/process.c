@@ -53,6 +53,12 @@ int main(int argc, char *argv[])
 
     printinfo("sleep 10 second\n");
     sleep(10);
+    printinfo("process start run\n");
+
+    pthread_mutex_unlock(attr);
+    pthread_mutex_destroy(attr);
+
+    attr = freemapspace(attr);
 
     return EXIT_SUCCESS;
 }
