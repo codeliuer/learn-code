@@ -71,6 +71,8 @@ int main(int argc, char *argv[])
 
     printinfo("thread lock attribute set success\n");
 
+    printinfo("stack lock\n");
+
     pthread_mutex_lock(&mutex);
 
     printinfo("sleep 10 second\n");
@@ -78,6 +80,9 @@ int main(int argc, char *argv[])
     printinfo("process start run\n");
 
     pthread_mutex_unlock(&mutex);
+
+    printinfo("quit lock\n");
+
     pthread_mutex_destroy(&mutex);
 
     attr = freemapspace(attr);
