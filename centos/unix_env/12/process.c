@@ -30,7 +30,12 @@ static pthread_attr_t *getmapspace(void)
 {
     pthread_attr_t *attr = NULL;
 
-    attr = mmap();
+    attr = mmap(NULL, sizeof(*attr), PROT_WRITE|PROT_READ, MAP_SHARED, getfd(), 0);
+    assert(attr);
+
+    printinfo("thread attribute address = %p\n", attr);
+
+    return attr;
 }
 
 int main(int argc, char *argv[])
