@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     }
 
     printinfo("mmap fd: %d, size = %ld, attribute: (prot = %d, shared = %d\n", fd, st.st_size, PROT_READ|PROT_WRITE, MAP_SHARED);
-    addr = mmap(NULL, st.st_size, PROT_READ|PROT_WRITE, MAP_SHREAD, fd, 0);
+    addr = mmap(NULL, st.st_size, PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0);
     if (addr == NULL)
     {
         fprintinfo(stderr, "");
