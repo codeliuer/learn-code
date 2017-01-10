@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    printinfo("stat filename: %s\n", MMAP_FILE);
     retcode = stat(MMAP_FILE, &st);
     if (retcode != 0)
     {
