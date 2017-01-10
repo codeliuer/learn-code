@@ -48,5 +48,9 @@ int main(int argc, char *argv[])
 
     printinfo("addr = %p\n", addr);
 
+    strcpy(addr, "statement");
+
+    printinfo("write info : %s\n", addr);
+
     return EXIT_SUCCESS;
 }
