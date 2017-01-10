@@ -25,5 +25,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    addr = mmap(NULL, );
+
     return EXIT_SUCCESS;
 }
