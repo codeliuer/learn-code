@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
     void *addr = NULL;
     struct stat st = {0};
 
+    printinfo("open filename: %s\n", MMAP_FILE);
     fd = open(MMAP_FILE, O_RDWR);
     if (fd < 0)
     {
@@ -30,13 +31,14 @@ int main(int argc, char *argv[])
     retcode = stat(MMAP_FILE, &st);
     if (retcode != 0)
     {
-        fprintf(stderr, "get %s file stat failure\n", MMAP_FILE);
+        fprintinfo(stderr, "get %s file stat failure\n", MMAP_FILE);
         return EXIT_FAILURE;
     }
 
     addr = mmap(NULL, st.st_size, PROT_READ|PROT_WRITE, MMAP_SHREAD, fd, 0);
     if (addr == NULL)
     {
+        fprintinfo(stderr, "");
     }
 
     return EXIT_SUCCESS;
