@@ -12,13 +12,6 @@
 
 #define MMAP_FILE           "shared"
 
-static int quit(int retcode, const char *msg)
-{
-    fprintinfo("%s\n", msg);
-
-    return retcode; 
-}
-
 
 int main(int argc, char *argv[])
 {
@@ -30,15 +23,18 @@ int main(int argc, char *argv[])
     fd = open(MMAP_FILE, O_RDWR);
     if (fd < 0)
     {
-        return quit("open %s file failure", EXIT_FAILURE);
+        fprintinfo(stderr, "open %s file failure\n", MMAP_FILE);
+        return EXIT_FAILURE;
     }
 
     retcode = stat(MMAP_FILE, &st);
     if (retcode != 0)
     {
+        fprintf(stderr, "get %s file stat failure\n", MMAP_FILE);
+        return EXIT_FAILURE;
     }
 
-    addr = mmap(NULL, );
+    addr = mmap(NULL, st.st_size);
 
     return EXIT_SUCCESS;
 }
