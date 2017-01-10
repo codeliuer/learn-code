@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
     printinfo("blocksize = %ld, total size = %ld, protection = %d\n", st.st_blksize, st.st_size, st.st_mode);
 
-    printinfo("mmap fd: %d, size = %ld, attribute: (prot = %d, shared = %d)\n", fd, st.st_size, PROT_READ|PROT_WRITE, MAP_SHARED);
+    printinfo("mmap fd: %d, size = %ld, attribute: (prot = %d, shared = %d)\n", fd, st.st_size, PROT_READ|PROT_WRITE, MAP_PRIVATE);
     addr = mmap(NULL, st.st_size, PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0);
     if (addr == NULL)
     {
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 
     printinfo("addr = %p\n", addr);
 
-    strcpy(addr, "statement");
+    strcpy(addr, "private");
 
     printinfo("write info : %s\n", addr);
 
