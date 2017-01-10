@@ -34,7 +34,10 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    addr = mmap(NULL, st.st_size);
+    addr = mmap(NULL, st.st_size, PROT_READ|PROT_WRITE, MMAP_SHREAD, fd, 0);
+    if (addr == NULL)
+    {
+    }
 
     return EXIT_SUCCESS;
 }
