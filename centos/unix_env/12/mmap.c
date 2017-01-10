@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 {
     int fd = 0;
     void *addr = NULL;
+    struct stat st = {0};
 
     fd = open(MMAP_FILE, O_RDWR);
     if (fd < 0)
