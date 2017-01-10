@@ -27,7 +27,11 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    retcode = stat(MMAP_FILE, );
+    retcode = stat(MMAP_FILE, &st);
+    if (retcode != 0)
+    {
+        fprintf(stderr, "get %s file stat failure\n", MMAP_FILE);
+    }
 
     addr = mmap(NULL, );
 
