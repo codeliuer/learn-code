@@ -10,12 +10,13 @@
 #include <sys/stat.h>
 
 
-#define Mmap_FILE           "shared"
+#define MMAP_FILE           "shared"
 
 
 int main(int argc, char *argv[])
 {
     int fd = 0;
+    int retcode = 0;
     void *addr = NULL;
     struct stat st = {0};
 
@@ -25,6 +26,8 @@ int main(int argc, char *argv[])
         fprintinfo(stderr, "open %s file failure\n", MMAP_FILE);
         return EXIT_FAILURE;
     }
+
+    retcode = stat(MMAP_FILE, );
 
     addr = mmap(NULL, );
 
