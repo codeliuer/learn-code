@@ -12,6 +12,13 @@
 
 #define MMAP_FILE           "shared"
 
+static int quit(const char *msg, int retcode)
+{
+    fprintinfo("%s\n", msg);
+
+    return retcode; 
+}
+
 
 int main(int argc, char *argv[])
 {
