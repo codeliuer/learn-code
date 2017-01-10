@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
     printinfo("open filename: %s, fd = %d\n", MMAP_FILE, fd);
-
+/*
     printinfo("stat filename: %s\n", MMAP_FILE);
     retcode = stat(MMAP_FILE, &st);
     if (retcode != 0)
@@ -38,9 +38,9 @@ int main(int argc, char *argv[])
     }
 
     printinfo("blocksize = %ld, total size = %ld, protection = %d\n", st.st_blksize, st.st_size, st.st_mode);
-
+*/
     printinfo("mmap fd: %d, size = %ld, attribute: (prot = %d, shared = %d)\n", fd, st.st_size, PROT_READ|PROT_WRITE, MAP_PRIVATE);
-    addr = mmap(NULL, st.st_size, PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0);
+    addr = mmap(NULL, 10, PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0);
     if (addr == NULL)
     {
         fprintinfo(stderr, "");
