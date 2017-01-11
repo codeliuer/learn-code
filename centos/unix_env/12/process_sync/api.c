@@ -68,7 +68,11 @@ static int validtag(int tag)
 
 
 static int fd = 0;
+
 /*#############################################################*/
+/*                           valid mmap                        */
+/*#############################################################*/
+
 void *mapaddr_init(size_t length, int tag)
 {
     int valid_len = 0;
