@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/mman.h>
+#include <fcntl.h>
 
 #include "api.h"
 
@@ -53,10 +54,8 @@ static void file_close(int fd)
     if (retcode < 0)
     {
         fprintinfo(stderr, "close file failure\n");
-        return retcode;
+        return;
     }
-
-    return retcode;
 }
 
 static int validlength(int fd, int length)
