@@ -6,7 +6,8 @@
 #define MAP_THREAD_SHARED       (2)
 
 
-extern void getmapaddr(size_t length, int tag);
+extern void *mapaddr_init(size_t length, int tag);
+extern int mapaddr_destroy(void *addr, size_t length);
 
 
 #endif  //__API_H__
