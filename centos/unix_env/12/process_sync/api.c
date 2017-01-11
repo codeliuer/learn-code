@@ -36,6 +36,15 @@ static int validlength(int fd, int length)
 
     if (length > st.st_size)
     {
+        retcode = ftruncate(fd, length);
+        if (retcode < 0)
+        {
+            fprintinfo(stderr, "ffile truncate failure\n");
+            return retcode;
+        }
+    }
+    else
+    {
     }
 }
 
