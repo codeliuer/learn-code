@@ -43,9 +43,6 @@ static int validlength(int fd, int length)
             return retcode;
         }
     }
-    else
-    {
-    }
 }
 
 static int validtag(int tag)
