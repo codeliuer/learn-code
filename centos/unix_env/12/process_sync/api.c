@@ -25,7 +25,19 @@ static int file_open(const char *filename)
     retcode = access(filename, F_OK);
     if (retcode < 0)
     {
-        fd = open(filename, O_RDWR|O_CREAT, );
+        fd = open(filename, O_RDWR|O_CREAT, 0666);
+        if (fd < 0)
+        {
+            fprintinfo(stderr, "create (%s)  failure\n", filename);
+            return fd;
+        }
+    }
+    else
+    {
+        fd = open(file, O_RDWR);
+        if (fd < 0)
+        {
+        }
     }
 }
 
