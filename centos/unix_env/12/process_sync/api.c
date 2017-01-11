@@ -23,6 +23,10 @@ static int file_open(const char *filename)
     int retcode = 0;
 
     retcode = access(filename, F_OK);
+    if (retcode < 0)
+    {
+        fd = open(filename, O_RDWR|O_CREAT, );
+    }
 }
 
 static void file_close(int fd)
