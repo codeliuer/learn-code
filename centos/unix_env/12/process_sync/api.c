@@ -4,6 +4,8 @@
 
 #include <unistd.h>
 #include <pthread.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #include "api.h"
 
@@ -43,8 +45,6 @@ static int validlength(int fd, int length)
             return retcode;
         }
     }
-
-    printinfo("get valid length = %d\n", length);
 
     return length;
 }
