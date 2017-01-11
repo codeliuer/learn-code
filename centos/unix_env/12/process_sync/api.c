@@ -47,6 +47,16 @@ static int file_open(const char *filename)
 
 static void file_close(int fd)
 {
+    int retcode = 0;
+
+    retcode = close(fd);
+    if (retcode < 0)
+    {
+        fprintinfo(stderr, "close file failure\n");
+        return retcode;
+    }
+
+    return retcode;
 }
 
 static int validlength(int fd, int length)
