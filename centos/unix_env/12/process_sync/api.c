@@ -34,11 +34,15 @@ static int file_open(const char *filename)
     }
     else
     {
-        fd = open(file, O_RDWR);
+        fd = open(filename, O_RDWR);
         if (fd < 0)
         {
+            fprintinfo(stderr, "open (%s) failure\n", filename);
+            return fd;
         }
     }
+
+    return fd;
 }
 
 static void file_close(int fd)
