@@ -21,6 +21,8 @@ static int file_open(const char *filename)
 {
     int fd = 0;
     int retcode = 0;
+
+    retcode = access(filename, F_OK);
 }
 
 static void file_close(int fd)
