@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     pthread_mutex_init(addr, &attr);
 */
     retcode = pthread_mutex_lock(addr);
-    if (retcode < 0)
+    if (retcode != 0)
     {
         fprintinfo(stderr, "thread mutex failure\n");
         return EXIT_FAILURE;
