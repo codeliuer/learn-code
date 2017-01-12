@@ -119,7 +119,7 @@ void *mapaddr_init(size_t length, int tag)
         return NULL;
     }
 
-    valid_len = validlengh(fd, length);
+    valid_len = validlength(fd, length);
     if (valid_len < 0)
     {
         fprintinfo(stderr, "get valid length failure\n");
