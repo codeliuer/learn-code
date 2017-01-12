@@ -24,6 +24,8 @@ int main(int argc, char *argv[])
     retcode = pthread_mutexattr_init(&attr);
     if (retcode != 0)
     {
+        printinfo("thread mutexattr init failure retcode = %d\n", retcode);
+        return EXIT_FAILURE;
     }
 
     retcode = pthread_mutexattr_setpshared(&attr, PTHREAD_PROCESS_SHARED);
@@ -37,6 +39,9 @@ int main(int argc, char *argv[])
     }
 
     retcode = pthread_mutex_lock(addr);
+    if (retcode != 0)
+    {
+    }
 
     printinfo("current process pid = %d\n", getpid());
     sleep(100);
