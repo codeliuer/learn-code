@@ -24,18 +24,22 @@ int main(int argc, char *argv[])
     retcode = pthread_mutexattr_init(&attr);
     if (retcode != 0)
     {
-        printinfo("thread mutexattr init failure retcode = %d\n", retcode);
+        fprintinfo(stderr, "thread mutexattr init failure retcode = %d\n", retcode);
         return EXIT_FAILURE;
     }
 
     retcode = pthread_mutexattr_setpshared(&attr, PTHREAD_PROCESS_SHARED);
     if (retcode != 0)
     {
+        fprintinfo(stderr, "thread mutexattr shared failure, retcode = %d\n", retcode);
+        return EXIT_FAILURE;
     }
 
     retcode = pthread_mutex_init(addr, &attr);
     if (retcode != 0)
     {
+        fprintinfo(stderr, "thread mutex init failure retcode = %d\n", retcode);
+        return EXIT_FAILURE;
     }
 
     retcode = pthread_mutex_lock(addr);
