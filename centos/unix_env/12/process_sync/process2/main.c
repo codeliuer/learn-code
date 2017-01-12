@@ -21,12 +21,22 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    pthread_mutexattr_init(&attr);
-    pthread_mutexattr_setpshared(&attr, PTHREAD_PROCESS_SHARED);
+    retcode = pthread_mutexattr_init(&attr);
+    if (retcode != 0)
+    {
+    }
 
-    pthread_mutex_init(addr, &attr);
+    retcode = pthread_mutexattr_setpshared(&attr, PTHREAD_PROCESS_SHARED);
+    if (retcode != 0)
+    {
+    }
 
-    pthread_mutex_lock(addr);
+    retcode = pthread_mutex_init(addr, &attr);
+    if (retcode != 0)
+    {
+    }
+
+    retcode = pthread_mutex_lock(addr);
 
     printinfo("current process pid = %d\n", getpid());
     sleep(100);
