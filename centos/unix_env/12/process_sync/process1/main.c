@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 
 //    pthread_mutex_destroy(addr);
 
-//    mapaddr_destroy(addr, sizeof(*addr));
+    mapaddr_destroy(addr, sizeof(*addr));
 
     return EXIT_SUCCESS;
 }
