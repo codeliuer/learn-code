@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     pthread_mutex_lock(addr);
 
     printinfo("current process pid = %d\n", getpid());
-    sleep(10);
+    sleep(100);
 
     pthread_mutex_unlock(addr);
 

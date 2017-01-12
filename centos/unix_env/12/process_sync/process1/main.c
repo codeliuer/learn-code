@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     retcode = pthread_mutex_lock(addr);
     if (retcode != 0)
     {
-        fprintinfo(stderr, "thread mutex failure\n");
+        fprintinfo(stderr, "thread mutex failure retcode = %d\n", retcode);
         return EXIT_FAILURE;
     }
 
