@@ -10,6 +10,7 @@
 
 int main(int argc, char *argv[])
 {
+    int retcode = 0;
     pthread_mutexattr_t attr;
     pthread_mutex_t *addr = NULL;
 
