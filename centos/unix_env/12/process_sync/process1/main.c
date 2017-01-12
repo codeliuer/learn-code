@@ -20,10 +20,10 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    pthread_mutexattr_init(addr);
+    pthread_mutexattr_init(&attr);
     pthread_mutexattr_setpshared(addr, PTHREAD_PROCESS_SHARED);
 
-    pthread_mutex
+    pthread_mutex_init(addr, &attr);
 
     return EXIT_SUCCESS;
 }
