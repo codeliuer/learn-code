@@ -10,6 +10,7 @@
 
 int main(int argc, char *argv[])
 {
+    int retcode = 0 ;
 //    pthread_mutexattr_t attr;
     pthread_mutex_t *addr = NULL;
 
@@ -25,7 +26,12 @@ int main(int argc, char *argv[])
 
     pthread_mutex_init(addr, &attr);
 */
-    pthread_mutex_lock(addr);
+    retcode = pthread_mutex_lock(addr);
+    if (retcode < 0)
+    {
+        fprintinfo(stderr, "thread mutex failure\n");
+        return EXIT_FAILURE;
+    }
 
     printinfo("current process pid = %d\n", getpid());
     sleep(1);
