@@ -45,6 +45,8 @@ int main(int argc, char *argv[])
     retcode = pthread_mutex_lock(addr);
     if (retcode != 0)
     {
+        fprintinfo(stderr, "thread mutex lock failure\n");
+        return EXIT_FAILURE;
     }
 
     printinfo("current process pid = %d\n", getpid());
