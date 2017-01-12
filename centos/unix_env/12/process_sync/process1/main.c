@@ -25,14 +25,14 @@ int main(int argc, char *argv[])
 
     pthread_mutex_init(addr, &attr);
 
-    pthread_mutex_lock(attr);
+    pthread_mutex_lock(addr);
 
     printinfo("current process pid = %d\n", getpid());
     sleep(10);
 
-    pthread_mutex_unlock(attr);
+    pthread_mutex_unlock(addr);
 
-    pthread_mutex_destroy(attr);
+    pthread_mutex_destroy(addr);
 
     mapaddr_destroy(addr, sizeof(*addr));
 
