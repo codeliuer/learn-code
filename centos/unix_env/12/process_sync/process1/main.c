@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     }
 
     pthread_mutexattr_init(addr);
-    pthread_mutexattr_setpshared(addr, );
+    pthread_mutexattr_setpshared(addr, PTHREAD_PROCESS_SHARED);
 
     return EXIT_SUCCESS;
 }
