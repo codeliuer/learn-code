@@ -29,5 +29,9 @@ int main(int argc, char *argv[])
 
     pthread_mutex_unlock(attr);
 
+    pthread_mutex_destroy(attr);
+
+    mapaddr_destroy(addr, sizeof(*addr));
+
     return EXIT_SUCCESS;
 }
