@@ -24,7 +24,7 @@ int main(int argc, char *argv)
 
     pthread_mutex_lock(mutex);
     printf("process pid = %d get lock\n", getpid());
-    sleep(20);
+    sleep(10);
     printf("free lock\n");
     pthread_mutex_unlock(mutex);
 
