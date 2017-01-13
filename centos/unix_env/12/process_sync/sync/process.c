@@ -10,5 +10,8 @@
 
 int main(int argc, char *argv)
 {
+    pthread_mutex_t mutex;
+    pthread_mutexattr_t attr;
+
     return EXIT_SUCCESS;
 }
