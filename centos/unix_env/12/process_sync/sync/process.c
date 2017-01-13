@@ -19,8 +19,14 @@ int main(int argc, char *argv)
 
     pthread_mutex_init(mutex, &attr);
 
+    pthread_mutexattr_destroy(&attr);
+
     pthread_mutex_lock(mutex);
-    printf();
+    printf("process pid = %d get lock\n", getpid());
+    sleep(100);
+    pthread_mutex_unlock(mutex);
+
+    pthread_
 
     return EXIT_SUCCESS;
 }
