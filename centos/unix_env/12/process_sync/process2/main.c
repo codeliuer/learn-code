@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     }
 
     printinfo("current process pid = %d\n", getpid());
-    sleep(100);
+    sleep(10);
 
     pthread_mutex_unlock(addr);
 
