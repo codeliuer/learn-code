@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 
     pthread_mutex_unlock(addr);
 
-    pthread_mutex_destroy(addr);
+//    pthread_mutex_destroy(addr);
 
     mapaddr_destroy(addr, sizeof(*addr));
 
