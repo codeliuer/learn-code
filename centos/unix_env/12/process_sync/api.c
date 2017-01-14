@@ -12,7 +12,7 @@
 #include "api.h"
 
 
-#define SHARED_FILE         "shared"
+#define SHARED_FILE "/home/liuwei/learn-code/centos/unix_env/12/process_sync/shared"
 
 
 #define INVALID_TAG         (-1)
