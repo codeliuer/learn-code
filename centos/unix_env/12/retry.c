@@ -18,12 +18,15 @@ static pthread_mutex_t mutex;
 
 static void register_timeout(timeout_func_t *func)
 {
+    pthread_t thid; 
     struct timespec spec = {0};
 
     clock_gettime(CLOCK_REALTIME, &spec);
     spec.tv_sec += func->timeout;
 
-    clock_nanosleep(func->timeout);
+    clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &spec, NULL);
+
+    pthread_create();
 }
 
 static void *thread(void* arg)
