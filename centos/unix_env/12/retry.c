@@ -10,7 +10,7 @@
 typedef struct timeout_func_t
 {
     long int timeout;
-    void *(*func)(void);
+    void *(*func)(void*);
     void *arg;
 } timeout_func_t;
 
@@ -26,7 +26,9 @@ static void register_timeout(timeout_func_t *func)
 
     clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &spec, NULL);
 
-    pthread_create();
+    if (pthread_create(&thid, NULL, func->func, func->arg) != 0)
+    {
+    }
 }
 
 static void *thread(void* arg)
