@@ -23,7 +23,7 @@ static void register_timeout(timeout_func_t *func)
     clock_gettime(CLOCK_REALTIME, &spec);
     spec.tv_sec += func->timeout;
 
-
+    clock_nanosleep(func->timeout);
 }
 
 static void *thread(void* arg)
