@@ -21,6 +21,9 @@ static void register_timeout(timeout_func_t *func)
     struct timespec spec = {0};
 
     clock_gettime(CLOCK_REALTIME, &spec);
+    spec.tv_sec += func->timeout;
+
+
 }
 
 static void *thread(void* arg)
@@ -73,5 +76,5 @@ int main(int argc, char *argv[])
     pthread_mutexattr_destroy(&attr);
     pthread_mutex_destroy(&mutex);
 
-    return EXIT_SUCCESS;
+    pthread_exit(NULL);
 }
