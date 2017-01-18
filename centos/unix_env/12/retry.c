@@ -28,6 +28,8 @@ static void register_timeout(timeout_func_t *func)
 
     if (pthread_create(&thid, NULL, func->func, func->arg) != 0)
     {
+        fprintf(stderr, "create thread failure\n");
+        return ;
     }
 }
 
@@ -52,7 +54,7 @@ static void *thread(void* arg)
 int main(int argc, char *argv[])
 {
     pthread_mutexattr_t attr = {0};
-    timeout_func_t func = {10, thread, NULL}
+    timeout_func_t func = {10, thread, NULL};
 
     if (pthread_mutexattr_init(&attr) != 0)
     {
