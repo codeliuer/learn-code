@@ -18,6 +18,9 @@ static pthread_mutex_t mutex;
 
 static void register_timeout(timeout_func_t *func)
 {
+    struct timespec spec = {0};
+
+    clock_gettime(CLOCK_REALTIME, &spec);
 }
 
 static void *thread(void* arg)
