@@ -4,6 +4,9 @@
 #include <unistd.h>
 #include <pthread.h>
 
+#include "thread_pool.h"
+
+
 struct task
 {
     void *(* task)(void *);
