@@ -8,4 +8,15 @@
 #include "task.h"
 
 
+#define forever_true()      for (;;)
 
+
+static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+
+static void *thread_task(void *arg)
+{
+    forever_true()
+    {
+        pthread_mutex_lock();
+    }
+}
