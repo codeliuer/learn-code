@@ -6,6 +6,9 @@
 #include "thread_pool.h"
 
 
+#define MAX             (100)
+
+
 static void *func(void *arg)
 {
     int data = *(int *)arg;
@@ -15,9 +18,14 @@ static void *func(void *arg)
 
 int main(int argc, char *argv[])
 {
-    struct task_struct task;
+    int i = 0;
+    struct task_struct task = {func, 0};
 
     thread_pool_init(10);
+
+    for (i = 0; i < MAX; i++)
+    {
+    }
 
     thread_pool_destroy();
 
