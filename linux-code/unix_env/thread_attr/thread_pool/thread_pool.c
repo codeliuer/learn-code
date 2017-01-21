@@ -9,8 +9,7 @@
 
 struct task
 {
-    void *(* task)(void *);
-    void *arg;
+    void *task;
     struct task *next;
 };
 
