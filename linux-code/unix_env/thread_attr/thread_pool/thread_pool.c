@@ -36,6 +36,8 @@ static void *thread_task(void *arg)
 
 int thread_pool_init(int num)
 {
+    int i = 0;
+
     return EXIT_SUCCESS;
 }
 
