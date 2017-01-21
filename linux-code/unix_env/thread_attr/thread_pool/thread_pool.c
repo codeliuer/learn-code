@@ -32,3 +32,15 @@ static void *thread_task(void *arg)
 
     pthread_exit(NULL);
 }
+
+
+int thread_pool_init(int num)
+{
+    return EXIT_SUCCESS;
+}
+
+
+int thread_pool_destroy(void)
+{
+    return EXIT_SUCCESS;
+}
