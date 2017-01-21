@@ -38,7 +38,7 @@ int task_destroy(void)
     return EXIT_SUCCESS;
 }
 
-int task_insert(struct task *task)
+int task_insert(void *task)
 {
     pthread_mutex_lock(&queue_info.m_lock);
 
@@ -70,7 +70,7 @@ int task_append(struct task *task)
     return EXIT_SUCCESS;
 }
 
-struct task *task_remove(void)
+void *task_remove(void)
 {
     struct task *task = NULL;
 

@@ -9,9 +9,9 @@
 extern int task_init(void);
 extern int task_destroy(void);
 
-extern int task_insert(struct task *);
-extern int task_append(struct task *);
-extern struct task *task_remove(void);
+extern int task_insert(void *);
+extern int task_append(void *);
+extern void *task_remove(void);
 
 
 #endif //__THREAD_POOL_H__
