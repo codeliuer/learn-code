@@ -50,10 +50,10 @@ int task_init(void)
         return TASK_ERRCODE_FAIL;
     }
 
-    pthread_mutex_unlock(&global);
-
     queue->task = NULL;
     queue->count = 0;
+
+    pthread_mutex_unlock(&global);
 
     return TASK_ERRCODE_SUCCESS;
 }
@@ -63,7 +63,7 @@ int task_destroy(void)
 {
     pthread_mutex_lock(&global);
 
-    if (queue->count != 0)
+    if (queue->count != 0 && queue->task != NULL)
     {
         fprintf(stderr, "task destroy failure, task count = %d\n", queue->count);
         pthread_mutex_lock(&global);
