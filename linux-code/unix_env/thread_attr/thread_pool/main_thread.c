@@ -28,12 +28,12 @@ int main(int argc, char *argv[])
         task->task = func;
         task->arg = (void *)(long)i;
 
-        pthread_mutex_lock(&lock);
         task_insert(&task);
-        pthread_mutex_unlock(&lock);
 
         pthread_cond_signal(&cond);
     }
+
+    sleep (10);
 
     thread_pool_destroy();
 
