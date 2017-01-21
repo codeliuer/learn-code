@@ -4,6 +4,7 @@
 #include <pthread.h>
 
 #include "task.h"
+#include "task_struct.h"
 
 
 int main(int argc, char *argv[])

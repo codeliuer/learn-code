@@ -4,4 +4,8 @@
 #include <pthread.h>
 #include <unistd.h>
 
+#include "task_struct.h"
 #include "task.h"
+
+
+
