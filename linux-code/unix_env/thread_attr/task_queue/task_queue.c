@@ -61,4 +61,6 @@ int task_init(void)
 
 int task_destroy(void)
 {
+
+    return TASK_ERRCODE_FAIL;
 }
