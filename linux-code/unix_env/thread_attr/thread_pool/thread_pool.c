@@ -40,8 +40,8 @@ int task_destroy(void)
 
 int task_insert(void *task)
 {
-    struct task *task = (struct task *)malloc(sizeof(*task));
-    task->task  = task;
+    struct task *node = (struct task *)malloc(sizeof(*node));
+    node->task = task;
 
     pthread_mutex_lock(&queue_info.m_lock);
 
