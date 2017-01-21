@@ -46,7 +46,7 @@ int task_insert(void *task)
     pthread_mutex_lock(&queue_info.m_lock);
 
     node->next = queue_info.m_head;
-    queue_info.m_head = task;
+    queue_info.m_head = node;
 
     queue_info.m_count += 1;
 
@@ -59,6 +59,9 @@ int task_append(void *task)
 {
     struct task **phead = NULL;
 
+    struct task *node = (struct task *)malloc(sizeof(*node));
+    node->task = task;
+
     pthread_mutex_lock(&queue_info.m_lock);
 
     phead = &queue_info.m_head;
@@ -66,7 +69,7 @@ int task_append(void *task)
     {
         phead = &(*phead)->next;
     }
-    *phead = task;
+    *phead = node;
 
     pthread_mutex_lock(&queue_info.m_lock);
 
