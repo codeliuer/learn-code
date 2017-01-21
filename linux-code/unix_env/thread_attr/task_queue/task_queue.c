@@ -48,8 +48,12 @@ int task_init(void)
 
         return TASK_ERRCODE_FAIL;
     }
+    queue->task = NULL;
+    queue->count = 0;
 
     pthread_mutex_unlock(&global);
+
+    return TASK_ERRCODE_SUCCESS;
 }
 
 
