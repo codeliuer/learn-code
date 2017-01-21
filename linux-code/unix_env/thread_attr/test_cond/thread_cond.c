@@ -6,7 +6,8 @@
 #include <pthread.h>
 
 
-static pthread_cond_t cond;
+static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+static pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
 static int condition = 0;
 
 static void *thread_func(void *arg)
@@ -18,6 +19,9 @@ static void *thread_func(void *arg)
 
         printf("condition = %d\n", condition);
     }
+    pthread_mutex_unlock(&lock);
+
+    pthread_exit(NULL);
 }
 
 
