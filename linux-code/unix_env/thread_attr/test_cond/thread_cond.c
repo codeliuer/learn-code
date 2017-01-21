@@ -31,11 +31,15 @@ int main(int argc, char *argv[])
 
     pthread_create(&thid, NULL, thread_func, NULL);
 
+    sleep(1);
+
     pthread_mutex_lock(&lock);
 
     condition = 100;
 
     pthread_mutex_unlock(&lock);
+
+    pthread_cond_signal(&cond);
 
     sleep(1);
 
