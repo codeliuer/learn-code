@@ -9,6 +9,7 @@
 #define TASK_ERRCODE_SUCCESS        (0)
 #define TASK_ERRCODE_FAIL           (1)
 #define TASK_ERRCODE_INITED         (2)
+#define TASK_ERRCODE_ALLOC          (3)
 
 
 typedef struct task
