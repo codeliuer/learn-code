@@ -19,13 +19,17 @@ static void *func(void *arg)
 int main(int argc, char *argv[])
 {
     int i = 0;
-    struct task_struct task;
+    struct task_struct *task = (struct task_struct *)malloc(sizeof(*task));
 
     thread_pool_init(10);
 
     for (i = 0; i < MAX; i++)
     {
+        task->task = func;
+        task->arg = (void *)(long)i
+
         pthread_mutex_lock(&lock);
+        task_insert(&task)
         pthread_mutex_unlock(&lock);
     }
 
