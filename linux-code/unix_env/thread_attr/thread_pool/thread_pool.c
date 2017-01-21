@@ -83,6 +83,7 @@ struct task *task_remove(void)
     }
 
     queue_info.m_head = queue_info.m_head->next;
+    task->next = NULL;
 
     pthread_mutex_unlock(&queue_info.m_lock);
 
