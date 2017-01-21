@@ -32,11 +32,11 @@ int main(int argc, char *argv[])
         task->task = func;
         task->arg = (void *)(long)i;
 
-        printf("task init success i = %d\n", i);
-
         task_insert(&task);
 
         pthread_cond_signal(&cond);
+        sleep(1);
+        printf("signal send success\n");
     }
 
     sleep(10);
