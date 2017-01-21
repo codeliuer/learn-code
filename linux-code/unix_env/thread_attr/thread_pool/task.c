@@ -56,7 +56,7 @@ int task_insert(void *task)
     queue_info.m_count += 1;
 
     pthread_mutex_unlock(&queue_info.m_lock);
-    printf("quit lock success\n");
+    printf("quit lock success, head info = %p\n", queue_info.m_head);
 
     return EXIT_SUCCESS;
 }

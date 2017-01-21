@@ -14,6 +14,8 @@ static void *func(void *arg)
     int data = *(int *)arg;
 
     printf("data = %d\n", data);
+
+    return NULL;
 }
 
 int main(int argc, char *argv[])
