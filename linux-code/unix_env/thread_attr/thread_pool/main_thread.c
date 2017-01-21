@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <unistd.h>
+
 #include "task.h"
 #include "task_struct.h"
 #include "thread_pool.h"
@@ -37,7 +39,7 @@ int main(int argc, char *argv[])
         pthread_cond_signal(&cond);
     }
 
-    sleep (10);
+    sleep(10);
 
     thread_pool_destroy();
 
