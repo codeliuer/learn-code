@@ -40,7 +40,6 @@ int task_init(void)
         return TASK_ERRCODE_ALLOC;
     }
 
-    pthread_mutex_unlock(&global);
 
     if (pthread_mutex_init(&queue->lock, NULL))
     {
@@ -50,6 +49,9 @@ int task_init(void)
 
         return TASK_ERRCODE_FAIL;
     }
+
+    pthread_mutex_unlock(&global);
+
     queue->task = NULL;
     queue->count = 0;
 
