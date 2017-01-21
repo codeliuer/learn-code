@@ -45,7 +45,7 @@ int task_insert(void *task)
 
     pthread_mutex_lock(&queue_info.m_lock);
 
-    task->next = queue_info.m_head;
+    node->next = queue_info.m_head;
     queue_info.m_head = task;
 
     queue_info.m_count += 1;
