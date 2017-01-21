@@ -21,9 +21,11 @@ static void *thread_task(void *arg)
     forever_true()
     {
         pthread_mutex_lock(&lock);
+        printf("%s[%d]\n", __func__, __LINE__);
         while ((task = (struct task_struct *)task_remove()) == NULL)
         {
             pthread_cond_wait(&cond, &lock);
+            printf("ressume thread\n");
         }
         pthread_mutex_unlock(&lock);
 
