@@ -42,6 +42,11 @@ int task_init(void)
 
     if (pthread_mutex_init(&queue->lock, NULL))
     {
+        fprintf(stderr, "mutex init failure\n");
+        free(queue), queue = NULL;
+        pthread_mutex_unlock(&global);
+
+        return TASK_ERRCODE_FAIL;
     }
 
     pthread_mutex_unlock(&global);
