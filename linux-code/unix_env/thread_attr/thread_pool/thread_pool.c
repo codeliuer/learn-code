@@ -23,7 +23,12 @@ static void *thread_task(void *arg)
         pthread_mutex_lock(&lock);
         while ((task = (struct task_struct *)task_remove()) == NULL)
         {
-            pthread_cond_wait();
+            pthread_cond_wait(&cond, &lock);
         }
+        pthread_mutex_unlock(&lock);
+
+        task->task(task->arg);
     }
+
+    pthread_exit(NULL);
 }
