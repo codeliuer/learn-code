@@ -37,6 +37,12 @@ static void *thread_task(void *arg)
 int thread_pool_init(int num)
 {
     int i = 0;
+    pthread_t thid;
+
+    for (i = 0; i < num; i++)
+    {
+        pthread_create(&thid, NULL, thread_task, NULL);
+    }
 
     return EXIT_SUCCESS;
 }
