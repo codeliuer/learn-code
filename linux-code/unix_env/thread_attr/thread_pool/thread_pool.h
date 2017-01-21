@@ -6,6 +6,11 @@
 #define __THREAD_POOL_H__
 
 
+struct task
+{
+};
+
+
 extern int task_init(void);
 extern int task_destroy(void);
 
