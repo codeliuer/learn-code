@@ -10,7 +10,8 @@ int main(int argc ,char *argv[])
 {
     clockid_t clockid; 
 
-    pthread_condattr_getclock(NULL, &clockid);
+    // null attribute not get
+//    pthread_condattr_getclock(NULL, &clockid);
 
     printf("clockid = %d\n", clockid);
 
