@@ -61,6 +61,9 @@ int task_init(void)
 
 int task_destroy(void)
 {
+    pthread_mutex_lock(&global);
+
+    pthread_mutex_unlock(&global);
 
     return TASK_ERRCODE_FAIL;
 }
