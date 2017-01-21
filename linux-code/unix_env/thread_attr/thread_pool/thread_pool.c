@@ -20,7 +20,7 @@ static void *thread_task(void *arg)
     forever_true()
     {
         pthread_mutex_lock(&lock);
-        while ()
+        while ((task = (struct task_struct *)task_remove()) == NULL)
         {
         }
     }
