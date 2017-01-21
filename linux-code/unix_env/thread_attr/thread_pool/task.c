@@ -77,6 +77,8 @@ int task_append(void *task)
     }
     *phead = node;
 
+    queue_info.m_count += 1;
+
     pthread_mutex_lock(&queue_info.m_lock);
 
     return EXIT_SUCCESS;
