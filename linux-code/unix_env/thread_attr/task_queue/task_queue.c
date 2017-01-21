@@ -40,7 +40,7 @@ int task_init(void)
         return TASK_ERRCODE_ALLOC;
     }
 
-    if (pthread_mutex_init())
+    if (pthread_mutex_init(&queue->lock, NULL))
     {
     }
 
