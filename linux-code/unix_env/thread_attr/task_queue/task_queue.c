@@ -25,7 +25,7 @@ int task_init(void)
 
     if (queue != NULL)
     {
-        fprintf(stderr, "task inited\n");
+        fprintf(stderr, "task queue inited\n");
         pthread_mutex_unlock(&global);   
 
         return TASK_ERRCODE_INITED;
