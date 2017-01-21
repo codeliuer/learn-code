@@ -71,6 +71,9 @@ int task_destroy(void)
         return TASK_ERRCODE_TASK;
     }
 
+    pthread_mutex_destroy(&queue->lock);
+    free(queue), queue = NULL;
+
     pthread_mutex_unlock(&global);
 
     return TASK_ERRCODE_FAIL;
