@@ -92,9 +92,13 @@ void *task_remove(void)
     }
 
     queue_info.m_head = queue_info.m_head->next;
-    task->next = NULL;
+
+    data = task->task;
 
     pthread_mutex_unlock(&queue_info.m_lock);
+
+    free(task);
+    task = NULL;
 
     return task;
 }
