@@ -27,7 +27,17 @@ static void *thread_func(void *arg)
 
 int main(int argc, char *argv[])
 {
+    pthread_t thid;
 
+    pthread_create(&thid, NULL, thread_func, NULL);
+
+    pthread_mutex_lock(&lock);
+
+    condition = 100;
+
+    pthread_mutex_unlock(&lock);
+
+    sleep(1);
 
     return EXIT_SUCCESS;
 }
