@@ -6,7 +6,7 @@
 #include "thread_pool.h"
 
 
-#define MAX             (100)
+#define MAX             (3)
 
 
 static void *func(void *arg)
