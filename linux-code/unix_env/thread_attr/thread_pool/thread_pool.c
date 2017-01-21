@@ -78,6 +78,7 @@ int task_append(void *task)
 
 void *task_remove(void)
 {
+    void *data = NULL;
     struct task *task = NULL;
 
     pthread_mutex_lock(&queue_info.m_lock);
