@@ -40,6 +40,8 @@ int task_destroy(void)
 
 int task_insert(void *task)
 {
+    struct task *task = (struct task *)malloc(sizeof(*task));
+
     pthread_mutex_lock(&queue_info.m_lock);
 
     task->next = queue_info.m_head;
@@ -52,7 +54,7 @@ int task_insert(void *task)
     return EXIT_SUCCESS;
 }
 
-int task_append(struct task *task)
+int task_append(void *task)
 {
     struct task **phead = NULL;
 
