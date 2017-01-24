@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
         sleep(1);
         printf("signal send success\n");
     }
-        pthread_cond_signal(&cond);
+    pthread_cond_signal(&cond);
 
     sleep(10);
 
