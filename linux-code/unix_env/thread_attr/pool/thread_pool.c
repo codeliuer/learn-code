@@ -28,7 +28,7 @@ typedef struct task_cnt
 
 static void thread_pool(void *arg)
 {
-    while ()
+    while (TRUE)
     {
     }
 
