@@ -84,7 +84,7 @@ static u32int_t *get_buffer(u32int_t mul)
 {
 	u32int_t bits = get_zero(mul);
 
-	u32int_t *array = malloc(( get_space(mul) * 4 )/bits+1);
+	u32int_t *array = (u32int_t *)malloc(( get_space(mul) * 4 )/bits+1);
 
 	if (array == NULL)
 	{

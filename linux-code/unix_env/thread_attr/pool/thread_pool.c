@@ -30,11 +30,11 @@ static task_cnt_t task_cnt =
 {
     .cond  = PTHREAD_COND_INITIALIZER,
     .lock  = PTHREAD_MUTEX_INITIALIZER,
-    .task  = {NULL, NULL, NULL}
+    .task  = {NULL, NULL, NULL},
     .count = 0,
 };
 
-static void thread_pool(void *arg)
+static void *thread_pool(void *arg)
 {
     task_t *ptrfunc = NULL;
 
@@ -46,9 +46,14 @@ static void thread_pool(void *arg)
             pthread_cond_wait(&task_cnt.cond, &task_cnt.lock);
         }
 
+        ptrfunc = task_cnt.task.next;
+        task_cnt.task.next = task_cnt.task.next->next;
 
+        task_cnt.count -= 1;
 
         pthread_mutex_unlock(&task_cnt.lock);
+
+        ptrfunc->func(ptrfunc->arg);
     }
 
     pthread_exit(NULL);
@@ -76,10 +81,50 @@ static void thread_pool_init(int max)
     printf("success thread number = %d\n", suc_num);
 }
 
+static void* task_func(void *arg)
+{
+    printf("current task thread pid = %ld\n", pthread_self());
+
+    return NULL;
+}
+
+static void add_task(void)
+{
+    task_t *ptr = (task_t *)malloc(sizeof(*ptr));
+    if (ptr == NULL)
+    {
+        fprintf(stderr, "malloc failure\n");
+        return;
+    }
+
+    ptr->func = task_func;
+    ptr->arg  = NULL;
+    ptr->next = NULL;
+
+    pthread_mutex_lock(&task_cnt.lock);
+
+    ptr->next = task_cnt.task.next;
+    task_cnt.task.next = ptr;
+
+    task_cnt.count += 1;
+
+    pthread_mutex_unlock(&task_cnt.lock);
+
+    pthread_cond_signal(&task_cnt.cond);
+}
 
 int main(int argc, char *argv[])
 {
+    int i = 0;
+
     thread_pool_init(THREAD_MAX_NUMBER);
+
+    for (i = 0; i < 20; i++)
+    {
+        add_task();
+    }
+
+    sleep(2);
 
     return EXIT_SUCCESS;
 }
