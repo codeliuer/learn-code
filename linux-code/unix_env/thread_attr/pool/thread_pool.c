@@ -20,11 +20,16 @@ typedef struct task_cnt
     pthread_cond_t cond;
     pthread_mutex_t lock;
     task_t task;
+    int count;
 } task_cnt_t;
 
 
 static void thread_pool(void *arg)
 {
+    while ()
+    {
+    }
+
     pthread_exit(NULL);
 }
 
