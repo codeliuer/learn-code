@@ -5,6 +5,9 @@
 #include <pthread.h>
 
 
+#define THREAD_MAX_NUMBER           (10)
+
+
 static void thread_pool_init(int max)
 {
     int i = 0;
@@ -29,5 +32,7 @@ static void thread_pool_init(int max)
 
 int main(int argc, char *argv[])
 {
+    thread_pool_init(THREAD_MAX_NUMBER);
+
     return EXIT_SUCCESS;
 }
