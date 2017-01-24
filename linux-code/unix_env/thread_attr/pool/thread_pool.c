@@ -23,6 +23,7 @@ static void thread_pool_init(int max)
 
         suc_num += 1;
     }
+    printf("success thread number = %d\n", suc_num);
 }
 
 
