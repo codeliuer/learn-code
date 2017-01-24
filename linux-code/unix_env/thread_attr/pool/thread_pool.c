@@ -36,6 +36,8 @@ static task_cnt_t task_cnt =
 
 static void thread_pool(void *arg)
 {
+    task_t *ptrfunc = NULL;
+
     while (TRUE)
     {
         pthread_mutex_lock(&task_cnt.lock);
@@ -43,6 +45,9 @@ static void thread_pool(void *arg)
         {
             pthread_cond_wait(&task_cnt.cond, &task_cnt.lock);
         }
+
+
+
         pthread_mutex_unlock(&task_cnt.lock);
     }
 
