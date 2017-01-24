@@ -23,6 +23,11 @@ typedef struct task_cnt
 } task_cnt_t;
 
 
+static void thread_pool(void *arg)
+{
+}
+
+
 static void thread_pool_init(int max)
 {
     int i = 0;
