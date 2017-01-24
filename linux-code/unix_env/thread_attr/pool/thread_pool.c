@@ -8,11 +8,14 @@
 static void thread_pool_init(int max)
 {
     int i = 0;
+    int num = 0;
     pthread_t thid;
 
     for (i = 0; i < max; i++)
     {
-        pthread_create();
+        if (pthread_create(&thid, NULL, thread_pool, NULL) != 0)
+        {
+        }
     }
 }
 
