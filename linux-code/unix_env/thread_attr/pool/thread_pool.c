@@ -25,11 +25,13 @@ typedef struct task_cnt
     int count;
 } task_cnt_t;
 
+
 static task_cnt_t task_cnt = 
 {
-    .cond = PTHREAD_COND_INITIALIZER,
-    .lock = PTHREAD_MUTEX_INITIALIZER,
-    .task = {NULL, NULL, NULL}
+    .cond  = PTHREAD_COND_INITIALIZER,
+    .lock  = PTHREAD_MUTEX_INITIALIZER,
+    .task  = {NULL, NULL, NULL}
+    .count = 0,
 };
 
 static void thread_pool(void *arg)
