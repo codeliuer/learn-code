@@ -14,8 +14,7 @@ static int global = 0;
 extern int errno;
 
 
-static void
-child_func(int signo)
+static void child_func(int signo)
 {
     pid_t pid;
 //    int status = 0;
@@ -26,8 +25,7 @@ child_func(int signo)
 }
 
 
-int
-main(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
     int i = 0;
     int status = 0;
