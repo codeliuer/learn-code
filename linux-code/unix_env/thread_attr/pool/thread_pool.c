@@ -10,10 +10,16 @@
 
 typedef struct task
 {
+    void *(* func)(void *);
+    void *arg;
+    struct task *next;
 } task_t;
 
 typedef struct task_cnt
 {
+    pthread_cond_t cond;
+    pthread_mutex_t lock;
+    task_t task;
 } task_cnt_t;
 
 
