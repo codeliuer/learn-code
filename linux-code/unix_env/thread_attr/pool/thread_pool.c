@@ -25,6 +25,7 @@ typedef struct task_cnt
 
 static void thread_pool(void *arg)
 {
+    pthread_exit(NULL);
 }
 
 
