@@ -5,6 +5,8 @@
 #include <pthread.h>
 
 
+#define TRUE                        (1)
+
 #define THREAD_MAX_NUMBER           (10)
 
 
