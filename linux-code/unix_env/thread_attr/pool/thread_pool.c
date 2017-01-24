@@ -8,6 +8,15 @@
 #define THREAD_MAX_NUMBER           (10)
 
 
+typedef struct task
+{
+} task_t;
+
+typedef struct task_cnt
+{
+} task_cnt_t;
+
+
 static void thread_pool_init(int max)
 {
     int i = 0;
