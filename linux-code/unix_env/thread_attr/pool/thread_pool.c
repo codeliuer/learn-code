@@ -41,6 +41,7 @@ static void thread_pool(void *arg)
         pthread_mutex_lock(&task_cnt.lock);
         while (task_cnt.count == 0)
         {
+            pthread_cond_wait(&task_cnt.cond, &task_cnt.lock);
         }
         pthread_mutex_unlock(&task_cnt.lock);
     }
