@@ -33,10 +33,20 @@ char *get_env_r(const char *name, char *string, size_t size)
             && strncmp(name, environ[i], len) == 0)
         {
             olen = strlen(&environ[i][len+1]);
-            if (olen )
+            if (olen > size)
+            {
+                pthread_mutex_unlock(&lock);
+                return ENOSPC;
+            }
+            
+            strncpy(string, environ[i][len+1], olen);
             pthread_mutex_unlock(&lock);
+
+            return string;
         }
     }
+
+    return NULL;
 }
 
 
