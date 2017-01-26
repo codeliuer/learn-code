@@ -21,6 +21,7 @@ char *get_env_r(const char *name)
 {
     int i = 0;
     char *local = NULL;
+    size_t olen = 0;
     size_t len = strlen(name);
 
     pthread_once(PTHREAD_ONCE_INIT, thread_once);
