@@ -32,6 +32,7 @@ char *get_env_r(const char *name)
         if (environ[i][len] == '=' 
             && strncmp(name, environ[i], len) == 0)
         {
+            olen = str
             pthread_mutex_unlock(&lock);
         }
     }
