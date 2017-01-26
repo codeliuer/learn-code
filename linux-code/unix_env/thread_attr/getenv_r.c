@@ -9,7 +9,7 @@
 extern char **environ;
 
 static pthread_mutex_t lock;
-static pthread_once_t once_thread = PTHREAD_MUTEX_ONCE;
+static pthread_once_t once_thread = PTHREAD_ONCE_INIT;
 
 static void thread_once(void)
 {
