@@ -21,7 +21,7 @@ static void thread_once(void)
 }
 
 
-char *get_env_r(const char *name, char *string, size_t size)
+int get_env_r(const char *name, char *string, size_t size)
 {
     int i = 0;
     char *local = NULL;
@@ -50,7 +50,7 @@ char *get_env_r(const char *name, char *string, size_t size)
         }
     }
 
-    return NULL;
+    return 0;
 }
 
 
