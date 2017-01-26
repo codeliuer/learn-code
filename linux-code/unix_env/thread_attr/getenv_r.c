@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
+
+#include <pthread.h>
+
 
 extern char **environ;
 
@@ -13,7 +17,7 @@ static void thread_once(void)
     pthread_mutexattr_init(&attr);
     pthread_mutexattr_setpshared(&attr, PTHREAD_MUTEX_RECURSIVE);
     pthread_mutex_init(&lock, &attr);
-    pthread_mutex_destroy(&attr);
+    pthread_mutexattr_destroy(&attr);
 }
 
 
