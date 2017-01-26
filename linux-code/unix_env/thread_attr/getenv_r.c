@@ -46,11 +46,11 @@ int get_env_r(const char *name, char *string, size_t size)
             strncpy(string, &environ[i][len+1], olen);
             pthread_mutex_unlock(&lock);
 
-            return string;
+            return 0;
         }
     }
 
-    return 0;
+    return (0);
 }
 
 
