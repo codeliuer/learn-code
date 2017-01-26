@@ -40,7 +40,7 @@ char *get_env_r(const char *name, char *string, size_t size)
             if (olen > size)
             {
                 pthread_mutex_unlock(&lock);
-                return ENOSPC;
+                return (ENOSPC);
             }
             
             strncpy(string, &environ[i][len+1], olen);
