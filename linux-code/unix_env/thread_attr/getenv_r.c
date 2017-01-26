@@ -17,7 +17,7 @@ static void thread_once(void)
 }
 
 
-char *get_env_r(const char *name)
+char *get_env_r(const char *name, char *string, size_t size)
 {
     int i = 0;
     char *local = NULL;
@@ -32,7 +32,8 @@ char *get_env_r(const char *name)
         if (environ[i][len] == '=' 
             && strncmp(name, environ[i], len) == 0)
         {
-            olen = str
+            olen = strlen(&environ[i][len+1]);
+            if (olen )
             pthread_mutex_unlock(&lock);
         }
     }
