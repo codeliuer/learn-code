@@ -9,6 +9,7 @@
 extern char **environ;
 
 static pthread_mutex_t lock;
+static pthread_once_t once_thread = PTHREAD_MUTEX_ONCE;
 
 static void thread_once(void)
 {
@@ -28,7 +29,7 @@ int get_env_r(const char *name, char *string, size_t size)
     size_t olen = 0;
     size_t len = strlen(name);
 
-    pthread_once(PTHREAD_ONCE_INIT, thread_once);
+    pthread_once(&once_thread, thread_once);
 
     pthread_mutex_lock(&lock);
     for (i = 0; environ[i] != NULL; i++)
