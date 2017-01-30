@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
     pthread_key_create(&key, free);
     value = malloc(sizeof(int));
-    pthread_setspecific();
+    pthread_setspecific(key, value);
 
     return EXIT_SUCCESS;
 }
