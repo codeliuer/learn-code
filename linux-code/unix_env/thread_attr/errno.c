@@ -8,6 +8,7 @@
 
 #define pthread_private_val (*(unsigned int *)__pthread_private_val())
 
+static void *__pthread_private_val(void);
 
 int pthread_private_val;
 static pthread_once_t initflag = PTHREAD_ONCE_INIT;
