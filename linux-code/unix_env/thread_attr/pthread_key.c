@@ -6,11 +6,19 @@
 #include <pthread.h>
 
 
+static void my_free(void *arg)
+{
+    printf("call delete function\n");
+
+    free(arg);
+    arg = NULL;
+}
+
+
 int main(int argc, char *argv[])
 {
     void *tmp = NULL;
     void *value = NULL;
-    pthread_t thid;
     pthread_key_t key;
 
     pthread_key_create(&key, my_free);
