@@ -6,6 +6,9 @@
 #include <pthread.h>
 
 
+#define pthread_private_val (*(unsigned int *)__pthread_private_val())
+
+
 int pthread_private_val;
 
 
