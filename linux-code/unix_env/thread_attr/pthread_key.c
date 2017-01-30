@@ -8,5 +8,9 @@
 
 int main(int argc, char *argv[])
 {
+    pthread_t thid;
+
+    pthread_create
+
     return EXIT_SUCCESS;
 }
