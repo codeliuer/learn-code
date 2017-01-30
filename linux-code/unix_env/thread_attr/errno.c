@@ -10,6 +10,7 @@
 
 
 int pthread_private_val;
+static pthread_once_t initflag = PTHREAD_ONCE_INIT;
 
 
 static void *pthread_private_val(void)
