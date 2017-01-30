@@ -13,8 +13,10 @@ int main(int argc, char *argv[])
     pthread_key_t key;
 
     pthread_key_create(&key, free);
-    value = malloc(sizeof(int));
-    pthread_setspecific(key, value);
+    value = pthread_getspecific(key);
+    if (value == NULL)
+    {
+    }
 
     return EXIT_SUCCESS;
 }
