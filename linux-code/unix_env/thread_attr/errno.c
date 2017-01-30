@@ -36,11 +36,18 @@ static void *__pthread_private_val(void)
     return val;
 }
 
+static void *thread_func(void *arg)
+{
+}
 
 int main(int argc, char *argv[])
 {
+    pthread_t thid;
+    
     pthread_private_val = 3;
     printf("pthread_private_val = %d\n", pthread_private_val);
+
+    pthread_create(&thid, NULL, thread_func, NULL);
 
     return EXIT_SUCCESS;
 }
