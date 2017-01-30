@@ -9,8 +9,10 @@
 int main(int argc, char *argv[])
 {
     pthread_t thid;
+    pthread_key_t key;
 
-    pthread_create
+    pthread_key_create(&key, free);
+    pthread_setspecific();
 
     return EXIT_SUCCESS;
 }
