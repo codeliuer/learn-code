@@ -8,6 +8,7 @@
 
 int main(int argc, char *argv[])
 {
+    void *tmp = NULL;
     void *value = NULL;
     pthread_t thid;
     pthread_key_t key;
@@ -16,6 +17,8 @@ int main(int argc, char *argv[])
     value = pthread_getspecific(key);
     if (value == NULL)
     {
+        fprintf(stderr, "thread private key not relation\n");
+
     }
 
     return EXIT_SUCCESS;
