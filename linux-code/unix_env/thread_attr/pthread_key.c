@@ -8,10 +8,12 @@
 
 int main(int argc, char *argv[])
 {
+    void *value = NULL;
     pthread_t thid;
     pthread_key_t key;
 
     pthread_key_create(&key, free);
+    value = malloc(sizeof(int));
     pthread_setspecific();
 
     return EXIT_SUCCESS;
