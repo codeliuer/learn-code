@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     pthread_t thid;
     pthread_key_t key;
 
-    pthread_key_create(&key, free);
+    pthread_key_create(&key, my_free);
 
     tmp = malloc(sizeof(int));
     *(unsigned int *)tmp = 4;
@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
     }
     else
     {
+        fprintf(stderr, "inter = %d\n", *(unsigned int *)value);
     }
 
     return EXIT_SUCCESS;
