@@ -38,5 +38,7 @@ int main(int argc, char *argv[])
         fprintf(stderr, "inter = %d\n", *(unsigned int *)value);
     }
 
+    pthread_exit(NULL);
+
     return EXIT_SUCCESS;
 }
