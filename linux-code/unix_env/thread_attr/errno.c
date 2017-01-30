@@ -12,6 +12,11 @@
 int pthread_private_val;
 
 
+static void *pthread_private_val(void)
+{
+}
+
+
 int main(int argc, char *argv[])
 {
 
