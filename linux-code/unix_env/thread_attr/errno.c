@@ -13,8 +13,11 @@ int pthread_private_val;
 static pthread_once_t initflag = PTHREAD_ONCE_INIT;
 
 
-static void only_once()
+static void only_once(void)
 {
+    pthread_key_t key;
+
+    pthread_key_create(&key, free);
 }
 
 
