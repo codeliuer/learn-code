@@ -30,13 +30,16 @@ static void *pthread_private_val(void)
 
     pthread_once(&initflag, only_once);
 
-    pthread_getspecific(key);
+    val = pthread_getspecific(key);
+
+    return val;
 }
 
 
 int main(int argc, char *argv[])
 {
-
+    pthread_private_val = 3;
+    printf("pthread_private_val = %d\n", pthread_private_val);
 
     return EXIT_SUCCESS;
 }
