@@ -15,9 +15,16 @@ static pthread_key_t process_key;
 static pthread_once_t once = PTHREAD_ONCE_INIT;
 
 
+static void my_free(void *arg)
+{
+    printf("arg = %p\n", arg);
+
+    free(arg);
+}
+
 static void create_only_key(void)
 {
-    pthread_key_create(&process_key, free);
+    pthread_key_create(&process_key, my_free);
 }
 
 static int *__private_localtion(void)
@@ -28,6 +35,7 @@ static int *__private_localtion(void)
     if ((value = (int *)pthread_getspecific(process_key)) == NULL)
     {
         value = (int *)malloc(sizeof(int));
+        printf("value = %p\n", value);
         pthread_setspecific(process_key, value);
     }
 
