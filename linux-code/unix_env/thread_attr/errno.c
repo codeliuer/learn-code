@@ -22,7 +22,10 @@ static void create_only_key(void)
 
 static int *__private_localtion(void)
 {
+    void *value = NULL;
+
     pthread_once(&once, create_only_key);
+    if (pthread_getspecific(process_key))
 }
 
 
