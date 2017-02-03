@@ -34,12 +34,16 @@ static int *__private_localtion(void)
     return value;
 }
 
+static void *thread_func(void *arg)
+{
+}
 
 int main(int argc, char *argv[])
 {
     pthread_t thid;
 
-    pthread_create();
+    pthread_create(&thid, NULL, thread_func, NULL);
+    sleep(1);
 
     return EXIT_SUCCESS;
 }
