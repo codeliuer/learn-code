@@ -17,6 +17,7 @@ static pthread_once_t once = PTHREAD_ONCE_INIT;
 
 static int *__private_localtion(void)
 {
+    pthread_once(&once, create_only_key);
 }
 
 
