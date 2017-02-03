@@ -13,3 +13,8 @@ static pthread_once_t once = PTHREAD_ONCE_INIT;
 void *make_space(size_t len)
 {
 }
+
+
+void memory_init(void)
+{
+}
