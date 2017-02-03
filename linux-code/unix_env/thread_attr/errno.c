@@ -12,6 +12,7 @@
 static int private_val;
 
 static pthread_key_t thread_key;
+static pthread_once_t once = PTHREAD_ONCE_INIT;
 
 
 static int *__private_localtion(void)
