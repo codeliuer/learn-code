@@ -37,6 +37,9 @@ static int *__private_localtion(void)
 static void *thread_func(void *arg)
 {
     private_val = 0;
+    printf("thread id %ld, private_val = %d\n", pthread_self(), private_val);
+
+    pthread_exit(NULL);
 }
 
 int main(int argc, char *argv[])
