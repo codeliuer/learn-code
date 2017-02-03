@@ -30,10 +30,16 @@ static int *__private_localtion(void)
         value = (int *)malloc(sizeof(int));
         pthread_setspecific(process_key, value);
     }
+
+    return value;
 }
 
 
 int main(int argc, char *argv[])
 {
+    pthread_t thid;
+
+    pthread_create();
+
     return EXIT_SUCCESS;
 }
