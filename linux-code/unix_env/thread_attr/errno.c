@@ -36,6 +36,7 @@ static int *__private_localtion(void)
 
 static void *thread_func(void *arg)
 {
+    private_val = 0;
 }
 
 int main(int argc, char *argv[])
