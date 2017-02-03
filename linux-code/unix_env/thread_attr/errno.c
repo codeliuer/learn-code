@@ -39,6 +39,9 @@ static void *thread_func(void *arg)
     private_val = 0;
     printf("thread id %ld, private_val = %d\n", pthread_self(), private_val);
 
+    private_val = 10;
+    printf("thread id %ld, private_val = %d\n", pthread_self(), private_val);
+
     pthread_exit(NULL);
 }
 
@@ -47,7 +50,8 @@ int main(int argc, char *argv[])
     pthread_t thid;
 
     pthread_create(&thid, NULL, thread_func, NULL);
-    sleep(1);
+    private_val = 11;
+    printf("thread id %ld, private_val = %d\n", pthread_self(), private_val);
 
-    return EXIT_SUCCESS;
+    pthread_exit(NULL);
 }
