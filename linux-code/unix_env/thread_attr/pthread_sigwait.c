@@ -51,12 +51,12 @@ int main(int argc, char *argv[])
     sigset_t oset;
 
     pthread_t thid;
-
+/*
     sigemptyset(&set);
     sigaddset(&set, SIGINT);
     sigaddset(&set, SIGQUIT);
     pthread_sigmask(SIG_SETMASK, &set, &oset);
-
+*/
     pthread_create(&thid, NULL, thread_func, NULL);
 
     pthread_mutex_lock(&lock);
