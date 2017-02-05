@@ -66,5 +66,11 @@ int main(int argc, char *argv[])
     }
     pthread_mutex_unlock(&lock);
 
+    if (sigprocmask(SIG_BLOCK, &oset, NULL) < 0)
+    {
+        fprintf(stderr, "sigprocmask failure\n");
+        return EXIT_FAILURE;
+    }
+
     return EXIT_SUCCESS;
 }
