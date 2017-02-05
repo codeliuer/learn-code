@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     sigemptyset(&set);
     sigaddset(&set, SIGINT);
     sigaddset(&set, SIGQUIT);
-    pthread_sigmask(SIG_BLOCK, &set, &oset);
+    pthread_sigmask(SIG_SETMASK, &set, &oset);
 
     pthread_create(&thid, NULL, thread_func, NULL);
 
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     }
     pthread_mutex_unlock(&lock);
 
-    if (sigprocmask(SIG_BLOCK, &oset, NULL) < 0)
+    if (sigprocmask(SIG_SETMASK, &oset, NULL) < 0)
     {
         fprintf(stderr, "sigprocmask failure\n");
         return EXIT_FAILURE;
