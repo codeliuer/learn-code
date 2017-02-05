@@ -51,7 +51,6 @@ int main(int argc, char *argv[])
     sigset_t oset;
 
     pthread_t thid;
-    pthread_t thno;
 
     sigemptyset(&set);
     sigaddset(&set, SIGINT);
