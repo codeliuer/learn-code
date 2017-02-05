@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 
     if (sigprocmask(SIG_SETMASK, &oset, NULL) < 0)
     {
-        fprintf(stderr, "sigprocmask failure\n");
+        fprintf(stderr, "SIG_SETMASK sigprocmask failure\n");
         return EXIT_FAILURE;
     }
 
