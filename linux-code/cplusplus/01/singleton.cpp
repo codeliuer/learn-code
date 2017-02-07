@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include <pthread.h>
+
 
 using namespace std;
 
@@ -25,6 +27,7 @@ private:
     void thread_once(void)
     {
         pthread_key_create(&m_key, detach);
+        m_pa = (A *)pthread_getspecific(&m_key);
     }
 
     void detach(void *arg)
