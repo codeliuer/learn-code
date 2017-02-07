@@ -12,6 +12,8 @@ public:
     static A *Instance(void)
     {
         pthread_once(&m_once, thread_once);
+
+        m_pa = (A *)pthread_getspecific(m_key);
     }
 private:
     A *m_pa;
@@ -27,10 +29,11 @@ private:
     void thread_once(void)
     {
         pthread_key_create(&m_key, detach);
-        m_pa = (A *)pthread_getspecific(&m_key);
+        m_pa = (A *)pthread_getspecific(m_key);
         if (m_pa == NULL)
         {
             m_pa = new A;
+            pthread_setspecific(m_key, m_pa);
         }
     }
 
