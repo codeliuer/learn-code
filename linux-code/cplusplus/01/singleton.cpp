@@ -14,11 +14,13 @@ public:
         pthread_once(&m_once, thread_once);
 
         m_pa = (A *)pthread_getspecific(m_key);
+
+        return m_pa;
     }
 private:
-    A *m_pa;
-    pthread_once_t m_once;
-    pthread_key_t m_key;
+    static A *m_pa;
+    static pthread_once_t m_once;
+    static pthread_key_t m_key;
 private:
     A(void){}
     A(const A&){}
