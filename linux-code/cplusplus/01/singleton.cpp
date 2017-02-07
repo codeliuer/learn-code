@@ -24,7 +24,12 @@ private:
 
     void thread_once(void)
     {
-        pthread_key_create(&m_key, delete);
+        pthread_key_create(&m_key, detach);
+    }
+
+    void detach(void *arg)
+    {
+        delete arg;
     }
 };
 
