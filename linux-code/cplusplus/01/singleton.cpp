@@ -28,6 +28,10 @@ private:
     {
         pthread_key_create(&m_key, detach);
         m_pa = (A *)pthread_getspecific(&m_key);
+        if (m_pa == NULL)
+        {
+            m_pa = new A;
+        }
     }
 
     void detach(void *arg)
