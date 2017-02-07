@@ -29,7 +29,7 @@ private:
 
     void detach(void *arg)
     {
-        delete arg;
+        delete (A *)arg;
     }
 };
 
