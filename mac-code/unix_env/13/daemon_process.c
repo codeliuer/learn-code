@@ -35,10 +35,11 @@ int main(int argc, char *argv[])
     }
     else if (pid != 0)
     {
+        exit(EXIT_SUCCESS);
     }
-    else
-    {
-    }
+
+    umask(0);
+    chdir("/");
 
     return EXIT_SUCCESS;
 }
