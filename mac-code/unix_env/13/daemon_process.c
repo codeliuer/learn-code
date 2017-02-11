@@ -25,5 +25,7 @@ int main(int argc, char *argv[])
     sigemptyset(&set);
     sigaddset(&set, SIGHUP);
 
+
+
     return EXIT_SUCCESS;
 }
