@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <signal.h>
 
+#include <sys/time.h>
+#include <sys/resource.h>
+
 #include <unistd.h>
 
 
@@ -43,7 +46,7 @@ int main(int argc, char *argv[])
     chdir("/");
 
     /* close all file descriptor */
-    getrlimit(&rlimit);
+    getrlimit(RLIMIT_NOFILE, &rlimit);
 
     return EXIT_SUCCESS;
 }
