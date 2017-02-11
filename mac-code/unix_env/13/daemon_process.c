@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     if ((pid = fork()) < 0)
     {
         fprintf(stderr, "fork failure\n");
-        return EXIT_SUCCESS;    
+        return EXIT_FAILURE;    
     }
     else if (pid != 0)
     {
@@ -27,6 +27,18 @@ int main(int argc, char *argv[])
     sig.sa_flags = 0;
 
     sigaction(SIGHUP, &sig, NULL);
+
+    if ((pid = fork()) < 0)
+    {
+        fprintf(stderr, "the second fork failure\n");
+        return EXIT_FAILURE;
+    }
+    else if (pid != 0)
+    {
+    }
+    else
+    {
+    }
 
     return EXIT_SUCCESS;
 }
