@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <signal.h>
 
 #include <unistd.h>
 
@@ -7,6 +8,7 @@
 int main(int argc, char *argv[])
 {
     pid_t pid;
+    sigset_t set;
 
     if ((pid = fork()) < 0)
     {
@@ -19,6 +21,9 @@ int main(int argc, char *argv[])
     }
 
     setsid();
+
+    sigemptyset(&set);
+    sigaddset(&set, SIGHUP);
 
     return EXIT_SUCCESS;
 }
