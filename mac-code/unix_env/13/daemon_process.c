@@ -8,6 +8,7 @@
 int main(int argc, char *argv[])
 {
     pid_t pid;
+    struct sigaction sig;
 
     if ((pid = fork()) < 0)
     {
@@ -21,7 +22,7 @@ int main(int argc, char *argv[])
 
     setsid();
 
-    
+    sig.sa_hand
 
     return EXIT_SUCCESS;
 }
