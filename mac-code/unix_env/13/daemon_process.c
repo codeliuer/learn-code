@@ -13,6 +13,7 @@
 int main(int argc, char *argv[])
 {   
     int i = 0;
+    int fd = 0;
     pid_t pid;
     struct sigaction sig;
     struct rlimit lim;
@@ -56,6 +57,7 @@ int main(int argc, char *argv[])
         close(i);
     }
 
+    fd = open("/dev/null", O_RDWR);
 
     return EXIT_SUCCESS;
 }
