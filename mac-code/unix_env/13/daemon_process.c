@@ -55,6 +55,11 @@ int main(int argc, char *argv[])
     /* close all file descriptor */
     getrlimit(RLIMIT_NOFILE, &lim);
 
+    if (lim.rlim_cur == RLIM_INFINITY)
+    {
+        lim.rlim_cur = 1014;
+    }
+
     for (i = 0; i < lim.rlim_cur; i++)
     {
         close(i);
