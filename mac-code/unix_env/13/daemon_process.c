@@ -4,6 +4,8 @@
 
 #include <sys/time.h>
 #include <sys/resource.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #include <unistd.h>
 
@@ -46,7 +48,12 @@ int main(int argc, char *argv[])
     chdir("/");
 
     /* close all file descriptor */
-    getrlimit(RLIMIT_NOFILE, &rlimit);
+    getrlimit(RLIMIT_NOFILE, &lim);
+
+    for (i = 0; i < lim.rlim_cur; i++)
+    {
+    }
+
 
     return EXIT_SUCCESS;
 }
