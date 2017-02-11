@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
     struct sigaction sig;
     struct rlimit lim;
     int fd0 = 0, fd1 = 0, fd2 = 0;
+    char *cmd = "daemon process: ";
 
     if ((pid = fork()) < 0)
     {
