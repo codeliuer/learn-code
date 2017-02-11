@@ -22,7 +22,11 @@ int main(int argc, char *argv[])
 
     setsid();
 
-    sig.sa_hand
+    sig.sa_handler = SIG_IGN;
+    sigemptyset(&sig.sa_mask);
+    sig.sa_flags = 0;
+
+    sigaction(SIGHUP, &sig, NULL);
 
     return EXIT_SUCCESS;
 }
