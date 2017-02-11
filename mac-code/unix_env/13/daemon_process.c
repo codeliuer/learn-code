@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
     fd1 = dup(fd0);
     fd2 = dup(fd0);
 
-    openlog();
+    openlog(cmd, );
 
     return EXIT_SUCCESS;
 }
