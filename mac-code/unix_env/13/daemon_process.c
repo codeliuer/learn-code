@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 {
     pid_t pid;
     struct sigaction sig;
+    struct rlimit lim;
 
     if ((pid = fork()) < 0)
     {
@@ -40,6 +41,9 @@ int main(int argc, char *argv[])
 
     umask(0);
     chdir("/");
+
+    /* close all file descriptor */
+    getrlimit(&rlimit);
 
     return EXIT_SUCCESS;
 }
