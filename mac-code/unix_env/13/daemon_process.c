@@ -70,7 +70,12 @@ int main(int argc, char *argv[])
     fd1 = dup(fd0);
     fd2 = dup(fd0);
 
-    openlog(cmd, );
+    openlog(cmd, LOG_CONS, LOG_DAEMON);
+    if (fd0 != 0 || fd1 != 1 || fd2 != 2)
+    {
+        syslog(LOG_ERR, "unexpected file descriptors %d %d %d", fd0, fd1, fd2);
+        exit(EXIT_FAILURE);
+    }
 
     return EXIT_SUCCESS;
 }
