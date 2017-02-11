@@ -11,7 +11,8 @@
 
 
 int main(int argc, char *argv[])
-{
+{   
+    int i = 0;
     pid_t pid;
     struct sigaction sig;
     struct rlimit lim;
@@ -52,6 +53,7 @@ int main(int argc, char *argv[])
 
     for (i = 0; i < lim.rlim_cur; i++)
     {
+        close(i);
     }
 
 
