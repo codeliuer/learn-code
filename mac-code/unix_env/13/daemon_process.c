@@ -13,6 +13,12 @@ int main(int argc, char *argv[])
         fprintf(stderr, "fork failure\n");
         return EXIT_SUCCESS;    
     }
+    else if (pid != 0)
+    {
+        exit(EXIT_SUCCESS);
+    }
+
+    setsid();
 
     return EXIT_SUCCESS;
 }
