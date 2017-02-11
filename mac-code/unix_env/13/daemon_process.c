@@ -8,15 +8,18 @@
 #include <sys/stat.h>
 
 #include <unistd.h>
+#include <fcntl.h>
+
+#include <syslog.h>
 
 
 int main(int argc, char *argv[])
 {   
     int i = 0;
-    int fd = 0;
     pid_t pid;
     struct sigaction sig;
     struct rlimit lim;
+    int fd0 = 0, fd1 = 0, fd2 = 0;
 
     if ((pid = fork()) < 0)
     {
@@ -57,7 +60,11 @@ int main(int argc, char *argv[])
         close(i);
     }
 
-    fd = open("/dev/null", O_RDWR);
+    fd0 = open("/dev/null", O_RDWR);
+    fd1 = dup(fd0);
+    fd2 = dup(fd0);
+
+    openlog();
 
     return EXIT_SUCCESS;
 }
