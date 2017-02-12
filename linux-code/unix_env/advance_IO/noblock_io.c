@@ -33,6 +33,7 @@ static int clr_fl(int fd, int flag)
 
 int main(int argc, char *argv[])
 {
+    char *ptr = NULL;
     int ntowrites, nwrites;
     char buffer[BUFFER_SIZE] = "";
 
@@ -41,8 +42,12 @@ int main(int argc, char *argv[])
 
     set_fl(STDOUT_FILENO, O_NONBLOCK);
 
+    ptr = buffer;
+
     while (ntowrites > 0)
     {
+        errno = 0;
+        nwrites = write(STDOUT_FILENO, ptr, ntowrites);
     }
 
     clr_fl(STDOUT_FILENO, O_NONBLOCK);
