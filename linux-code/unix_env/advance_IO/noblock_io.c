@@ -16,7 +16,12 @@
 
 int main(int argc, char *argv[])
 {
+    int ntowrites, nwrites;
     char buffer[BUFFER_SIZE] = "";
+
+    ntowrite = read(STDIN_FILENO, buffer, sizeof(buffer));
+    if (ntowrite)
+
 
     return EXIT_SUCCESS;
 }
