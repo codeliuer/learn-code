@@ -20,7 +20,9 @@ int main(int argc, char *argv[])
     char buffer[BUFFER_SIZE] = "";
 
     ntowrite = read(STDIN_FILENO, buffer, sizeof(buffer));
-    if (ntowrite)
+    fprintf(stderr, "read %d bytes\n", ntowrites);
+
+    set_fl();
 
 
     return EXIT_SUCCESS;
