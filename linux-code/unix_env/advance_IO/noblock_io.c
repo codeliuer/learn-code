@@ -48,6 +48,12 @@ int main(int argc, char *argv[])
     {
         errno = 0;
         nwrites = write(STDOUT_FILENO, ptr, ntowrites);
+        fprintf(stderr, "nwrites = %d, errno = %d\n", nwrite, errno);
+
+        if (nwrite > 0)
+        {
+
+        }
     }
 
     clr_fl(STDOUT_FILENO, O_NONBLOCK);
