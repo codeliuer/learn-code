@@ -22,6 +22,15 @@ static int set_fl(int fd, int flag)
     return (fcntl(fd, F_SETFL, fl|flag));
 }
 
+static int clr_fl(int fd, int flag)
+{
+    int fl;
+
+    fl = fcntl(fd, F_GETFL, 0);
+
+    return (fcntl(fd, F_SETFL, fl & ~flag))
+}
+
 int main(int argc, char *argv[])
 {
     int ntowrites, nwrites;
