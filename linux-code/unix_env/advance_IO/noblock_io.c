@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     {
         errno = 0;
         nwrites = write(STDOUT_FILENO, ptr, ntowrites);
-        fprintf(stderr, "nwrites = %d, errno = %d\n", nwrite, errno);
+        fprintf(stderr, "nwrites = %d, errno = %d\n", nwrites, errno);
 
         if (nwrites > 0)
         {
