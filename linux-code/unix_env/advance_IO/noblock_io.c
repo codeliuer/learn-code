@@ -36,11 +36,16 @@ int main(int argc, char *argv[])
     int ntowrites, nwrites;
     char buffer[BUFFER_SIZE] = "";
 
-    ntowrite = read(STDIN_FILENO, buffer, sizeof(buffer));
+    ntowrites = read(STDIN_FILENO, buffer, sizeof(buffer));
     fprintf(stderr, "read %d bytes\n", ntowrites);
 
     set_fl(STDOUT_FILENO, O_NONBLOCK);
 
+    while (ntowrites > 0)
+    {
+    }
+
+    clr_fl(STDOUT_FILENO, O_NONBLOCK);
 
     return EXIT_SUCCESS;
 }
