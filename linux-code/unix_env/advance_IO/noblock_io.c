@@ -11,12 +11,12 @@
 #include <errno.h>
 
 
-#define BUFFER_SIZe         (5000000)
+#define BUFFER_SIZE         (5000000)
 
 
 int main(int argc, char *argv[])
 {
-    char buffer[]
+    char buffer[BUFFER_SIZE] = "";
 
     return EXIT_SUCCESS;
 }
