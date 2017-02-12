@@ -28,7 +28,7 @@ static int clr_fl(int fd, int flag)
 
     fl = fcntl(fd, F_GETFL, 0);
 
-    return (fcntl(fd, F_SETFL, fl & ~flag))
+    return (fcntl(fd, F_SETFL, fl & ~flag));
 }
 
 int main(int argc, char *argv[])
@@ -50,9 +50,10 @@ int main(int argc, char *argv[])
         nwrites = write(STDOUT_FILENO, ptr, ntowrites);
         fprintf(stderr, "nwrites = %d, errno = %d\n", nwrite, errno);
 
-        if (nwrite > 0)
+        if (nwrites > 0)
         {
-
+            ptr += nwrites;
+            ntowrites -= nwrites;
         }
     }
 
