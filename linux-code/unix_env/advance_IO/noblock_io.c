@@ -17,7 +17,9 @@ static int set_fl(int fd, int flag)
 {
     int fl;
 
-    fl = fcntl();
+    fl = fcntl(fd, F_GETFL, 0);
+
+    return (fcntl(fd, F_SETFL, fl|flag));
 }
 
 int main(int argc, char *argv[])
