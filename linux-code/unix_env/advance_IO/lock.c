@@ -25,7 +25,6 @@ int lock_reg(int fd, int cmd, int type, off_t offset, int whence, off_t len)
     lock.l_whence = whence;     /* byte offset, relative to l_whence */
     lock.l_start = offset;      /* SEEK_SET, SEEK_CUR, SEEK_END */
     lock.l_len = len;           /* bytes (0 means to EOF) */
-    lock.l_pid = getpid();
 
     return (fcntl(fd, F_SETLK, &lock));
 }
