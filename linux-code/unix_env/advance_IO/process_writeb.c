@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     printf("%d\n", writew_lock(fd, SEEK_SET, 10, 10));
     sleep(5);
 
-    lseek(fd, SEEK_SET, 10);
+    lseek(fd, 10, SEEK_SET);
     write(fd, "BBBBBBBBBB", 10);
 
     close(fd);
