@@ -31,9 +31,10 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    printf("%d\n", writew_lock(fd, SEEK_SET, 2, 10));
+    printf("%d\n", writew_lock(fd, SEEK_SET, 10, 10));
     sleep(5);
 
+    lseek("");
     write(fd, "AAAAACCCCC", 10);
 
     close(fd);
