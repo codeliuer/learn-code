@@ -12,6 +12,7 @@
 int main(int argc, char *argv[])
 {
     int fd = 0;
+    struct flock flock;
     
     fd = open(FORCE_FILE, O_RDWR);
     if (fd < 0)
@@ -20,7 +21,14 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    fcntl();
+    flock.l_type = F_WRLCK;
+    flock.l_whence = SEEK_SET;
+    flock.l_start = 0;
+    flock.l_len = 0;
+
+    fcntl(fd, F_SETLK, &flock);
+
+    while (1);
 
     return EXIT_SUCCESS;
 }
