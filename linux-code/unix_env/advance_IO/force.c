@@ -11,13 +11,16 @@
 
 int main(int argc, char *argv[])
 {
-    int fd = open(FORCE_FILE, O_RDWR);
-
+    int fd = 0;
+    
+    fd = open(FORCE_FILE, O_RDWR);
     if (fd < 0)
     {
         fprintf(stderr, "open file failure\n");
         return EXIT_FAILURE;
     }
+
+    fcntl();
 
     return EXIT_SUCCESS;
 }
