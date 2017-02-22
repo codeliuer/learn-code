@@ -7,5 +7,7 @@
 
 int main(int argc, char *argv[])
 {
+    printf("sizeof(fd_set) = %ld\n", sizeof(fd_set));
+
     return EXIT_SUCCESS;
 }
