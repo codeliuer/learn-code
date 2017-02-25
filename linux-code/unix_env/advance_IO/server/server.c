@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
         if (pollfd[0].revents == POLLNUMS)
         {
             clientfd = accept(sockfd, (struct sockaddr *)&clientaddr, &clientlen);
+            printf("client connect address");
             for (i = 0; i < nums; i++)
             {
                 if (pollfd[i].fd == 0)
