@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     int nums = 0;
     int retcode = 0;
     int sockfd = 0;
+    int clientfd = 0;
     struct pollfd *pollfd = NULL;
     struct sockaddr_in addrin = {0};
 
@@ -51,6 +52,7 @@ int main(int argc, char *argv[])
         nums = poll(pollfd, POLLNUMS, -1);
         if (pollfd[0].revents == POLLNUMS)
         {
+            clientfd = accept();
         }
         for (i = 0; i < nums; i++)
         {
