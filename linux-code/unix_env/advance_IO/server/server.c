@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
     addrin.sin_family = AF_INET;
     addrin.sin_port = htons(2222);
-    addrin.sin_addr.s_addr = inet_addr("10.255.55.10");
+    addrin.sin_addr.s_addr = inet_addr("10.211.55.10");
 
     retcode = bind(sockfd, (struct sockaddr *)&addrin, (socklen_t)sizeof(addrin));
     if (retcode == -1)
@@ -70,7 +70,8 @@ int main(int argc, char *argv[])
         for (i = 1; i < nums; i++)
         {
             read(pollfd[i].fd, buffer, sizeof(buffer));
-            printf("");
+            printf("%s", buffer);
+            memset(buffer, 0, strlen(buffer));
         }
     }
 
