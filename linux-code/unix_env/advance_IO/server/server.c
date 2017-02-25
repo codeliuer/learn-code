@@ -20,6 +20,8 @@ int main(int argc, char *argv[])
     int retcode = 0;
     int sockfd = 0;
     int clientfd = 0;
+    char buffer[BUFSIZ] = "";
+
     struct pollfd *pollfd = NULL;
     struct sockaddr_in addrin = {0};
 
@@ -67,6 +69,8 @@ int main(int argc, char *argv[])
         }
         for (i = 1; i < nums; i++)
         {
+            read(pollfd[i].fd, buffer, sizeof(buffer));
+            printf("");
         }
     }
 
