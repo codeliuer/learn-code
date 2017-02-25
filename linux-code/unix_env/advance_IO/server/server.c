@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
     listen(sockfd, 100);
 
-    pollfd = (struct pollfd *)malloc(sizeof(*pollfd) * POLLNUMS);
+    pollfd = (struct pollfd *)calloc(1, sizeof(*pollfd) * POLLNUMS);
     pollfd[0].fd = sockfd;
     pollfd[0].events = POLLIN;
     pollfd[0].revents = POLLIN;
@@ -56,7 +56,13 @@ int main(int argc, char *argv[])
         if (pollfd[0].revents == POLLNUMS)
         {
             clientfd = accept(sockfd, (struct sockaddr *)&clientaddr, &clientlen);
-            
+            for (i = 0; i < nums; i++)
+            {
+                if (pollfd[i].fd == 0)
+                {
+                    pollfd[i].fd = clientfd;
+                }
+            }
         }
         for (i = 1; i < nums; i++)
         {
