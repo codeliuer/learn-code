@@ -56,8 +56,9 @@ int main(int argc, char *argv[])
         if (pollfd[0].revents == POLLNUMS)
         {
             clientfd = accept(clientfd, (struct sockaddr *)&clientaddr, &clientlen);
+
         }
-        for (i = 0; i < nums; i++)
+        for (i = 1; i < nums; i++)
         {
         }
     }
