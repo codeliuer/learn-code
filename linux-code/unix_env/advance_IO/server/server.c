@@ -23,6 +23,9 @@ int main(int argc, char *argv[])
     struct pollfd *pollfd = NULL;
     struct sockaddr_in addrin = {0};
 
+    socklen_t clientlen = 0;
+    struct sockaddr_in clientaddr = {0};
+
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd == -1)
     {
@@ -52,7 +55,7 @@ int main(int argc, char *argv[])
         nums = poll(pollfd, POLLNUMS, -1);
         if (pollfd[0].revents == POLLNUMS)
         {
-            clientfd = accept();
+            clientfd = accept(clientfd, (struct sockaddr *)&clientaddr, &clientlen);
         }
         for (i = 0; i < nums; i++)
         {
