@@ -9,6 +9,7 @@
 
 int main(int argc, char *argv[])
 {
+    int retcode = 0;
     int sockfd = 0;
     struct sockaddr_in addr = {0};
 
@@ -18,6 +19,12 @@ int main(int argc, char *argv[])
         fprintf(stderr, "socket failure\n");
         return EXIT_FAILURE;
     }
+
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(2222);
+    addr.sin_addr.s_addr = inet_addr("10.211.55.10");
+
+
 
     return EXIT_SUCCESS;
 }
