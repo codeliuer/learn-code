@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
 
     while (1)
     {
+        read(STDIN_FILENO, buffer, sizeof(buffer));
+        write(sockfd, buffer, strlen(buffer));
     }
 
     return EXIT_SUCCESS;
