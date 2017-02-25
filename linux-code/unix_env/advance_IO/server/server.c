@@ -61,6 +61,7 @@ int main(int argc, char *argv[])
                 if (pollfd[i].fd == 0)
                 {
                     pollfd[i].fd = clientfd;
+                    pollfd[i].events = POLLIN;
                 }
             }
         }
