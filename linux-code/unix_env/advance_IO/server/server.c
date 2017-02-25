@@ -49,6 +49,9 @@ int main(int argc, char *argv[])
     while (1)
     {
         nums = poll(pollfd, POLLNUMS, -1);
+        if (pollfd[0].revents == POLLNUMS)
+        {
+        }
         for (i = 0; i < nums; i++)
         {
         }
