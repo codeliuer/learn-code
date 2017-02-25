@@ -16,6 +16,7 @@
 int main(int argc, char *argv[])
 {
     int i = 0;
+    int nums = 0;
     int retcode = 0;
     int sockfd = 0;
     struct pollfd *pollfd = NULL;
@@ -47,10 +48,9 @@ int main(int argc, char *argv[])
     pollfd[0].revents = POLLIN;
     while (1)
     {
-        int nums = poll(pollfd, POLLNUMS, -1);
+        nums = poll(pollfd, POLLNUMS, -1);
         for (i = 0; i < nums; i++)
         {
-
         }
     }
 
