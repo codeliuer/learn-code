@@ -5,10 +5,11 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
-#include <>
 
 
 int main(int argc, char *argv[])
 {
+    int sockfd = 0;
+
     return EXIT_SUCCESS;
 }
