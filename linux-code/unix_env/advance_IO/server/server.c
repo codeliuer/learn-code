@@ -34,6 +34,17 @@ int main(int argc, char *argv[])
     seraddr.sin_addr.s_addr = inet_addr("10.211.55.10");
 
     ret = bind(sockfd, (struct sockaddr *)&seraddr, sizeof(seraddr));
+    if (ret == -1)
+    {
+        fprintf(stderr, "bind failure\n");
+        return EXIT_FAILURE;
+    }
+
+    ret = listen(sockfd, POLLNUMS - 1);
+
+    while (1)
+    {
+    }
 
     return EXIT_SUCCESS;
 }
