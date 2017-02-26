@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
 
     while (1)
     {
+        ret = poll(pollfd, POLLNUMS, -1);
     }
 
     return EXIT_SUCCESS;
