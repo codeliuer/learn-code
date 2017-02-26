@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 
         if (pollfd[0].events == POLLIN)
         {
-
+            clifd = accept(sockfd, (struct sockaddr *)&cliaddr, &clilen);
         }
     }
 
