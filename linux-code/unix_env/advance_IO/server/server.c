@@ -15,6 +15,7 @@
 
 int main(int argc, char *argv[])
 {
+    int i = 0;
     int ret = 0;
     int sockfd = 0;
     int clifd = 0;
@@ -54,7 +55,7 @@ int main(int argc, char *argv[])
             return EXIT_FAILURE;
         }
 
-        if (pollfd[0].events == POLLIN)
+        if (pollfd[0].revents == POLLIN)
         {
             clifd = accept(sockfd, (struct sockaddr *)&cliaddr, &clilen);
             if (clifd < 0)
@@ -63,7 +64,26 @@ int main(int argc, char *argv[])
                 return EXIT_FAILURE;
             }
 
+            for (i = 1; i < POLLNUMS; i++)
+            {
+                if (pollfd[i].fd == 0)
+                {
+                    pollfd[i].fd = clifd;
+                    pollfd[i].events = POLLIN;
+                    printf("connect success\n");
+                    break;
+                }
+            }
+        }
 
+        for (i = 1; i < POLLNUMS; i++)
+        {
+            if (pollfd[i].revents == POLLIN)
+            {
+                char buffer[BUFSIZ] = "";
+                read(pollfd[i].fd, buffer, sizeof(buffer));
+                write(STDOUT_FILENO, buffer, strlen(buffer));
+            }
         }
     }
 
