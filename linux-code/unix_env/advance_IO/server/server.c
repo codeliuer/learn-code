@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     struct sockaddr_in seraddr;
     struct sockaddr_in cliaddr;
     socklen_t clilen = sizeof(cliaddr);
+    struct pollfd pollfd[POLLNUMS] = {0};
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd == -1)
