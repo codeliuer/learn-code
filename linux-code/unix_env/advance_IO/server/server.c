@@ -15,6 +15,7 @@
 
 int main(int argc, char *argv[])
 {
+    int ret = 0;
     int sockfd = 0;
     struct sockaddr_in seraddr;
     struct sockaddr_in cliaddr;
@@ -28,7 +29,11 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    seraddr.sin_family = AF_INET;
+    seraddr.sin_port = htons(2222);
+    seraddr.sin_addr.s_addr = inet_addr("10.211.55.10");
 
+    ret = bind(sockfd, (struct sockaddr *)&seraddr, sizeof(seraddr));
 
     return EXIT_SUCCESS;
 }
