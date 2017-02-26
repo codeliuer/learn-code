@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 {
     int ret = 0;
     int sockfd = 0;
+    int clifd = 0;
     struct sockaddr_in seraddr;
     struct sockaddr_in cliaddr;
     socklen_t clilen = sizeof(cliaddr);
@@ -42,9 +43,21 @@ int main(int argc, char *argv[])
 
     ret = listen(sockfd, POLLNUMS - 1);
 
+    pollfd[0].fd = sockfd;
+    pollfd[0].events = POLLIN;
     while (1)
     {
         ret = poll(pollfd, POLLNUMS, -1);
+        if (ret < 0)
+        {
+            fprintf(stderr, "poll failure\n");
+            return EXIT_FAILURE;
+        }
+
+        if (pollfd[0].events == POLLIN)
+        {
+
+        }
     }
 
     return EXIT_SUCCESS;
