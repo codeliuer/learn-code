@@ -8,8 +8,14 @@
 
 static int count = 0;
 
-static void thread_func(void *arg)
+static void *thread_func(void *arg)
 {
+    int i = 0;
+
+    for (i = 0; i < 20000; i++)
+    {
+        __sync_fetch_and_add(&count, 1);
+    }
 }
 
 int main(int argc, char *argv[])
@@ -23,6 +29,8 @@ int main(int argc, char *argv[])
     }
 
     __sync_synchronize();
+
+    printf("count = %d\n", count);
 
     return EXIT_SUCCESS;
 }
