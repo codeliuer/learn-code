@@ -14,8 +14,8 @@ static void *thread_func(void *arg)
 
     for (i = 0; i < 20000; i++)
     {
-        count++;
-//        __sync_fetch_and_add(&count, 1);
+//        count++;
+        __sync_fetch_and_add(&count, 1);
     }
 }
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         pthread_create(&tid, NULL, thread_func, NULL);
     }
 
-    sleep(1);
+    sleep(5);
     __sync_synchronize();
 
     printf("count = %d\n", count);
