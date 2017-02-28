@@ -17,6 +17,8 @@ static void *thread_func(void *arg)
 //        count++;
         __sync_fetch_and_add(&count, 1);
     }
+
+    pthread_exit(NULL);
 }
 
 int main(int argc, char *argv[])
@@ -30,7 +32,6 @@ int main(int argc, char *argv[])
     }
 
     sleep(5);
-    __sync_synchronize();
 
     printf("count = %d\n", count);
 
