@@ -8,6 +8,9 @@
 
 static int count = 0;
 
+static void thread_func(void *arg)
+{
+}
 
 int main(int argc, char *argv[])
 {
@@ -16,7 +19,10 @@ int main(int argc, char *argv[])
 
     for (i = 0; i < 10; i++)
     {
+        pthread_create(&tid, NULL, thread_func, NULL);
     }
+
+    __sync_synchronize();
 
     return EXIT_SUCCESS;
 }
