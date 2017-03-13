@@ -11,7 +11,7 @@ public:
     {
         cout << "A" << endl;
     }
-    ~A()
+    virtual ~A()
     {
         cout << "~A" << endl;
     }
@@ -44,6 +44,8 @@ public:
 int main(int argc, char *argv[])
 {
     A *pa = new B();
+    pa->func();
+    delete pa;
 
     return EXIT_SUCCESS;
 }
