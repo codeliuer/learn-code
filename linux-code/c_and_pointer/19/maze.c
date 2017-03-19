@@ -139,6 +139,8 @@ static int maze(void)
 
     if (arr[M][N] == 1)
     {
+        push(M, N);
+        arr[M][N] = 2;
         return 0;
     }
 
