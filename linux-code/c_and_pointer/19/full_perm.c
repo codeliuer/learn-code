@@ -30,7 +30,7 @@ static void perm(int *arr, size_t start, size_t end)
     }
     else
     {
-        for (i = start; i <= end; i++)
+        for (i = start; i <= end-1; i++)
         {
             swap(arr, i, start);
             perm(arr, i+1, end);
