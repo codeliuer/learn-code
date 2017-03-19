@@ -2,9 +2,11 @@
 #include <stdlib.h>
 
 
-static void perm(int *arr, size_t size)
+static void perm(int *arr, size_t start, size_t end)
 {
+    int i = 0;
 
+    if (start)
 }
 
 
