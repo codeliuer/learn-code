@@ -32,7 +32,7 @@ static void perm(int *arr, size_t start, size_t end)
     }
     else
     {
-        for (i = start; i <= end-1; i++)
+        for (i = start; i <= end; i++)
         {
             swap(arr, i, start);
             perm(arr, start+1, end);
@@ -44,7 +44,8 @@ static void perm(int *arr, size_t start, size_t end)
 
 int main(int argc, char *argv[])
 {
-    int arr[] = {1, 2, 3, 4, 5, 6,};
+    //int arr[] = {1, 2, 3, 4, 5, 6,};
+    int arr[] = {1, 2, 3, 4, };
 
     perm(arr, 0, sizeof(arr)/sizeof(arr[0])-1);
     printf("num = %d\n", num);
