@@ -178,7 +178,6 @@ static void do_signal(int signo)
 
 int main(int argc, char *argv[])
 {
-    at_exit();
     signal(SIGINT, do_signal);
 
     setbuf(stdout, NULL);
@@ -193,6 +192,8 @@ int main(int argc, char *argv[])
     }
 
     printf("\n");
+
+    raise(SIGINT);
 
     return EXIT_SUCCESS;
 }
