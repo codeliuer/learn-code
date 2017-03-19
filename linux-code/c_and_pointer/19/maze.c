@@ -113,6 +113,7 @@ static int maze(void)
 
             x = tmp->x;
             y = tmp->y;
+            continue;
         }
 
         push(x, y);
