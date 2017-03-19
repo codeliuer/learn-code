@@ -6,7 +6,10 @@ static void perm(int *arr, size_t start, size_t end)
 {
     int i = 0;
 
-    if (start)
+    if (start == end)
+    {
+        print(arr, end);
+    }
 }
 
 
