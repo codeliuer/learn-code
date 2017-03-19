@@ -26,6 +26,9 @@ static void perm(int *arr, size_t start, size_t end)
     {
         for (i = start; i <= end; i++)
         {
+            swap(arr, i, start);
+            perm(arr, i+1, end);
+            swap(arr, i, start);
         }
     }
 }
