@@ -40,8 +40,23 @@ static void push(int x, int y)
     static int nums = 0;
     int i = ++top;
 
-    i = stack[i].x = x;
-    j = stack[i].y = y;
+    stack[i].x = x;
+    stack[i].y = y;
+
+    if (i == x && j == y)
+    {
+        nums += 1;
+        if (nums >= 3)
+        {
+            raise(SIGINT);;
+        }
+    }
+    else
+    {
+        i = x;
+        j = y;
+        nums = 0;
+    }
 
     printf("(%d, %d)", x, y);
 }
