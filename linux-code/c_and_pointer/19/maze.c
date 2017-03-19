@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <signal.h>
 
 #include <unistd.h>
 
@@ -38,10 +39,10 @@ static void push(int x, int y)
     static int i = 0;
     static int j = 0;
     static int nums = 0;
-    int i = ++top;
+    int k = ++top;
 
-    stack[i].x = x;
-    stack[i].y = y;
+    stack[k].x = x;
+    stack[k].y = y;
 
     if (i == x && j == y)
     {
