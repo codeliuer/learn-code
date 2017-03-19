@@ -41,7 +41,7 @@ static void push(int x, int y)
     stack[i].y = y;
 
     printf("(%d, %d)", x, y);
-    sleep(3);
+    sleep(1);
 }
 
 static INDEX *pop(void)
@@ -143,9 +143,15 @@ static void show_chess(void)
     }
 }
 
+static void do_signal(int signo)
+{
+    show_chess();
+    exit(EXIT_FAILURE);
+}
+
 int main(int argc, char *argv[])
 {
-    signal(SIGSEGV, print);
+    signal(SIGSEGV, do_signal);
 
     setbuf(stdout, NULL);
 
