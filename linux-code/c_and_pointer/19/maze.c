@@ -41,7 +41,7 @@ static void push(int x, int y)
     stack[i].y = y;
 
     printf("(%d, %d)", x, y);
-    sleep(1);
+    sleep(3);
 }
 
 static INDEX *pop(void)
@@ -145,12 +145,13 @@ static void show_chess(void)
 
 int main(int argc, char *argv[])
 {
-    setbuf();
+    setbuf(stdout, NULL);
 
-//    if (maze() == 0)
+    show_chess();
+
+    if (maze() == 0)
     {
         printf("\n");
-        show_chess();
         //show_path();
         printf("\n");
     }
