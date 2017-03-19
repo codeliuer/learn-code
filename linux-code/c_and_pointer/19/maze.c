@@ -178,6 +178,7 @@ static void do_signal(int signo)
 
 int main(int argc, char *argv[])
 {
+    at_exit();
     signal(SIGINT, do_signal);
 
     setbuf(stdout, NULL);
@@ -187,7 +188,7 @@ int main(int argc, char *argv[])
     if (maze() == 0)
     {
         printf("\n");
-        //show_path();
+        show_path();
         printf("\n");
     }
 
