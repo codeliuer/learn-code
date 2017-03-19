@@ -13,6 +13,9 @@ static void print(int *arr, int end)
     printf("\n");
 }
 
+static void swap(int *arr, int star,t int end)
+{
+}
 
 static void perm(int *arr, size_t start, size_t end)
 {
