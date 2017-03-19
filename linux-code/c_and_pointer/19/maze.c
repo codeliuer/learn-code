@@ -145,13 +145,15 @@ static void show_chess(void)
 
 static void do_signal(int signo)
 {
+    printf("\n##########################################################\n");
+    printf("\n");
     show_chess();
     exit(EXIT_FAILURE);
 }
 
 int main(int argc, char *argv[])
 {
-    signal(SIGSEGV, do_signal);
+    signal(SIGINT, do_signal);
 
     setbuf(stdout, NULL);
 
