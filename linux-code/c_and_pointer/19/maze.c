@@ -28,7 +28,16 @@ typedef struct INDEX
 } INDEX;
 
 
-static INDEX stack[]
+static INDEX stack[M*N] = {0};
+static int top = -1;
+
+static void push(int x, int y)
+{
+}
+
+static INDEX pop(void)
+{
+}
 
 
 int main(int argc, char *argv[])
