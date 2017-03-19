@@ -21,6 +21,16 @@ int arr[M+2][N+2] = {
 };
 
 
+typedef struct INDEX
+{
+    int x;
+    int y;
+} INDEX;
+
+
+static INDEX stack[]
+
+
 int main(int argc, char *argv[])
 {
     return EXIT_SUCCESS;
