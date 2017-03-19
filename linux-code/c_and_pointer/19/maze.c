@@ -35,13 +35,15 @@ static int top = -1;
 
 static void push(int x, int y)
 {
+    static int i = 0;
+    static int j = 0;
+    static int nums = 0;
     int i = ++top;
 
-    stack[i].x = x;
-    stack[i].y = y;
+    i = stack[i].x = x;
+    j = stack[i].y = y;
 
     printf("(%d, %d)", x, y);
-    sleep(1);
 }
 
 static INDEX *pop(void)
