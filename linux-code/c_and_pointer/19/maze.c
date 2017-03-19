@@ -39,6 +39,7 @@ static void push(int x, int y)
     static int i = 0;
     static int j = 0;
     static int nums = 0;
+    static int sum = 0;
     int k = ++top;
 
     stack[k].x = x;
@@ -60,6 +61,11 @@ static void push(int x, int y)
     }
 
     printf("(%d, %d)", x, y);
+    sum += 1;
+    if (sum % 13 == 0)
+    {
+        printf("\n");
+    }
 }
 
 static INDEX *pop(void)
