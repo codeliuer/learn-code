@@ -2,6 +2,18 @@
 #include <stdlib.h>
 
 
+static void print(int *arr, int end)
+{
+    int i = 0;
+
+    for (i = 0; i <= end; i++)
+    {
+        printf("%d  ", arr[i]);
+    }
+    printf("\n");
+}
+
+
 static void perm(int *arr, size_t start, size_t end)
 {
     int i = 0;
@@ -9,6 +21,12 @@ static void perm(int *arr, size_t start, size_t end)
     if (start == end)
     {
         print(arr, end);
+    }
+    else
+    {
+        for (i = start; i <= end; i++)
+        {
+        }
     }
 }
 
