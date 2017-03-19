@@ -145,6 +145,8 @@ static void show_chess(void)
 
 int main(int argc, char *argv[])
 {
+    signal(SIGSEGV, print);
+
     setbuf(stdout, NULL);
 
     show_chess();
