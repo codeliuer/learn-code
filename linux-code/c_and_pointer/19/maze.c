@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <unistd.h>
+
 #define M           (10)
 #define N           (13)
 
@@ -38,7 +40,8 @@ static void push(int x, int y)
     stack[i].x = x;
     stack[i].y = y;
 
-//    printf("(%d, %d)", x, y);
+    printf("(%d, %d)", x, y);
+    sleep(1);
 }
 
 static INDEX *pop(void)
@@ -142,6 +145,8 @@ static void show_chess(void)
 
 int main(int argc, char *argv[])
 {
+    setbuf();
+
 //    if (maze() == 0)
     {
         printf("\n");
