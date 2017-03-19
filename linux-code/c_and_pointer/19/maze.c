@@ -145,7 +145,7 @@ static void show_chess(void)
 
 static void do_signal(int signo)
 {
-    printf("\n##########################################################\n");
+    printf("\n      ##############################################################\n");
     printf("\n");
     show_chess();
     exit(EXIT_FAILURE);
