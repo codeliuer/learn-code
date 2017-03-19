@@ -113,26 +113,27 @@ static int maze(void)
 
             x = tmp->x;
             y = tmp->y;
-            continue;
-        }
-
-        push(x, y);
-        arr[x][y] = 2;
-        if (arr[x][y-1] == 1)
-        {
-            y -= 1;
-        }
-        else if (arr[x-1][y] == 1)
-        {
-            x -= 1;
-        }
-        else if (arr[x][y+1] == 1)
-        {
-            y += 1;
         }
         else
         {
-            x += 1;
+            push(x, y);
+            arr[x][y] = 2;
+            if (arr[x][y-1] == 1)
+            {
+                y -= 1;
+            }
+            else if (arr[x-1][y] == 1)
+            {
+                x -= 1;
+            }
+            else if (arr[x][y+1] == 1)
+            {
+                y += 1;
+            }
+            else
+            {
+                x += 1;
+            }
         }
     }
 
