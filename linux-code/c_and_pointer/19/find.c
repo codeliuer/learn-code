@@ -31,9 +31,11 @@ int main(int rgc, char *argv[])
         }
         else if (arr[i][j] > n)
         {
+            i += 1;
         }
         else
         {
+            j -= 1;
         }
     }
 
