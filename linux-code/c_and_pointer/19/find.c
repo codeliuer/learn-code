@@ -21,5 +21,12 @@ int main(int rgc, char *argv[])
     int i = 0;
     int j = 4;
 
+    int n = 10;
+
+    while (i < 5 && j >= 0)
+    {
+        if (arr[i][j] == )
+    }
+
     return EXIT_SUCCESS;
 }
