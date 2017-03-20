@@ -25,7 +25,16 @@ int main(int rgc, char *argv[])
 
     while (i < 5 && j >= 0)
     {
-        if (arr[i][j] == )
+        if (arr[i][j] == n)
+        {
+            printf("(%d, %d)\n", i, j);
+        }
+        else if (arr[i][j] > n)
+        {
+        }
+        else
+        {
+        }
     }
 
     return EXIT_SUCCESS;
