@@ -18,5 +18,9 @@ int main(int rgc, char *argv[])
 
     n = 8;
 
+    while ()
+    {
+    }
+
     return EXIT_SUCCESS;
 }
