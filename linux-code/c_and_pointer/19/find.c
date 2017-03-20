@@ -28,6 +28,19 @@ int main(int rgc, char *argv[])
         {
             printf("find number (%d, %d)\n", i, j);
         }
+        else if (arr[i][j] > n)
+        {
+            i += 1;
+        }
+        else
+        {
+            j += 1;
+        }
+    }
+
+    if (arr[i][j] == n)
+    {
+        printf("find number (%d, %d)\n", i, j);
     }
 
     return EXIT_SUCCESS;
