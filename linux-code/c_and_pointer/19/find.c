@@ -28,14 +28,15 @@ int main(int rgc, char *argv[])
         if (arr[i][j] == n)
         {
             printf("(%d, %d)\n", i, j);
+            break;
         }
         else if (arr[i][j] > n)
         {
-            i += 1;
+            j -= 1;
         }
         else
         {
-            j -= 1;
+            i += 1;
         }
     }
 
