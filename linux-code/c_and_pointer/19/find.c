@@ -15,6 +15,8 @@ static int arr[5][5] =
 int main(int rgc, char *argv[])
 {
     int n = 0;
+    int i = 0;
+    int j = 0;
 
     n = 8;
 
