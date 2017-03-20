@@ -24,6 +24,10 @@ int main(int rgc, char *argv[])
 
     while (i != 5 || j != 5)
     {
+        if (arr[i][j] == n)
+        {
+            printf("find number (%d, %d)\n", i, j);
+        }
     }
 
     return EXIT_SUCCESS;
