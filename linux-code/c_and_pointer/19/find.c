@@ -2,6 +2,10 @@
 #include <stdlib.h>
 
 
+#define false           (0)
+#define true            (1)
+
+
 static int arr[5][5] = 
 {
     {1, 2, 3, 4, 5,},
