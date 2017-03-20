@@ -17,12 +17,12 @@ static int arr[7][7] =
 int main(int rgc, char *argv[])
 {
     int n = 0;
-    int i = 0;
-    int j = 0;
+    int i = 1;
+    int j = 1;
 
     n = 8;
 
-    while ()
+    while (i != 5 || j != 5)
     {
     }
 
