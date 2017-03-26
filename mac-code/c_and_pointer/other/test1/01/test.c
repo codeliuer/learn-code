@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
     }
                                                 
     max = find_maxadd(pint, n, d);
-    printf("%d", max);
+    printf("%d\n", max);
                                                         
     return EXIT_SUCCESS;
 }
