@@ -75,23 +75,26 @@ static int find_maxadd(int *pint, int n, int d)
             {
                 sum = cross(pint, i, j, n, d);
                 max = MAX(max, sum);
+                printf("%d  max = %d  ", __LINE__, max);
             }
             if (j + d <= n && i + d <= n) // 左上到右下
             {
                 sum = rightlower(pint, i, j, n, d);
                 max = MAX(max, sum);
+                printf("%d  max = %d  ", __LINE__, max);
             }
             if (i + d <= n) // 从上到下
             {
                 sum = vertical(pint, i, j, n, d);
                 max = MAX(max, sum);
+                printf("%d  max = %d  ", __LINE__, max);
             }
             if (i - d >= -1 && j - d >= -1) // 右上到左下
             {
                 sum = leftlower(pint, i, j, n, d);
                 max = MAX(max, sum);
-            }                                                                                                            
-            printf("max = %d", max);
+                printf("%d  max = %d  ", __LINE__, max);
+            }
         }
     }
 
