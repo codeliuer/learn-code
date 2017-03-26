@@ -103,24 +103,24 @@ static int find_maxadd(int *pint, int n, int d)
 int main(int argc, char *argv[])
 {
     int i = 0;
-            int n = 0;
-                int d = 0;
-                    int max = 0;
-                        int *pint = NULL;
+    int n = 0;
+    int d = 0;
+    int max = 0;
+    int *pint = NULL;
                             
-                            scanf("%d", &n);
-                                scanf("%d", &d);
-                                    
-                                    pint = (int *)malloc(n * n * sizeof(*pint));
-                                        assert(pint);
-                                            
-                                            for (i = 0; i < n * n; i++)
-                                                    {
-                                                                scanf("%d", &pint[i]);
-                                                                    }
+    scanf("%d", &n);
+    scanf("%d", &d);
+
+    pint = (int *)malloc(n * n * sizeof(*pint));
+    assert(pint);
+
+    for (i = 0; i < n * n; i++)
+    {
+        scanf("%d", &pint[i]);
+    }
                                                 
-                                                max = find_maxadd(pint, n, d);
-                                                    printf("%d", max);
+    max = find_maxadd(pint, n, d);
+    printf("%d", max);
                                                         
-                                                        return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
