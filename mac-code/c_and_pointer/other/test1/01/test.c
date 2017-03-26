@@ -29,6 +29,7 @@ static int rightlower(int *pint, int x, int y, int n, int d)
     for (i = 0; i < d; i++)
     {
         sum += pint[(x+i)*n + y+i];
+        printf("pint[(%d+%d)*%d+%d-%d]sum = %d\n", x, i, n, y, i,sum);
     }
                     
     return sum;
@@ -55,7 +56,7 @@ static int leftlower(int *pint, int x, int y, int n, int d)
     for (i = 0; i < d; i++)
     {
         sum += pint[(x+i)*n + y-i];
-        printf("pint[(%d+%d)*%d+%d-%d]sum = %d\n", x, i, n, y, i,sum);
+//        printf("pint[(%d+%d)*%d+%d-%d]sum = %d\n", x, i, n, y, i,sum);
     }
                     
     return sum;
