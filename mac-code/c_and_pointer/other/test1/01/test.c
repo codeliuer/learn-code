@@ -87,7 +87,7 @@ static int find_maxadd(int *pint, int n, int d)
                 sum = vertical(pint, i, j, n, d);
                 max = MAX(max, sum);
             }
-            if (j - d >= -1 && i - d <= n) // 右上到左下
+            if (j - d >= -1 && i + d <= n) // 右上到左下
             {
                 sum = leftlower(pint, i, j, n, d);
                 max = MAX(max, sum);
