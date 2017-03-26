@@ -89,7 +89,7 @@ static int find_maxadd(int *pint, int n, int d)
                 max = MAX(max, sum);
                 printf("%d  max = %d\n", __LINE__, max);
             }
-            if (i - d >= -1 && j - d >= -1) // 右上到左下
+            if (i - d >= -1 && j - d <= n) // 右上到左下
             {
                 sum = leftlower(pint, i, j, n, d);
                 max = MAX(max, sum);
