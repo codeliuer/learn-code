@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
                     printf("result[%d+num[%d]] = %d\n", j, i, result[j+num[i]]);
                 }
             }
-            sleep(5);
+            sleep(3);
         }
     }
 
