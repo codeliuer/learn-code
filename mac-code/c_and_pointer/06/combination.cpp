@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include<iostream>
 
 using namespace std;
@@ -29,6 +30,8 @@ int main(int argc, char *argv[])
                 if( (j+num[i])<=sum)
                 {
                     result[j+num[i]] += temp[j];
+                    printf("result[%d+num[%d]] = %d\n", j, i, result[j+num[i]]);
+                    sleep(2);
                 }
             }
         }
