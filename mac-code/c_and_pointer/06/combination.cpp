@@ -31,9 +31,9 @@ int main(int argc, char *argv[])
                 {
                     result[j+num[i]] += temp[j];
                     printf("result[%d+num[%d]] = %d\n", j, i, result[j+num[i]]);
-                    sleep(2);
                 }
             }
+            sleep(5);
         }
     }
 
