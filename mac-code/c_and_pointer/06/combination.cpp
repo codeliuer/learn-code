@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int num[10] = {3,2,1,4,5,6,7,8,9,10};
+const int num[10] = {1,2,3,4,5,6,7,8,9,10};
 const int sum = 10;
 const int n=10;
 
@@ -14,25 +14,27 @@ int main(int argc, char *argv[])
 
     for(i=0; i<n; i++)
     {
-          if(num[i]>sum)
-                 continue;
-            else
-                  {
-                         for(j=0; j<sum+1; j++)
-                                {
-                                        temp[j]=result[j];
-                                           }
-                            temp[0]=1;
-                              
-                               for(j=0;j<sum+1;j++)
-                                      {
-                                              if( (j+num[i])<=sum)
-                                                      {
-                                                               result[j+num[i]] += temp[j];
-                                                                   }
-                                                 }
-                                 }
+        if (num[i]>sum)
+            continue;
+        else
+        {
+            for(j=0; j<sum+1; j++)
+            {
+                temp[j]=result[j];
+            }
+            temp[0]=1;
+
+            for(j=0;j<sum+1;j++)
+            {
+                if( (j+num[i])<=sum)
+                {
+                    result[j+num[i]] += temp[j];
+                }
+            }
+        }
     }
+
     cout<<result[sum];
+
     return 0;
 }
