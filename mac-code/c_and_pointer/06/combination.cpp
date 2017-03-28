@@ -3,9 +3,9 @@
 
 using namespace std;
 
-const int num[10] = {1,2,3,4,5,6,7,8,9,10};
-const int sum = 10;
-const int n=10;
+const int sum = 12;
+const int num[sum] = {1,2,3,4,5,6,7,8,9,10};
+const int n=sum;
 
 int main(int argc, char *argv[])
 {
@@ -33,7 +33,8 @@ int main(int argc, char *argv[])
                     printf("result[%d+num[%d]] = %d\n", j, i, result[j+num[i]]);
                 }
             }
-            sleep(3);
+            printf("####################################\n");
+            //sleep(3);
         }
     }
 
