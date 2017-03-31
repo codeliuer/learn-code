@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    ret = bind(sockfd, 100);
+    ret = listen(sockfd, 100);
     if (ret < 0)
     {
         fprintf(stderr, "failure");
