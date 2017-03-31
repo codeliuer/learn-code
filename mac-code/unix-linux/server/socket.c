@@ -9,10 +9,17 @@
 
 static int child(int sockfd)
 {
+    int ret = 0;
     int clifd = 0;
-    struct sockaddr cliaddr;
+    struct sockaddr_in cliaddr;
     socklen_t clilen = sizeof(cliaddr);
 
+    ret = accept(sockfd, (struct sockaddr *)&cliaddr, sizeof(cliaddr));
+    if (ret < 0)
+    {
+        fprintf(stderr, "accept failure\n");
+        return EXIT_FAILURE;
+    }
 }
 
 int main(int argc, char *argv[])
