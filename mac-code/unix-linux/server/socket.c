@@ -22,7 +22,9 @@ static int child(int sockfd)
         return EXIT_FAILURE;
     }
 
-    write(sockfd, );
+    sprintf(buffer, "%d", getpid());
+
+    write(sockfd, buffer, strlen(buffer));
 }
 
 int main(int argc, char *argv[])
