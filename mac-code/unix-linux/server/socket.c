@@ -15,7 +15,7 @@ static int child(int sockfd)
     struct sockaddr_in cliaddr;
     socklen_t clilen = sizeof(cliaddr);
 
-    ret = accept(sockfd, (struct sockaddr *)&cliaddr, sizeof(cliaddr));
+    ret = accept(sockfd, (struct sockaddr *)&cliaddr, &clilen);
     if (ret < 0)
     {
         fprintf(stderr, "accept failure\n");
@@ -25,6 +25,8 @@ static int child(int sockfd)
     sprintf(buffer, "%d", getpid());
 
     write(sockfd, buffer, strlen(buffer));
+
+    return EXIT_SUCCESS;
 }
 
 int main(int argc, char *argv[])
