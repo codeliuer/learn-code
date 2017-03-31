@@ -13,7 +13,6 @@ static int child(int sockfd)
     struct sockaddr cliaddr;
     socklen_t clilen = sizeof(cliaddr);
 
-    cliaddr.
 }
 
 int main(int argc, char *argv[])
