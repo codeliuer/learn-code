@@ -9,14 +9,16 @@
 
 static int child(int sockfd)
 {
-    int ret = 0;
+    int fd = 0;
     int clifd = 0;
     char buffer[BUFSIZ] = "";
     struct sockaddr_in cliaddr;
     socklen_t clilen = sizeof(cliaddr);
 
-    ret = accept(sockfd, (struct sockaddr *)&cliaddr, &clilen);
-    if (ret < 0)
+    while (1)
+    {
+    fd = accept(sockfd, (struct sockaddr *)&cliaddr, &clilen);
+    if (fd < 0)
     {
         fprintf(stderr, "accept failure\n");
         return EXIT_FAILURE;
@@ -24,14 +26,17 @@ static int child(int sockfd)
 
     sprintf(buffer, "%d", getpid());
 
-    write(sockfd, buffer, strlen(buffer));
-
+    write(fd, buffer, strlen(buffer));
+    printf("%d\n", getpid());
+    }
     return EXIT_SUCCESS;
 }
 
 int main(int argc, char *argv[])
 {
+    int i = 0;
     int ret = 0;
+    pid_t pid;
     int sockfd = 0;
     struct sockaddr_in sockaddr;
 
@@ -60,7 +65,21 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    child(sockfd);
+    for (i = 0; i < 2; i++)
+    {
+        if ((pid = fork()) < 0)
+        {
+            fprintf(stderr, "fork failure\n");
+            return EXIT_FAILURE;
+        }
+        else if (pid == 0)
+        {
+            child(sockfd);
+            exit(EXIT_SUCCESS);
+        }
+    }
+
+    while(1);
 
     return EXIT_SUCCESS;
 }

@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
+#include <errno.h>
 
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 
+extern int errno;
 
 static int child(void)
 {
@@ -26,10 +28,11 @@ static int child(void)
     sockaddr.sin_port = htons(2222);
     sockaddr.sin_addr.s_addr = inet_addr("10.211.55.2");
 
+    errno = 0;
     ret = connect(sockfd, (struct sockaddr *)&sockaddr, sizeof(sockaddr));
     if (ret != 0)
     {
-        fprintf(stderr, "connect failure\n");
+        fprintf(stderr, "connect failure, errno = %d\n", errno);
         return EXIT_FAILURE;
     }
 
@@ -45,7 +48,7 @@ int main(int argc, char *argv[])
     int i = 0;
     pid_t pid;
 
-    for (i = 0; i < 100; i++)
+    for (i = 0; i < 200; i++)
     {
         if ((pid = fork()) < 0)
         {
@@ -54,6 +57,7 @@ int main(int argc, char *argv[])
         else if (pid == 0)
         {
             child();
+            exit(0);
         }
     }
     
