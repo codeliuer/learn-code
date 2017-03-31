@@ -11,6 +11,7 @@ static int child(int sockfd)
 {
     int ret = 0;
     int clifd = 0;
+    char buffer[BUFSIZ] = "";
     struct sockaddr_in cliaddr;
     socklen_t clilen = sizeof(cliaddr);
 
@@ -20,6 +21,8 @@ static int child(int sockfd)
         fprintf(stderr, "accept failure\n");
         return EXIT_FAILURE;
     }
+
+    write(sockfd, );
 }
 
 int main(int argc, char *argv[])
