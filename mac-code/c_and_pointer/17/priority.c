@@ -40,8 +40,6 @@ static int push(int value)
 
         queue.queue[i].value = value;
 
-        printf("!!!!!!!\n");
-
         return 0;
     }
 }
