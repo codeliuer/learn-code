@@ -89,9 +89,16 @@ static int init_queue(void)
 
 int main(int argc, char *argv[])
 {
+    int i = 0;
     int data = 0;
 
     srand(time(NULL));   
+
+    for (i = 0; i < 20; i++)
+    {
+        data = rand()%100+1;
+        push(data);
+    }
 
     return EXIT_SUCCESS;
 }
