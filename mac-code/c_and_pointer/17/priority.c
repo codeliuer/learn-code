@@ -31,11 +31,19 @@ static void push(int value)
 static int pop(void)
 {
     int i = 0;
+    int j = 0;
     int index = queue.nums--;
     int value = queue.queue[1].value;
 
     int value = queue.queue[1].value = queue.queue[index].value;
-    
+
+    while (i < index)
+    {
+        if (queue.queue[2*i].value > queue.queue[2*i+1].value)
+        {
+
+        }
+    }
 }
 
 static int init_queue(void)
