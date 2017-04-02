@@ -36,6 +36,7 @@ static int push(int value)
         {
             queue.queue[i].value = queue.queue[i/2].value;
             i /= 2;
+            printf("i = %d\n", i);
         }
 
         queue.queue[i].value = value;
@@ -96,6 +97,7 @@ int main(int argc, char *argv[])
 
     srand(time(NULL));   
 
+    printf("\n");
     for (i = 0; i < 20; i++)
     {
         data = rand()%100+1;
