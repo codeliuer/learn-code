@@ -32,11 +32,13 @@ static int push(int value)
     {
         i = queue.nums;
 
-        while (queue.queue[i/2] > queue.queue[i])
+        while (i / 2 != 0 && queue.queue[i/2] > queue.queue[i])
         {
             queue.queue[i] = queue.queue[i/2];
             i /= 2;
         }
+
+        queue.queue[i].value = value;
     }
 }
 
