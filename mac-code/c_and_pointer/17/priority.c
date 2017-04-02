@@ -32,7 +32,7 @@ static int push(int value)
     {
         i = queue.nums++;
 
-        while (i / 2 != 0 && queue.queue[i/2].value > queue.queue[i].value)
+        while (i / 2 != 0 && queue.queue[i/2].value < value)
         {
             queue.queue[i].value = queue.queue[i/2].value;
             i /= 2;
@@ -46,6 +46,22 @@ static int push(int value)
     return 0;
 }
 
+static void show(void)
+{
+    int i = 0;
+
+    for (i = 1; i < queue.nums; i++)
+    {
+        printf("%d", queue.queue[i].value);
+        if (i + 1 != queue.nums)
+        {
+            printf("--");
+        }
+    }
+
+    printf("\n");
+}
+
 static int pop(void)
 {
     int i = 0;
@@ -55,6 +71,7 @@ static int pop(void)
 
     int value = queue.queue[1].value = queue.queue[index].value;
 
+    i = 1;
     while (i < index)
     {
         if (queue.queue[2*i].value > queue.queue[2*i+1].value)
@@ -94,6 +111,8 @@ int main(int argc, char *argv[])
     int i = 0;
     int data = 0;
 
+    setbuf(stdout, NULL);
+
     init_queue();
 
     srand(time(NULL));   
@@ -102,7 +121,16 @@ int main(int argc, char *argv[])
     {
         data = rand()%100+1;
         push(data);
+        printf("%d", data);
+        if (i+1 != 20)
+        {
+            printf("--");
+        }
     }
+
+    printf("\n");
+
+    show();
 
     for (i = 0; i < 20; i++)
     {
@@ -112,6 +140,7 @@ int main(int argc, char *argv[])
             printf("--");
         }
     }
+    printf("\n");
 
     return EXIT_SUCCESS;
 }
