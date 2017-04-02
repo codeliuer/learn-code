@@ -42,6 +42,8 @@ static int push(int value)
 
         return 0;
     }
+
+    return 0;
 }
 
 static int pop(void)
@@ -96,12 +98,14 @@ int main(int argc, char *argv[])
 
     srand(time(NULL));   
 
+    printf("push\n");
     for (i = 0; i < 20; i++)
     {
         data = rand()%100+1;
         push(data);
     }
 
+    printf("pop\n");
     for (i = 0; i < 20; i++)
     {
         printf("%d", pop());
