@@ -30,10 +30,12 @@ static void push(int value)
 
 static int pop(void)
 {
+    int i = 0;
     int index = queue.nums--;
     int value = queue.queue[1].value;
 
-    queue.queue[1].value = queue.queue[index].value;
+    int value = queue.queue[1].value = queue.queue[index].value;
+    
 }
 
 static int init_queue(void)
