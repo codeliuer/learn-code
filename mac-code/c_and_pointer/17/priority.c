@@ -92,6 +92,8 @@ int main(int argc, char *argv[])
     int i = 0;
     int data = 0;
 
+    init_queue();
+
     srand(time(NULL));   
 
     for (i = 0; i < 20; i++)
