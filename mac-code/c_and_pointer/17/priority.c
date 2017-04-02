@@ -50,7 +50,7 @@ static int pop(void)
 {
     int i = 0;
     int j = 0;
-    int index = queue.nums--;
+    int index = --queue.nums;
     int retmax = queue.queue[1].value;
 
     int value = queue.queue[1].value = queue.queue[index].value;
@@ -98,14 +98,12 @@ int main(int argc, char *argv[])
 
     srand(time(NULL));   
 
-    printf("push\n");
     for (i = 0; i < 20; i++)
     {
         data = rand()%100+1;
         push(data);
     }
 
-    printf("pop\n");
     for (i = 0; i < 20; i++)
     {
         printf("%d", pop());
