@@ -30,7 +30,7 @@ static int push(int value)
 
     if (queue.nums < queue.max)
     {
-        i = queue.nums;
+        i = queue.nums++;
 
         while (i / 2 != 0 && queue.queue[i/2] > queue.queue[i])
         {
@@ -39,6 +39,8 @@ static int push(int value)
         }
 
         queue.queue[i].value = value;
+
+        return 0;
     }
 }
 
@@ -87,7 +89,9 @@ static int init_queue(void)
 
 int main(int argc, char *argv[])
 {
-    
+    int data = 0;
+
+    srand(time(NULL));   
 
     return EXIT_SUCCESS;
 }
