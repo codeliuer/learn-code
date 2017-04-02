@@ -28,6 +28,7 @@ static int push(int value)
 {
     if (queue.nums < queue.max)
     {
+        queue.queue[queue.nums].value = value;
     }
 }
 
