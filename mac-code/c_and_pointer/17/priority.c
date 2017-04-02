@@ -34,7 +34,7 @@ static int push(int value)
 
         while (i / 2 != 0 && queue.queue[i/2] > queue.queue[i])
         {
-            queue.queue[i].value = queue.queue[i/2];
+            queue.queue[i].value = queue.queue[i/2].value;
             i /= 2;
         }
 
