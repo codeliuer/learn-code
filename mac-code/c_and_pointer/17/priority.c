@@ -30,12 +30,12 @@ static int push(int value)
 
     if (queue.nums < queue.max)
     {
-        queue.queue[queue.nums].value = value;
-
         i = queue.nums;
 
-        while ()
+        while (queue.queue[i/2] > queue.queue[i])
         {
+            queue.queue[i] = queue.queue[i/2];
+            i /= 2;
         }
     }
 }
