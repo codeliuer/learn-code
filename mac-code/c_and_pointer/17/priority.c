@@ -24,8 +24,11 @@ typedef struct MAXQUE
 
 static MAXQUE queue = {1, QUEUE_MAX, NULL};
 
-static void push(int value)
+static int push(int value)
 {
+    if (queue.nums < queue.max)
+    {
+    }
 }
 
 static int pop(void)
