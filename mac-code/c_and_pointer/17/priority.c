@@ -32,7 +32,11 @@ static int push(int value)
     {
         queue.queue[queue.nums].value = value;
 
+        i = queue.nums;
+
         while ()
+        {
+        }
     }
 }
 
