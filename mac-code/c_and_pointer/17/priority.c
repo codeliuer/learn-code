@@ -26,9 +26,13 @@ static MAXQUE queue = {1, QUEUE_MAX, NULL};
 
 static int push(int value)
 {
+    int i = 0;
+
     if (queue.nums < queue.max)
     {
         queue.queue[queue.nums].value = value;
+
+        while ()
     }
 }
 
