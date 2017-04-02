@@ -100,5 +100,14 @@ int main(int argc, char *argv[])
         push(data);
     }
 
+    for (i = 0; i < 20; i++)
+    {
+        printf("%d", pop());
+        if (i+1 != 20)
+        {
+            printf("--");
+        }
+    }
+
     return EXIT_SUCCESS;
 }
