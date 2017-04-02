@@ -33,7 +33,7 @@ static int pop(void)
     int i = 0;
     int j = 0;
     int index = queue.nums--;
-    int value = queue.queue[1].value;
+    int retmax = queue.queue[1].value;
 
     int value = queue.queue[1].value = queue.queue[index].value;
 
@@ -54,6 +54,8 @@ static int pop(void)
     }
 
     queue.queue[j].value = value;
+
+    return retmax;
 }
 
 static int init_queue(void)
