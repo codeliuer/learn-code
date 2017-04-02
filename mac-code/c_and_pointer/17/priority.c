@@ -41,9 +41,19 @@ static int pop(void)
     {
         if (queue.queue[2*i].value > queue.queue[2*i+1].value)
         {
-
+            queue.queue[i].value = queue.queue[2*i].value;
+            j = i;
+            i *= 2;
+        }
+        else
+        {
+            queue.queue[i].value = queue.queue[2*i+1].value;
+            j = i;
+            i = 2*i+1;
         }
     }
+
+    queue.queue[j].value = value;
 }
 
 static int init_queue(void)
