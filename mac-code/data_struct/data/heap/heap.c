@@ -1,10 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
+
+#include "huffman.h"
 
 
-int main(int argc, char *argv[])
+int push(huffmantree *node)
 {
-    return EXIT_SUCCESS;
+}
+
+
+huffmantree *pop(void)
+{
 }
