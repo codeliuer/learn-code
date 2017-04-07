@@ -6,7 +6,7 @@ static void static_var(void)
 {
     static int var = 1000;
 
-    printf("static_var %d\n", var);
+    printf("static_var %d\n", var++);
 }
 
 int main(int argc, char *argv[])
@@ -15,9 +15,11 @@ int main(int argc, char *argv[])
 
     static_var();
 
-    printf("main %d\n", var);
+    printf("main %d\n", var++);
 
     static_var();
+
+    printf("main %d\n", var);
 
     return EXIT_SUCCESS;
 }
