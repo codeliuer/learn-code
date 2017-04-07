@@ -14,6 +14,7 @@ typedef struct thread_once
 
 static void onceflag_add(pthread_t thid)
 {
+
 }
 
 static void onceflag_get(pthread_once_t **ppflag)
