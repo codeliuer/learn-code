@@ -7,9 +7,11 @@
 
 int push(huffmantree *node)
 {
+    return HEAP_SUCC;
 }
 
 
 huffmantree *pop(void)
 {
+    return NULL;
 }

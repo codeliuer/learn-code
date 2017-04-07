@@ -6,6 +6,10 @@
 #define __HUFFMAN_TREE_H__
 
 
+#define HEAP_SUCC       (0)
+#define HEAP_FAIL       (1)
+
+
 typedef struct huffmantree
 {
     struct huffmantree      *left;

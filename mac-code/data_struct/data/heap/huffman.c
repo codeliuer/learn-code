@@ -7,15 +7,6 @@
 #define MAXSIZE         (20)
 
 
-typedef struct huffmantree
-{
-    struct huffmantree      *left;
-    struct huffmantree      *right;
-    int                     weight;
-    struct huffmantree      *parent;
-} huffmantree;
-
-
 static huffmantree htree[MAXSIZE];
 
 static void htree_init(void)
