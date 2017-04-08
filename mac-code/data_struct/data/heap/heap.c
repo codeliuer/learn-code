@@ -77,10 +77,17 @@ int push(void *node, CMP_t cmp)
 huffmantree *pop(CMP_t cmp)
 {
     int i = 0;
+    void *retdata = NULL;
 
     if (top == 0)
     {
+        fprintf(stderr, "heap is null\n");
+        return NULL;
     }
+
+    i = top--;
+
+
 
     return NULL;
 }
