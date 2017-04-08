@@ -42,8 +42,11 @@ static void htree_init(void)
         htree[i].left = NULL;
         htree[i].right = NULL;
         htree[i].weight = rand()%MAXSIZE+1;
+        printf("%2d-- ", htree[i].weight);
         htree[i].parent = NULL;
     }
+
+    printf("\n");
 }
 
 int main(int argc, char *argv[])

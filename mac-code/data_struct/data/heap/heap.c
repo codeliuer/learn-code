@@ -4,9 +4,7 @@
  *                   / \
  *                  O   O
  *                 / \ / \
- *                 O O O O
- *                /|/|/|/|
- *                OOOOOOOO 
+ *                O  OO   O
  * heap storage:
  *            _____________________________
  *     arr -->|NULL| | | | | | | | | | | | |
@@ -47,18 +45,13 @@ int push(void *node, CMP_t cmp)
             return HEAP_FAIL;
         }
 
-        i = ++top;
-        j = i/2;
-
-        while (i != 0 && cmp(pp[j], node) < 0)
+        for (i = ++top, j = i/2; j != 0 && cmp(pp[j], node) > 0; i = j, j = i/2)
         {
-            printf("i = %d, j = %d, top = %d\n", i, j, top);
             pp[i] = pp[j];
-            i = j;
-            j = i/2;
         }
 
         pp[i] = node;
+        printf("%2d-- ", i);
     }
     else
     {
