@@ -51,7 +51,6 @@ int push(void *node, CMP_t cmp)
         }
 
         pp[i] = node;
-        printf("%2d-- ", i);
     }
     else
     {
@@ -71,44 +70,39 @@ int push(void *node, CMP_t cmp)
 
 void *pop(CMP_t cmp)
 {
-    int i = 0;
+    int parent = 0;
+    int child = 0;
     void *retdata = NULL;
 
     if (top == 0)
     {
-        fprintf(stderr, "heap is null\n");
+        fprintf(stderr, "stack is null\n");
         return NULL;
     }
 
     retdata = pp[1];
 
-    for (i = 1; i < top; NOP)
+    for (parent = 1; 2*parent <= top; NOP)
     {
-        if (cmp(pp[2*i], pp[2*i+1]) < 0)
+        child = 2*parent;
+        if (child != top)
         {
-            if (cmp(pp[2*i], pp[top]) < 0)
+            if (cmp(pp[child], pp[child+1]) < 0)
             {
-                pp[i] = pp[2*i];
-                i *= 2;
+                if (cmp(pp[parent], pp[child]) < 0)
+                {
+                    break;
+                }
+                else
+                {
+                }
             }
             else
             {
-                pp[i] = pp[top];
-                break;
             }
         }
         else
         {
-            if (cmp(pp[2*i+1], pp[top]) < 0)
-            {
-                pp[i] = pp[2*i+1];
-                i = 2*i + 1;
-            }
-            else
-            {
-                pp[i] = pp[top];
-                break;
-            }
         }
     }
 
