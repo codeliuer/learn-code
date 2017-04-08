@@ -87,7 +87,7 @@ huffmantree *pop(CMP_t cmp)
 
     retdata = pp[1];
 
-    while (i < top)
+    for (i = 1; i < top; NOP)
     {
     }
 
