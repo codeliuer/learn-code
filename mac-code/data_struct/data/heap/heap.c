@@ -78,7 +78,9 @@ huffmantree *pop(CMP_t cmp)
 {
     int i = 0;
 
-    i = top--;
+    if (top == 0)
+    {
+    }
 
     return NULL;
 }
