@@ -85,7 +85,8 @@ huffmantree *pop(CMP_t cmp)
         return NULL;
     }
 
-    i = top--;
+    retdata = pp[1];
+
 
 
 
