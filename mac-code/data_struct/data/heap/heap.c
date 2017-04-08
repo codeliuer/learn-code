@@ -1,3 +1,13 @@
+/*
+ *                    O
+ *                   / \
+ *                  O   O
+ *                 / \ / \
+ *                 O O O O
+ *                /|/|/|/|
+ *                OOOOOOOO 
+ *
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
