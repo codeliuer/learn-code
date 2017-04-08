@@ -92,7 +92,7 @@ huffmantree *pop(CMP_t cmp)
 
     for (i = 1; i < top; NOP)
     {
-        if (cmp(pp[2*i], pp[2*i+1]))
+        if (cmp(pp[2*i], pp[2*i+1]) < 0)
         {
         }
     }
