@@ -32,12 +32,13 @@ int push(void *node, CMP_t cmp)
             return HEAP_FAIL;
         }
 
-        pp[++top] = node;
-
-        i = top;
+        i = ++top;
         j = i/2;
         while (i != 0 && cmp(pp[j], pp[i]) < 0)
         {
+            pp[i] = pp[j];
+            i = j;
+            j = i/2;
         }
     }
     else
