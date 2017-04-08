@@ -19,6 +19,9 @@
 #include "huffman.h"
 
 
+#define NOP
+
+
 typedef int (*CMP_t)(const void *, const void *);
 
 typedef struct heap_t
@@ -89,6 +92,9 @@ huffmantree *pop(CMP_t cmp)
 
     for (i = 1; i < top; NOP)
     {
+        if (cmp(pp[2*i], pp[2*i+1]))
+        {
+        }
     }
 
     return NULL;
