@@ -10,13 +10,7 @@
 #define HEAP_FAIL       (1)
 
 
-typedef struct huffmantree
-{
-    struct huffmantree      *left;
-    struct huffmantree      *right;
-    struct huffmantree      *parent;
-    int                     weight;
-} huffmantree;
+#define HEAP_VOLUME     (100)
 
 
 extern int push(huffmantree *node);
