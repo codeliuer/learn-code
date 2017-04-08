@@ -16,13 +16,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "huffman.h"
+#include "heap.h"
 
 
 #define NOP
 
-
-typedef int (*CMP_t)(const void *, const void *);
 
 typedef struct heap_t
 {
@@ -77,7 +75,7 @@ int push(void *node, CMP_t cmp)
 }
 
 
-huffmantree *pop(CMP_t cmp)
+void *pop(CMP_t cmp)
 {
     int i = 0;
     void *retdata = NULL;
@@ -94,14 +92,33 @@ huffmantree *pop(CMP_t cmp)
     {
         if (cmp(pp[2*i], pp[2*i+1]) < 0)
         {
-            pp[i] = cmp(pp[i], pp[2*i]) < 0 ? pp[i] : pp[2*i];
-            i *= 2;
+            if (cmp(pp[2*i], pp[top]) < 0)
+            {
+                pp[i] = pp[2*i];
+                i *= 2;
+            }
+            else
+            {
+                pp[i] = pp[top];
+                break;
+            }
         }
         else
         {
-            pp[i] = cmp(pp[i], pp[2*i+1]) < 0 ? pp[i] : pp[2*i+1];
+            if (cmp(pp[2*i+1], pp[top]) < 0)
+            {
+                pp[i] = pp[2*i+1];
+                i = 2*i + 1;
+            }
+            else
+            {
+                pp[i] = pp[top];
+                break;
+            }
         }
     }
 
-    return NULL;
+    top--;
+
+    return retdata;
 }

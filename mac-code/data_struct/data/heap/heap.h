@@ -13,8 +13,11 @@
 #define HEAP_VOLUME     (100)
 
 
-extern int push(huffmantree *node);
-extern huffmantree *pop(void);
+typedef int (*CMP_t)(const void *, const void *);
+
+
+extern int push(void *node, CMP_t cmp);
+extern void *pop(CMP_t cmp);
 
 
 #endif //__HUFFMAN_TREE_H__
