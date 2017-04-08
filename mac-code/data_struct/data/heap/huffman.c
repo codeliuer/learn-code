@@ -58,6 +58,8 @@ int main(int argc, char *argv[])
         heap_push(&htree[i]);
     }
 
+    printf("================================\n");
+
     for (i = 0; i < MAXSIZE; i++)
     {
         huff = heap_pop();

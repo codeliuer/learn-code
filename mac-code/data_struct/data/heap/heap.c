@@ -52,6 +52,7 @@ int push(void *node, CMP_t cmp)
 
         while (i != 0 && cmp(pp[j], node) < 0)
         {
+            printf("i = %d, j = %d, top = %d\n", i, j, top);
             pp[i] = pp[j];
             i = j;
             j = i/2;
