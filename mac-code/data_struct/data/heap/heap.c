@@ -76,5 +76,9 @@ int push(void *node, CMP_t cmp)
 
 huffmantree *pop(CMP_t cmp)
 {
+    int i = 0;
+
+    i = top--;
+
     return NULL;
 }
