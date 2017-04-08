@@ -94,7 +94,11 @@ huffmantree *pop(CMP_t cmp)
     {
         if (cmp(pp[2*i], pp[2*i+1]) < 0)
         {
-            pp[i] = cmp(pp[i], pp[2*i+1]) < 0 ? pp[2*i+1] : pp[i];
+            pp[i] = cmp(pp[i], pp[2*i]) < 0 ? pp[i] : pp[2*i];
+        }
+        else
+        {
+            pp[i] = cmp(pp[i], pp[2*i+1]) < 0 ?  :;
         }
     }
 
