@@ -45,8 +45,14 @@ int pop(void)
     retdata = arr[1];
     arr[1] = arr[top--];
 
-    for (i = 1; 2 * i <= top; NOP)
+    for (i = 1; 2*i <= top; NOP)
     {
+        if (2*i != top)
+        {
+        }
+        else
+        {
+        }
     }
 
     return retdata;
