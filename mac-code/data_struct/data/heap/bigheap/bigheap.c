@@ -5,6 +5,8 @@
 
 #define NOP         /* null operator */
 
+#define SWAP(a, b)      {int t = a; a = b; b = t;}
+
 
 int arr[21] = {0};
 int top = 0;
@@ -49,6 +51,7 @@ int pop(void)
     {
         if (2*i != top)
         {
+
         }
         else
         {
