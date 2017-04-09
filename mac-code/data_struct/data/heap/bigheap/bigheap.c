@@ -43,48 +43,10 @@ int pop(void)
     }
 
     retdata = arr[1];
+    arr[1] = arr[top--];
 
-    for (i = 1; 2*i+1 < top; NOP)
+    for (i = 1; 2 * i <= top; NOP)
     {
-        if (arr[2*i] > arr[2*i+1])
-        {
-            if (arr[2*i] > arr[top])
-            {
-                arr[i] = arr[2*i];
-                i *= 2;
-            }
-            else
-            {
-                arr[i] = arr[top--];
-                return retdata;
-            }
-        }
-        else
-        {
-            if (arr[2*i+1] > arr[top])
-            {
-                arr[i] = arr[2*i+1];
-                i = 2*i + 1;
-            }
-            else
-            {
-                arr[i] = arr[top--];
-                return retdata;
-            }
-        }
-    }
-
-    if (2*i < top && 2*i+1 == top)
-    {
-        if (arr[top] > arr[2*i])
-        {
-            arr[i] = arr[top];
-        }
-        else
-        {
-            arr[i] = arr[2*i];
-            arr[2*i] = arr[top];
-        }
     }
 
     return retdata;
