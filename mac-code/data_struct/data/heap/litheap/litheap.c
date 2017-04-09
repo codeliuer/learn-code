@@ -36,6 +36,7 @@ int push(int value)
 int pop(void)
 {
     int i = 0;
+    int value = 0;
     int retdata = 0;
 
     if (top == 0)
@@ -45,7 +46,7 @@ int pop(void)
     }
 
     retdata = arr[1];
-    arr[1] = arr[top--];
+    value = arr[top--];
 
     for (i = 1; 2*i <= top; NOP)
     {
@@ -53,39 +54,53 @@ int pop(void)
         {
             if (arr[2*i] > arr[2*i+1])
             {
-                if (arr[2*i] > arr[i])
+                if (arr[2*i] > value)
                 {
-                    SWAP(arr[2*i], arr[i]);
+                    arr[i] = arr[2*i];
                     i *= 2;
                 }
                 else
                 {
+                    arr[i] = value;
                     break;
                 }
             }
             else
             {
-                if (arr[2*i+1] > arr[i])
+                if (arr[2*i+1] > value)
                 {
-                    SWAP(arr[2*i+1], arr[i]);
+                    arr[i] = arr[2*i+1];
                     i = 2*i + 1;
                 }
                 else
                 {
+                    arr[i] = value;
                     break;
                 }
             }
         }
         else
         {
-            if (arr[2*i] > arr[i])
+            if (arr[2*i] > value)
             {
-                SWAP(arr[2*i], arr[i]);
+                arr[i] = arr[2*i];
+                arr[2*i] = value;
+            }
+            else
+            {
+                arr[i] = value;
             }
 
             break;
         }
     }
+
+    printf("retdata = %d --", retdata);
+    for (i = 1; i <= top; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
 
     return retdata;
 }
@@ -101,11 +116,18 @@ int main(int argc, char *argv[])
         push(a[i]);
     }
 
-    for (i = 0; i < sizeof(a)/sizeof(a[0]); i++)
+    for (i = 1; i < sizeof(arr)/sizeof(arr[0]); i++)
     {
-        printf("%2d--", pop());
+        printf("%d--", arr[i]);
     }
     printf("\n");
+
+    for (i = 0; i < sizeof(a)/sizeof(a[0]); i++)
+    {
+        pop();
+        //printf("%2d--", pop());
+    }
+//    printf("\n");
 
     return EXIT_SUCCESS;
 }
