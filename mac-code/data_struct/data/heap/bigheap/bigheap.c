@@ -56,7 +56,7 @@ int pop(void)
             else
             {
                 arr[i] = arr[top--];
-                break;
+                return retdata;
             }
         }
         else
