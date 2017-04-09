@@ -51,7 +51,21 @@ int pop(void)
     {
         if (2*i != top)
         {
+            if (arr[2*i] > arr[2*i+1])
+            {
+                if (arr[2*i] > arr[i])
+                {
+                    SWAP(arr[2*i], arr[i]);
+                    i *= 2;
+                }
+                else
+                {
 
+                }
+            }
+            else
+            {
+            }
         }
         else
         {
