@@ -12,8 +12,13 @@ int main(int argc, char *argv[])
 {
     int i = 0;
     int nums = 0;
+    int *arr = NULL;
 
     scanf("%d", &nums);
+
+    arr = (int *)malloc(sizeof(*arr) * nums);
+
+    srand(time(NULL));
 
     for (i = 0; i < nums; i++)
     {
