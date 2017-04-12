@@ -15,5 +15,9 @@ int main(int argc, char *argv[])
 
     scanf("%d", &nums);
 
+    for (i = 0; i < nums; i++)
+    {
+    }
+
     return EXIT_SUCCESS;
 }
