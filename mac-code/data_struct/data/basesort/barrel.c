@@ -17,11 +17,17 @@ int main(int argc, char *argv[])
     scanf("%d", &nums);
 
     arr = (int *)malloc(sizeof(*arr) * nums);
+    if (arr == NULL)
+    {
+        fprintf(stderr, "malloc failure\n");
+        return EXIT_FAILURE;
+    }
 
     srand(time(NULL));
 
     for (i = 0; i < nums; i++)
     {
+        arr[i] = rand()%10000;
     }
 
     return EXIT_SUCCESS;
