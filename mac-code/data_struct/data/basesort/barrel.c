@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
     int nums = 0;
     int *arr = NULL;
 
+    printf("Enter base sort nums = ");
     scanf("%d", &nums);
 
     arr = (int *)malloc(sizeof(*arr) * nums);
