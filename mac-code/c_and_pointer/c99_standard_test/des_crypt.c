@@ -16,7 +16,7 @@ void des_encrypt(const char *key, char *data, int len)
 
     do {
         data[len++] = '\x8';
-    } while (len % 8 != 0)
+    } while (len % 8 != 0);
 
     ecb_crypt(pkey, data, len, DES_ENCRYPT);
 }
