@@ -24,8 +24,16 @@ void des_encrypt(const char *key, char *data, int len)
 
 int main(int argc, char *argv[])
 {
+    int i = 0;
     const char key[] = "12345678";
     char data[] = "12345678";
+
+    des_encrypt(key, data, 8);
+    
+    for (i = 0; i < 8; i++)
+    {
+        printf("%x", data[i]);
+    }
 
     return EXIT_SUCCESS;
 }
