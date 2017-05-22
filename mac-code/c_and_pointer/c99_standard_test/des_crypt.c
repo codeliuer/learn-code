@@ -21,6 +21,15 @@ void des_encrypt(const char *key, char *data, int len)
     ecb_crypt(pkey, data, len, DES_ENCRYPT);
 }
 
+static void show(const char *data, int len)
+{
+    int i = 0;
+
+    for (i = 0; i < len; i++)
+    {
+        printf("%x", *(unsigned char *)&data[i]);
+    }
+}
 
 int main(int argc, char *argv[])
 {
@@ -30,11 +39,5 @@ int main(int argc, char *argv[])
 
     des_encrypt(key, data, 8);
     
-    for (i = 0; i < 8; i++)
-    {
-        printf("%x", *(unsigned char *)&data[i]);
-    }
-    printf("\n");
-
     return EXIT_SUCCESS;
 }
