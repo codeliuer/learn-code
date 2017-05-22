@@ -33,9 +33,8 @@ static void show(const char *data, int len)
 
 int main(int argc, char *argv[])
 {
-    int i = 0;
     const char key[] = "12345678";
-    char data[100] = "12345678";
+    char *data = NULL;
 
     des_encrypt(key, data, 8);
     
