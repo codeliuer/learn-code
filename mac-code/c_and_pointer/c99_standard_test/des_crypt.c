@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     int fin, fout1, fout2;
     const char key[] = "12345678";
     char *data = NULL;
+    struct stat st;
 
     fin = open("pragma.c", O_RDONLY);
     if (fin < 0)
@@ -43,6 +44,9 @@ int main(int argc, char *argv[])
         fprintf(stderr, "open pragma.c failure\n");
         return EXIT_FAILURE;
     }
+
+    fstat(fin, &st);
+    data = (char *)malloc(st.st_size + 8);
 
     read(fin, );
 
