@@ -9,7 +9,7 @@
 
 void des_encrypt(const char *key, char *data, int len)
 {
-    char pkey[8] = {0};
+    char pkey[10] = {0};
     strncpy(pkey, key, 8);
 
     des_setparity(pkey);
@@ -24,5 +24,8 @@ void des_encrypt(const char *key, char *data, int len)
 
 int main(int argc, char *argv[])
 {
+    const char key[] = "12345678";
+    char data[] = "12345678";
+
     return EXIT_SUCCESS;
 }
