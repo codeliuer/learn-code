@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <rpc/des_crypt.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 
 void des_encrypt(const char *key, char *data, int len)
@@ -48,9 +50,11 @@ int main(int argc, char *argv[])
     fstat(fin, &st);
     data = (char *)malloc(st.st_size + 8);
 
-    read(fin, );
+    read(fin, data, st.st_size);
 
-    des_encrypt(key, data, 8);
+    des_encrypt(key, data, st.st_size);
+
+    show(data, 10)
     
     return EXIT_SUCCESS;
 }
