@@ -26,14 +26,15 @@ int main(int argc, char *argv[])
 {
     int i = 0;
     const char key[] = "12345678";
-    char data[] = "12345678";
+    char data[100] = "12345678";
 
     des_encrypt(key, data, 8);
     
-    for (i = 0; i < 8; i++)
+    putchar(data[0]);
+/*    for (i = 0; i < 8; i++)
     {
         printf("%x", data[i]);
-    }
+    }*/
     printf("\n");
 
     return EXIT_SUCCESS;
