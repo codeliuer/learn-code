@@ -30,11 +30,10 @@ int main(int argc, char *argv[])
 
     des_encrypt(key, data, 8);
     
-    putchar(data[0]);
-/*    for (i = 0; i < 8; i++)
+    for (i = 0; i < 8; i++)
     {
         printf("%x", data[i]);
-    }*/
+    }
     printf("\n");
 
     return EXIT_SUCCESS;
