@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     const char key[] = "12345678";
     char data[100] = "12345678";
 
-//    des_encrypt(key, data, 8);
+    des_encrypt(key, data, 8);
     
     for (i = 0; i < 8; i++)
     {
