@@ -33,6 +33,7 @@ static void show(const char *data, int len)
 
 int main(int argc, char *argv[])
 {
+    int fin, fout1, fout2;
     const char key[] = "12345678";
     char *data = NULL;
 
