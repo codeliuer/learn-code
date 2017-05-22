@@ -37,6 +37,8 @@ int main(int argc, char *argv[])
     const char key[] = "12345678";
     char *data = NULL;
 
+    fin = open("pragma.c", O_RDONLY);
+
     des_encrypt(key, data, 8);
     
     return EXIT_SUCCESS;
