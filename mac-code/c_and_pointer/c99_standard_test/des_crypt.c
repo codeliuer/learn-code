@@ -7,6 +7,11 @@
 #include <rpc/des_crypt.h>
 
 
+void des_encrypt(const char *key, char *data, int len)
+{
+}
+
+
 int main(int argc, char *argv[])
 {
     return EXIT_SUCCESS;
