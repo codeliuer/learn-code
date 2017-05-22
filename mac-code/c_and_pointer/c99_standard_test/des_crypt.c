@@ -38,6 +38,13 @@ int main(int argc, char *argv[])
     char *data = NULL;
 
     fin = open("pragma.c", O_RDONLY);
+    if (fin < 0)
+    {
+        fprintf(stderr, "open pragma.c failure\n");
+        return EXIT_FAILURE;
+    }
+
+    read(fin, );
 
     des_encrypt(key, data, 8);
     
