@@ -31,6 +31,7 @@ static void show(const char *data, int len)
     {
         printf("%x", *(unsigned char *)&data[i]);
     }
+    printf("\n");
 }
 
 int main(int argc, char *argv[])
@@ -52,8 +53,8 @@ int main(int argc, char *argv[])
 
     read(fin, data, st.st_size);
 
+    show(data, 10);
     des_encrypt(key, data, st.st_size);
-
     show(data, 10);
     
     return EXIT_SUCCESS;
