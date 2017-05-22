@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
     {
         printf("%x", data[i]);
     }
+    printf("\n");
 
     return EXIT_SUCCESS;
 }
