@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 
     des_encrypt(key, data, st.st_size);
 
-    show(data, 10)
+    show(data, 10);
     
     return EXIT_SUCCESS;
 }
