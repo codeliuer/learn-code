@@ -9,6 +9,16 @@
 
 void des_encrypt(const char *key, char *data, int len)
 {
+    char pkey[8] = {0};
+    strncpy(pkey, key, 8);
+
+    des_setparity(pkey);
+
+    do {
+        data[len++] = '\x8';
+    } while (len % 8 != 0)
+
+    ecb_crypt(pkey, data, len, DES_ENCRYPT);
 }
 
 
