@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     }
 
     fd = dirfd(dir);
-    if (fd < 0)
+    if (fd < 0 )
     {
     }
 
