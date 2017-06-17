@@ -11,9 +11,7 @@ int main(int argc, char *argv[])
 {
     int fd = 0;
 
-    errno = 0;
-
-    fd = open("/Users/weiliu/learn-code/test.text", O_WRONLY);
+    fd = open("/Users/parallels/learn-code/test.text", O_WRONLY);
     if (fd < 0)
     {
         perror("open failure: ");
