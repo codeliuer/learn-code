@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
     errno = 0;
 
-    dir = opendir("/home/");
+    dir = opendir("/home/parallels");
     if (dir == NULL)
     {
         perror("opendir failure");
@@ -30,7 +30,8 @@ int main(int argc, char *argv[])
     fd = dirfd(dir);
     if (fd < 0 )
     {
-        fprintf(stderr, "dirfd failure\n");
+        perror("dirfd failure");
+//        fprintf(stderr, "dirfd failure\n");
         return EXIT_FAILURE;
     }
 
