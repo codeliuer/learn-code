@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     dir = opendir("/home/parallels");
     if (dir == NULL)
     {
-        perror("opendir failure");
+        perror("opendir failure ");
 //        fprintf(stderr, "opendir failure\n");
         return EXIT_FAILURE;
     }
@@ -30,15 +30,16 @@ int main(int argc, char *argv[])
     fd = dirfd(dir);
     if (fd < 0 )
     {
-        perror("dirfd failure");
+        perror("dirfd failure ");
 //        fprintf(stderr, "dirfd failure\n");
         return EXIT_FAILURE;
     }
 
-    fifofd = mkfifoat(fd, "./learn-code", 0644);
+    fifofd = mkfifoat(fd, "./learn-code/test.txt", 0644);
     if (fifofd < 0)
     {
-        fprintf(stderr, "mkfifofd failure\n");
+        perror("mkfifoat failure ");
+//        fprintf(stderr, "mkfifofd failure\n");
         return EXIT_FAILURE;
     }
 
