@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
     int fd = 0;
 
-    fd = open("test.text", O_WRONLY);
+    fd = open("test.txt", O_WRONLY);
     if (fd < 0)
     {
         perror("open failure: ");
