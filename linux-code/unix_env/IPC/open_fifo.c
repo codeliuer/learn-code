@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
 {
     int fd = 0;
 
-    printf("%ld\n", PIPE_BUF);
+    printf("%d\n", PIPE_BUF);
 
-    fd = open("test.txt", O_WRONLY);
+    fd = open("test.txt", O_RDWR);
     if (fd < 0)
     {
         perror("open failure: ");
