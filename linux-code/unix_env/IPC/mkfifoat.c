@@ -23,6 +23,8 @@ int main(int argc, char *argv[])
     fd = dirfd(dir);
     if (fd < 0 )
     {
+        fprintf(stderr, "dirfd failure\n");
+        return EXIT_FAILURE;
     }
 
     return EXIT_SUCCESS;
