@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/stat.h>
+#include <fcntl.h>
 
 
 int main(int argc, char *argv[])
@@ -34,7 +35,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    printf("fifofd = %d\n", fifoat);
+    printf("fifofd = %d\n", fifofd);
 
     return EXIT_SUCCESS;
 }
