@@ -28,7 +28,13 @@ int main(int argc, char *argv[])
     }
 
     fifofd = mkfifoat(fd, "./learn-code", "w");
-    if ()
+    if (fifofd < 0)
+    {
+        fprintf(stderr, "mkfifofd failure\n");
+        return EXIT_FAILURE;
+    }
+
+    printf("fifofd = %d\n", fifoat);
 
     return EXIT_SUCCESS;
 }
