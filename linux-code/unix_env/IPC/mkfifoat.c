@@ -19,10 +19,11 @@ int main(int argc, char *argv[])
 
     errno = 0;
 
-    dir = opendir("/Users/weiliu/");
+    dir = opendir("/home/");
     if (dir == NULL)
     {
-        fprintf(stderr, "opendir failure: %s\n", stderror(errno));
+        perror("opendir failure");
+//        fprintf(stderr, "opendir failure\n");
         return EXIT_FAILURE;
     }
 
