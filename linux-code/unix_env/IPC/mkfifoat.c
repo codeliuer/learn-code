@@ -27,7 +27,8 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    fifofd = mkfifoat(fd, "");
+    fifofd = mkfifoat(fd, "./learn-code", "w");
+    if ()
 
     return EXIT_SUCCESS;
 }
