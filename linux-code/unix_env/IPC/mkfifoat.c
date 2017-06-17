@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     int fifofd = 0;
     DIR *dir = NULL;
 
-    dir = opendir("/Users/weiliu");
+    dir = opendir("/Users/weiliu/");
     if (dir == NULL)
     {
         fprintf(stderr, "opendir failure\n");
@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
         fprintf(stderr, "dirfd failure\n");
         return EXIT_FAILURE;
     }
+
+    fifofd = mkfifoat(fd, "");
 
     return EXIT_SUCCESS;
 }
