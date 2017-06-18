@@ -12,8 +12,16 @@
 int main(int argc, char *argv[])
 {
     key_t key = 0;
+    int msgid = 0;;
     
     key = ftok("/home/parallels", 1);
+    if (key < 0)
+    {
+        perror("ftok failure: ");
+        return EXIT_FAILURE;
+    }
+
+    msgid = msgget(key, );
 
     return EXIT_SUCCESS;
 }
