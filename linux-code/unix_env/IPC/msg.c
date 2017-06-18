@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    msgid = msgget(key, );
+    msgid = msgget(key, IPC_CREAT | IPC_EXCL);
 
     return EXIT_SUCCESS;
 }
