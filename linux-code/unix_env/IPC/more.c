@@ -12,6 +12,12 @@ int main(int argc, char *argv[])
     int fds[2] = {0};
     pid_t pid;
 
+    if (argc < 2)
+    {
+        fprintf(stderr, "Usage: ./a.out filename\n");
+        return EXIT_FAILURE;
+    }
+
     if (pipe(fds) < 0)
     {
         perror("pipe failure: ");
