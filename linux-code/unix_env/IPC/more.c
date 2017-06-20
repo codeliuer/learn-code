@@ -18,5 +18,18 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    if ((pid = fork()) < 0)
+    {
+        perror("fork failure: ");
+        close(fds[0]), close(fds[1]);
+        return EXIT_FAILURE;
+    }
+    else if (pid == 0)
+    {
+    }
+    else
+    {
+    }
+
     return EXIT_SUCCESS;
 }
