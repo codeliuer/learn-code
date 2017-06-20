@@ -29,6 +29,13 @@ int main(int argc, char *argv[])
     }
     else
     {
+        char buffer[BUFSIZ] = "";
+
+        close(fds[0]);
+        while (read(STDIN_FILENO, buffer, sizeof(buffer)) > 0)
+        {
+            write(fds[1], buffer, );
+        }
     }
 
     return EXIT_SUCCESS;
