@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
     }
     else if (pid == 0)
     {
+        close(fds[1]);
     }
     else
     {
@@ -38,6 +39,7 @@ int main(int argc, char *argv[])
             if (write(fds[1], buffer, len) != len)
             {
                 perror("write failure: ");
+                close(fds[1]);
                 return EXIT_FAILURE;
             }
         }
