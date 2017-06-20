@@ -6,6 +6,9 @@
 #include <fcntl.h>
 #include <string.h>
 
+#define MAXLINE             (1024)
+#define DEF_PAGER           "/bin/more"
+
 
 int main(int argc, char *argv[])
 {
@@ -55,7 +58,7 @@ int main(int argc, char *argv[])
         {
             pager = DEF_PAGER;
         }
-        if (argv0 == strchr(pager, '/') != NULL)
+        if ((argv0 = strchr(pager, '/')) != NULL)
         {
             argv0++;
         }
