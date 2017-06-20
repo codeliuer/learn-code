@@ -29,12 +29,17 @@ int main(int argc, char *argv[])
     }
     else
     {
+        ssize_t len = 0;
         char buffer[BUFSIZ] = "";
 
         close(fds[0]);
-        while (read(STDIN_FILENO, buffer, sizeof(buffer)) > 0)
+        while ((len = read(STDIN_FILENO, buffer, sizeof(buffer))) > 0)
         {
-            write(fds[1], buffer, );
+            if (write(fds[1], buffer, len) != len)
+            {
+                perror("write failure: ");
+                return EXIT_FAILURE;
+            }
         }
     }
 
