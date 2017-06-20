@@ -52,7 +52,6 @@ int main(int argc, char *argv[])
     }
     else
     {
-        ssize_t len = 0;
         char buffer[BUFSIZ] = "";
         FILE *fp = NULL;
 
