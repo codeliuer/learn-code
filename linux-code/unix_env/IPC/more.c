@@ -65,8 +65,9 @@ int main(int argc, char *argv[])
             return EXIT_FAILURE;
         }
 
-        while (fgets() != NULL)
+        while (fgets(buffer, sizeof(buffer), fp) != NULL)
         {
+            write(fds[1], buffer, strlen(buffer));
         }
     }
 
