@@ -27,6 +27,17 @@ int main(int argc, char *argv[])
     else if (pid == 0)
     {
         close(fds[1]);
+        if (fds[0] != STDIN_FILENO)
+        {
+            if (dup2(fds[0], STDIN_FILENO) < 0)
+            {
+                perror("dup2 failure: ");
+                close(fds[0]);
+                return EXIT_FAILURE;
+            }
+        }
+
+        execl("");
     }
     else
     {
