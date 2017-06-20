@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
             close(fds[0]);
         }
 
-        execl("/bin/more", argv[1], (char *)0);
+        //execl("/bin/more", argv[1], (char *)0);
 
         perror("execl failure");
         close(fds[0]);
