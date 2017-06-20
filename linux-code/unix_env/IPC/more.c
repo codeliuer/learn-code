@@ -69,6 +69,8 @@ int main(int argc, char *argv[])
         {
             write(fds[1], buffer, strlen(buffer));
         }
+
+        fclose(fp);
     }
 
     return EXIT_SUCCESS;
