@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
             close(fds[0]);
         }
 
-        execl("/bin/more", argv[0], (char *)0);
+        execl("/bin/more", argv[1], (char *)0);
 
         perror("execl failure");
         close(fds[0]);
@@ -57,6 +57,17 @@ int main(int argc, char *argv[])
         FILE *fp = NULL;
 
         close(fds[0]);
+
+        fp = fopen(argv[1], "r");
+        if (fp == NULL)
+        {
+            perror("fopen failure: ");
+            return EXIT_FAILURE;
+        }
+
+        while (fgets() != NULL)
+        {
+        }
     }
 
     return EXIT_SUCCESS;
