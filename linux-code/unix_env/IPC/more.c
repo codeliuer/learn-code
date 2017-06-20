@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
             close(fds[0]);
         }
 
-        execl("/bin/more", "more", (char *)0);
+        execl("/bin/more", argv[0], (char *)0);
 
         perror("execl failure");
         close(fds[0]);
@@ -54,17 +54,9 @@ int main(int argc, char *argv[])
     {
         ssize_t len = 0;
         char buffer[BUFSIZ] = "";
+        FILE *fp = NULL;
 
         close(fds[0]);
-        while ((len = read(STDIN_FILENO, buffer, sizeof(buffer))) > 0)
-        {
-            if (write(fds[1], buffer, len) != len)
-            {
-                perror("write failure: ");
-                close(fds[1]);
-                return EXIT_FAILURE;
-            }
-        }
     }
 
     return EXIT_SUCCESS;
