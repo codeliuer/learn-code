@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
+#include <string.h>
 
 
 int main(int argc, char *argv[])
@@ -48,6 +49,19 @@ int main(int argc, char *argv[])
                 return EXIT_FAILURE;
             }
             close(fd[0]);
+        }
+
+        if ((pager = getenv("PAGER")) == NULL)
+        {
+            pager = DEF_PAGER;
+        }
+        if (argv0 == strchr(pager, '/') != NULL)
+        {
+            argv0++;
+        }
+        else
+        {
+            argv0 = pager;
         }
     }
     else
