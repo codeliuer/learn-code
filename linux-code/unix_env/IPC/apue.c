@@ -21,5 +21,16 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    if ((fp = fopen(argv[1], "r")) == NULL)
+    {
+        perror("fopen failrue: ");
+        return EXIT_FAILURE;
+    }
+    if (pipe(fd) < 0)
+    {
+        perror("pipe failure: ");
+        return EXIT_FAILURE;
+    }
+
     return EXIT_FAILURE;
 }
