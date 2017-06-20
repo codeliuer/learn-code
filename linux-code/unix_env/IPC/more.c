@@ -37,7 +37,11 @@ int main(int argc, char *argv[])
             }
         }
 
-        execl("");
+        execl("/bin/more", "more", (char *)0);
+
+        perror("execl failure");
+        close(fds[0]);
+        return EXIT_FAILURE;
     }
     else
     {
