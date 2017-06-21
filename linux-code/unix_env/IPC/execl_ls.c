@@ -7,7 +7,7 @@
 
 int main(int argc, char *argv[])
 {
-    execl("/usr/bin/who", "bin/ls", (char *)0);
+    execl("/usr/bin/who", "", (char *)0);
 
     return EXIT_SUCCESS;
 }
