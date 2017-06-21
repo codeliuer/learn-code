@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     }
     else if (pid == 0)
     {
+        execl("./a.out", "a.out", (char *)0);
     }
     else
     {
