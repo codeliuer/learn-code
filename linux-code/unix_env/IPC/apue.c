@@ -66,9 +66,31 @@ int main(int argc, char *argv[])
         {
             argv0 = pager;
         }
+        printf("pager: %s, argv0: %s\n", pager, argv0);
+
+        execl(pager, argv0, (char *)0);
     }
     else
     {
+        close(fd[0]);
+
+        while (fgets(line, MAXLINE, fp) != NULL)
+        {
+            n = strlen(line);
+            if (write(fd[1], line, n) != n)
+            {
+                perror("write failure: ");
+                return EXIT_FAILURE;
+            }
+        }
+
+        fclose(fp);
+        if (waitpid(pid, NULL, 0) < 0)
+        {
+            perror("waitpid failure: ");
+            return EXIT_FAILURE;
+        }
+        exit(0);
     }
 
     return EXIT_FAILURE;

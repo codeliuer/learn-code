@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 
 
 int main(int argc, char *argv[])
@@ -44,7 +45,7 @@ int main(int argc, char *argv[])
             close(fds[0]);
         }
 
-        execl("/bin/more", "more", (char *)0);
+        execl("/bin/more", "/bin/more", (char *)0);
 
         perror("execl failure");
         close(fds[0]);
@@ -70,6 +71,8 @@ int main(int argc, char *argv[])
         }
 
         fclose(fp);
+
+        waitpid(pid, NULL, 0);
     }
 
     return EXIT_SUCCESS;
