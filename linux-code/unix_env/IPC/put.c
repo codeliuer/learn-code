@@ -5,5 +5,9 @@
 
 int main(int argc, char *argv[])
 {
+    char buffer[BUFSIZ] = "";
+
+    read(STDIN_FILENO, )
+
     return EXIT_SUCCESS;
 }
