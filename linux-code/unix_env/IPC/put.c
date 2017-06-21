@@ -7,7 +7,9 @@
 
 int main(int argc, char *argv[])
 {
-    write(STDOUT_FILENO, "12345\n", 6);
+    setbuf();
+
+    fprintf(stdout, "hello\n");
 
     _exit(EXIT_FAILURE);
 }
