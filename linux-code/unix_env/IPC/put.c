@@ -7,7 +7,9 @@
 
 int main(int argc, char *argv[])
 {
-    setbuf();
+    char buffer[BUFSIZ] = "";
+
+    setvbuf(stdout, buffer, _IOFBF, sizeof(buffer));
 
     fprintf(stdout, "hello\n");
 
