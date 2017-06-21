@@ -7,9 +7,7 @@
 
 int main(int argc, char *argv[])
 {
-    char buffer[BUFSIZ] = "";
-
     write(STDOUT_FILENO, "12345\n", 6);
 
-    return EXIT_SUCCESS;
+    _exit(EXIT_FAILURE);
 }
