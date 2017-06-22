@@ -12,11 +12,11 @@
 
 static int fetch(void)
 {
-    int fd = 0;
     int id = 0;
+    FILE *fp = NULL;
 
-    fd = open(MIDFILE, O_RDONLY);
-    if (fd < 0)
+    fp = fopen(MIDFILE, "r");
+    if (fp != NULL)
     {
         perror("open failure: ");
         return EXIT_SUCCESS;
