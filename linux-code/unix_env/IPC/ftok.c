@@ -14,6 +14,7 @@
 static int saveid(int id)
 {
     int fd = 0;
+    ssize_t len = 0;
     char buffer[20] = "";
 
     fd = open(MIDFILE, O_CREAT|O_RDWR, 0666);
@@ -24,8 +25,11 @@ static int saveid(int id)
     }
 
     sprintf(buffer, "%d", fd);
-    if (write(fd, buffer, strlen(buffer)) < 0)
+    len = strlen(buffer);
+    if (write(fd, buffer, len) != len)
     {
+        perror("write failure: ");
+        return EXIT_FAILURE;
     }
 
     return EXIT_SUCCESS;
