@@ -41,7 +41,7 @@ static int fetch(void)
 int main(int argc, char *argv[])
 {
     int msgid;
-    struct msgbuf msgbuf;
+    struct msgbuf msgbuf = {0};
 
     if ((msgid = fetch()) < 0)
     {
