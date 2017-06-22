@@ -8,12 +8,19 @@
 #include <sys/msg.h>
 
 
+#define MIDFILE         "midfile"
+
 static int fetch(void)
 {
     int fd = 0;
     int id = 0;
 
-    fd = open();
+    fd = open(MIDFILE, O_RDONLY);
+    if (fd < 0)
+    {
+        perror("open failure: ");
+        return EXIT_SUCCESS;
+    }
 }
 
 int main(int argc, char *argv[])
