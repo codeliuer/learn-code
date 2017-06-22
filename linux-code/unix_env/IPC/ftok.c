@@ -32,6 +32,8 @@ static int saveid(int id)
         return EXIT_FAILURE;
     }
 
+    close(fd);
+
     return EXIT_SUCCESS;
 }
 
@@ -51,6 +53,8 @@ int main(int argc, char *argv[])
         fprintf(stderr, "saveid failure: \n");
         return EXIT_FAILURE;
     }
+
+    msgsnd();
 
     return EXIT_SUCCESS;
 }
