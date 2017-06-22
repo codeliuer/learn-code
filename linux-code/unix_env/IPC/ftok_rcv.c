@@ -23,7 +23,6 @@ static int fetch(void)
         return EXIT_SUCCESS;
     }
 
-    fgets()
 }
 
 int main(int argc, char *argv[])
