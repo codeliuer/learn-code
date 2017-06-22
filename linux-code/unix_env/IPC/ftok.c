@@ -11,6 +11,12 @@
 
 #define MIDFILE         "midfile"
 
+struct msgbuf
+{
+    long mtype;
+    char mtext[20];
+};
+
 static int saveid(int id)
 {
     int fd = 0;
@@ -43,6 +49,7 @@ int main(int argc, char *argv[])
     struct msgbuf msgbuf;
 
     msgid = msgget(IPC_PRIVATE, IPC_CREAT|0666);
+    printf("msgid = %d\n", msgid);
     if (msgid < 0)
     {
         perror("msgget failure: ");
