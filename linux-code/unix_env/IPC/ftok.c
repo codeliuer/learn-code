@@ -40,6 +40,7 @@ static int saveid(int id)
 int main(int argc, char *argv[])
 {
     int msgid;
+    struct msgbuf msgbuf;
 
     msgid = msgget(IPC_PRIVATE, IPC_CREAT|0666);
     if (msgid < 0)
@@ -54,6 +55,8 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    msgbuf.mtype = 1;
+    strcpy(msgbuf.mtext, "hello world";
     msgsnd();
 
     return EXIT_SUCCESS;
