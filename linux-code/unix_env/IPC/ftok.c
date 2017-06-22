@@ -18,7 +18,12 @@ int main(int argc, char *argv[])
     msgid = msgget(key, IPC_CREAT|0666);
     printf("msgid = %d\n", msgid);
 
-    msgctl();
+    msgctl(msgid, IPC_RMID, NULL);
+
+    msgid = msgget(key, IPC_CREAT|0666);
+    printf("msgid = %d\n", msgid);
+
+    msgctl(msgid, IPC_RMID, NULL);
 
     return EXIT_SUCCESS;
 }
