@@ -10,6 +10,9 @@
 
 static int saveid(int id)
 {
+    int fd = 0;
+
+    return 0;
 }
 
 int main(int argc, char *argv[])
