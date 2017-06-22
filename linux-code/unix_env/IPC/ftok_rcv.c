@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    if (msgrcv(msgid, &msgbuf, 20, 0) < 0)
+    if (msgrcv(msgid, &msgbuf, 20, 0, 0) < 0)
     {
         perror("msgrcv failure: ");
         return EXIT_FAILURE;
