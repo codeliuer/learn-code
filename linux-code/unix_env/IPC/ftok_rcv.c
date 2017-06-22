@@ -14,6 +14,7 @@ static int fetch(void)
 {
     int id = 0;
     FILE *fp = NULL;
+    char buffer[BUFSIZ] = "";
 
     fp = fopen(MIDFILE, "r");
     if (fp != NULL)
@@ -22,7 +23,7 @@ static int fetch(void)
         return EXIT_SUCCESS;
     }
 
-    fwrite();
+    fgets()
 }
 
 int main(int argc, char *argv[])
