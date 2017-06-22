@@ -8,6 +8,10 @@
 #include <sys/types.h>
 
 
+static int saveid(int id)
+{
+}
+
 int main(int argc, char *argv[])
 {
     int msgid;
@@ -19,7 +23,11 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    write();
+    if (saveid(msgid) < 0)
+    {
+        fprintf(stderr, "saveid failure: \n");
+        return EXIT_FAILURE;
+    }
 
     return EXIT_SUCCESS;
 }
