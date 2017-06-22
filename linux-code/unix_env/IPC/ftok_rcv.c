@@ -21,6 +21,8 @@ static int fetch(void)
         perror("open failure: ");
         return EXIT_SUCCESS;
     }
+
+    fwrite();
 }
 
 int main(int argc, char *argv[])
