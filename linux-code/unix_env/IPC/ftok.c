@@ -13,14 +13,12 @@ int main(int argc, char *argv[])
     key_t key;
     int msgid;
 
-    key = ftok("/home/parallels/", 3);
-
-    msgid = msgget(key, IPC_CREAT|0666);
+    msgid = msgget(IPC_PRIVATE, IPC_CREAT|0666);
     printf("msgid = %d\n", msgid);
 
     msgctl(msgid, IPC_RMID, NULL);
 
-    msgid = msgget(key, IPC_CREAT|0666);
+    msgid = msgget(IPC_PRIVATE, IPC_CREAT|0666);
     printf("msgid = %d\n", msgid);
 
     msgctl(msgid, IPC_RMID, NULL);
