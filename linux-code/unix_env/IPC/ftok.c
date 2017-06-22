@@ -1,4 +1,4 @@
-#include <stdio.h>
+#nclude <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -14,14 +14,11 @@ int main(int argc, char *argv[])
     int msgid;
 
     msgid = msgget(IPC_PRIVATE, IPC_CREAT|0666);
-    printf("msgid = %d\n", msgid);
-
-    msgctl(msgid, IPC_RMID, NULL);
-
-    msgid = msgget(IPC_PRIVATE, IPC_CREAT|0666);
-    printf("msgid = %d\n", msgid);
-
-    msgctl(msgid, IPC_RMID, NULL);
+    if (msgid < 0)
+    {
+        perror("msgget failure: ");
+        return EXIT_FAILURE;
+    }
 
     return EXIT_SUCCESS;
 }
