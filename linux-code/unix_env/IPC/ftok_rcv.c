@@ -22,6 +22,16 @@ static int fetch(void)
         perror("open failure: ");
         return EXIT_FAILURE;
     }
+
+    if (read(fd, buffer, sizeof(buffer)) < 0)
+    {
+        perror("read failure: ");
+        return EXIT_FAILURE;
+    }
+
+    id = atoi(buffer);
+
+    return id;
 }
 
 int main(int argc, char *argv[])
