@@ -58,6 +58,10 @@ int main(int argc, char *argv[])
     msgbuf.mtype = 1;
     strcpy(msgbuf.mtext, "hello world!");
     if (msgsnd(msgid, &msgbuf, strlen(msgbuf.mtext), 0) < 0)
+    {
+        perror("msgsnd failure: ");
+        return EXIT_FAILURE;
+    }
 
     return EXIT_SUCCESS;
 }
