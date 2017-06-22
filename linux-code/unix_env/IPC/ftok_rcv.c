@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
+#include <sys/types.h>
 
 
 #define MIDFILE         "midfile"
@@ -40,6 +41,7 @@ static int fetch(void)
 int main(int argc, char *argv[])
 {
     int msgid;
+    struct msgbuf msgbuf;
 
     if ((msgid = fetch()) < 0)
     {
@@ -52,6 +54,8 @@ int main(int argc, char *argv[])
         perror("msgrcv failure: ");
         return EXIT_FAILURE;
     }
+
+    printf("%s\n", msgbuf.mtext);
 
     return EXIT_SUCCESS;
 }
