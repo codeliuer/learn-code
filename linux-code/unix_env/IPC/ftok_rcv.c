@@ -13,16 +13,15 @@
 static int fetch(void)
 {
     int id = 0;
-    FILE *fp = NULL;
+    int fd = 0;
     char buffer[BUFSIZ] = "";
 
-    fp = fopen(MIDFILE, "r");
-    if (fp != NULL)
+    fd = open(MIDFILE, O_RDONLY);
+    if (fd < 0)
     {
         perror("open failure: ");
-        return EXIT_SUCCESS;
+        return EXIT_FAILURE;
     }
-
 }
 
 int main(int argc, char *argv[])
