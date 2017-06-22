@@ -10,9 +10,14 @@
 
 #define MIDFILE         "midfile"
 
+struct msgbuf 
+{
+    long mtype;
+    char mtext[20];
+};
+
 static int fetch(void)
 {
-    int id = 0;
     int fd = 0;
     char buffer[BUFSIZ] = "";
 
@@ -29,9 +34,7 @@ static int fetch(void)
         return EXIT_FAILURE;
     }
 
-    id = atoi(buffer);
-
-    return id;
+    return atoi(buffer);
 }
 
 int main(int argc, char *argv[])
