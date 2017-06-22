@@ -1,4 +1,4 @@
-#nclude <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -10,7 +10,6 @@
 
 int main(int argc, char *argv[])
 {
-    key_t key;
     int msgid;
 
     msgid = msgget(IPC_PRIVATE, IPC_CREAT|0666);
@@ -19,6 +18,8 @@ int main(int argc, char *argv[])
         perror("msgget failure: ");
         return EXIT_FAILURE;
     }
+
+    write();
 
     return EXIT_SUCCESS;
 }
