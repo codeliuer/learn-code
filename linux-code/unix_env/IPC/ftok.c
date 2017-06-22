@@ -8,11 +8,22 @@
 #include <sys/types.h>
 
 
+#define MIDFILE         "midfile"
+
 static int saveid(int id)
 {
     int fd = 0;
 
-    return 0;
+    fd = open(MIDFILE, O_CREAT|O_RDWR, 0666);
+    if (fd < 0)
+    {
+        perror("open failure: ");
+        return EXIT_FAILURE;
+    }
+
+    write();
+
+    return EXIT_SUCCESS;
 }
 
 int main(int argc, char *argv[])
