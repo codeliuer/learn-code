@@ -6,6 +6,7 @@
 #include <sys/ipc.h>
 #include <sys/msg.h>
 #include <sys/types.h>
+#include <fcntl.h>
 
 
 #define MIDFILE         "midfile"
@@ -13,6 +14,7 @@
 static int saveid(int id)
 {
     int fd = 0;
+    char buffer[20] = "";
 
     fd = open(MIDFILE, O_CREAT|O_RDWR, 0666);
     if (fd < 0)
@@ -21,7 +23,7 @@ static int saveid(int id)
         return EXIT_FAILURE;
     }
 
-    write();
+    sprintf(buffer, "%d", fd);
 
     return EXIT_SUCCESS;
 }
