@@ -30,7 +30,7 @@ static int saveid(int id)
         return EXIT_FAILURE;
     }
 
-    sprintf(buffer, "%d", fd);
+    sprintf(buffer, "%d", id);
     len = strlen(buffer);
     if (write(fd, buffer, len) != len)
     {
