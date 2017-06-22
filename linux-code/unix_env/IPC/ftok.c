@@ -24,6 +24,9 @@ static int saveid(int id)
     }
 
     sprintf(buffer, "%d", fd);
+    if (write(fd, buffer, strlen(buffer)) < 0)
+    {
+    }
 
     return EXIT_SUCCESS;
 }
