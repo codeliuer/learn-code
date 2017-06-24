@@ -5,29 +5,34 @@
 #include <unistd.h>
 
 
-static int fd1[2], fd2[2];
+static int parentfd[2], childfd[2];
 
-int TELL_WAIT()
+int TELL_WAIT(void)
 {
-    if (pipe(fd1) < 0 || pipe(fd2) < 0)
+    if (pipe(parentfd) < 0 || pipe(childfd) < 0)
     {
         perror("pipe failure: ");
         return EXIT_FAILURE;
     }
+
+    return EXIT_SUCCESS;
 }
 
-int WAIT_PARENT()
+int WAIT_PARENT(void)
+{
+    char token;
+
+    read();
+}
+
+int WAIT_CHILD(void)
 {
 }
 
-int WAIT_CHILD()
+int TELL_PARENT(pid_t pid)
 {
 }
 
-int TELL_PARENT()
-{
-}
-
-int TELL_CHILD()
+int TELL_CHILD(pid_t pid)
 {
 }
