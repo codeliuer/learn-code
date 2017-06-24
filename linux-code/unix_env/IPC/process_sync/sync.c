@@ -12,6 +12,7 @@ int TELL_WAIT()
     if (pipe(fd1) < 0 || pipe(fd2) < 0)
     {
         perror("pipe failure: ");
+        return EXIT_FAILURE;
     }
 }
 
