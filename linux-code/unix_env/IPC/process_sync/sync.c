@@ -5,8 +5,14 @@
 #include <unistd.h>
 
 
+static int fd1[2], fd2[2];
+
 int TELL_WAIT()
 {
+    if (pipe(fd1) < 0 || pipe(fd2) < 0)
+    {
+        perror("pipe failure: ");
+    }
 }
 
 int WAIT_PARENT()
