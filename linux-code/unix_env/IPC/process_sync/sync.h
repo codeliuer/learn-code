@@ -5,6 +5,9 @@
 #define __SYNC_H__
 
 
+#define PUBLIC          // extern api
+
+
 extern int TELL_WAIT();
 extern int WAIT_PARENT();
 extern int WAIT_CHILD();
