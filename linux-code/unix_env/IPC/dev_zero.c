@@ -63,6 +63,19 @@ int main(int argc, char *argv[])
     {
         int i = 0;
         pid = getpid();
+
+        for (i = 1; i < 1000; i+=2)
+        {
+            WAIT_CHILD();
+
+            if (update(&i) != i)
+            {
+                fprintf(stderr, "process sync failure, i = %d\n", i);
+                return EXIT_FAILURE;
+            }
+
+            TELL_CHILD(pid);
+        }
     }
 
     return EXIT_SUCCESS;
