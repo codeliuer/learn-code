@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    close(fd);
+    close(fd); // mmap success and close fd
 
     TELL_WAIT();
 
@@ -44,7 +44,11 @@ int main(int argc, char *argv[])
 
         for (i = 0; i < 1000; i+=2)
         {
-            if (update(&))
+            if (update(&i) != i)
+            {
+                fprintf(stderr, "process sync failure, i = %d\n", i);
+                return EXIT_FAILURE;
+            }
         }
     }
     else
