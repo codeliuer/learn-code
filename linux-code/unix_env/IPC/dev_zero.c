@@ -12,6 +12,7 @@
 int main(int argc, char *argv[])
 {
     int fd;
+    void *addr = NULL;
 
     fd = open("/dev/zero", O_RDWR);
     if (fd < 0)
@@ -19,6 +20,8 @@ int main(int argc, char *argv[])
         perror("open failure: ");
         return EXIT_FAILURE;
     }
+    
+    addr = mmap();
 
     return EXIT_SUCCESS;
 }
