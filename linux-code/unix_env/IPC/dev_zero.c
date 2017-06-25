@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
     
-    addr = mmap();
+    addr = mmap(NULL, sizeof(int), PROT_READ|PROT_WRITE, MAP_ANONYMOUS|MAP_SHARED, fd, 0);
 
     return EXIT_SUCCESS;
 }
