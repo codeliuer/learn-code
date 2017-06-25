@@ -37,9 +37,12 @@ void TELL_PARENT(pid_t pid)
 {
     UNUSED(pid);
 
-    write(childfdp1[1], "t", 1);
+    write(childfd[1], "t", 1);
 }
 
 void TELL_CHILD(pid_t pid)
 {
+    UNUSED(pid);
+
+    write(parentfd[1], "t", 1);
 }
