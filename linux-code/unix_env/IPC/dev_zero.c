@@ -31,7 +31,19 @@ int main(int argc, char *argv[])
 
     TELL_WAIT();
 
-    pid = fork();
+    if ((pid = fork()) < 0)
+    {
+        perror("fork failure: ");
+        return EXIT_FAILURE;
+    }
+    else if (pid == 0)
+    {
+        int i = 0;
+    }
+    else
+    {
+        
+    }
 
     return EXIT_SUCCESS;
 }
