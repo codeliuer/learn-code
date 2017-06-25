@@ -55,13 +55,14 @@ int main(int argc, char *argv[])
                 return EXIT_FAILURE;
             }
 
+            TELL_PARENT(pid);
             WAIT_PARENT();
-            TELL_CHILD(pid);
         }
     }
     else
     {
-        
+        int i = 0;
+        pid = getpid();
     }
 
     return EXIT_SUCCESS;
