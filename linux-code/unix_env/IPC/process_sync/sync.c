@@ -5,6 +5,9 @@
 #include <unistd.h>
 
 
+#define UNUSED(x)           ((void)x)
+
+
 static int parentfd[2], childfd[2];
 
 void TELL_WAIT(void)
@@ -32,7 +35,7 @@ void WAIT_CHILD(void)
 
 void TELL_PARENT(pid_t pid)
 {
-    UNUSED(token);
+    UNUSED(pid);
 
 
 }
