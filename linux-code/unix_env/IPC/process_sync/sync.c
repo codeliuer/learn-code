@@ -23,15 +23,14 @@ void WAIT_PARENT(void)
     read(parentfd[0], &token, 1);
 }
 
-int WAIT_CHILD(void)
-{
-
-}
-
-int TELL_PARENT(pid_t pid)
+void WAIT_CHILD(void)
 {
 }
 
-int TELL_CHILD(pid_t pid)
+void TELL_PARENT(pid_t pid)
+{
+}
+
+void TELL_CHILD(pid_t pid)
 {
 }
