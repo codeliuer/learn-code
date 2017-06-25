@@ -25,10 +25,16 @@ void WAIT_PARENT(void)
 
 void WAIT_CHILD(void)
 {
+    char token;
+
+    read(childfd[0], &token, 1);
 }
 
 void TELL_PARENT(pid_t pid)
 {
+    UNUSED(token);
+
+
 }
 
 void TELL_CHILD(pid_t pid)
