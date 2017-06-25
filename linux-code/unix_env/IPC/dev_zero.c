@@ -6,3 +6,13 @@
 #include <sys/mman.h>
 
 #include "process_sync/sync.h"
+
+
+int main(int argc, char *argv[])
+{
+    int fd;
+
+    fd = open("/dev/zero", "w+");
+
+    return EXIT_SUCCESS;
+}
