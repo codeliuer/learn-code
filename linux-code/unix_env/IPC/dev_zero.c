@@ -8,6 +8,10 @@
 
 #include "process_sync/sync.h"
 
+static int update(int *v)
+{
+    return (*v)++;
+}
 
 int main(int argc, char *argv[])
 {
@@ -45,14 +49,13 @@ int main(int argc, char *argv[])
 
         for (i = 0; i < 1000; i+=2)
         {
-            WAIT_PARENT();
-
             if (update(&i) != i)
             {
                 fprintf(stderr, "process sync failure, i = %d\n", i);
                 return EXIT_FAILURE;
             }
 
+            WAIT_PARENT();
             TELL_CHILD(pid);
         }
     }
