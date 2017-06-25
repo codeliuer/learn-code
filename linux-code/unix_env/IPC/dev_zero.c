@@ -14,6 +14,11 @@ int main(int argc, char *argv[])
     int fd;
 
     fd = open("/dev/zero", O_RDWR);
+    if (fd < 0)
+    {
+        perror("open failure: ");
+        return EXIT_FAILURE;
+    }
 
     return EXIT_SUCCESS;
 }
