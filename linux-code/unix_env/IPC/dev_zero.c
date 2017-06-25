@@ -29,6 +29,8 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    close(fd);
+
     TELL_WAIT();
 
     if ((pid = fork()) < 0)
@@ -39,6 +41,11 @@ int main(int argc, char *argv[])
     else if (pid == 0)
     {
         int i = 0;
+
+        for (i = 0; i < 1000; i+=2)
+        {
+            if (update(&))
+        }
     }
     else
     {
