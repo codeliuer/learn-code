@@ -11,11 +11,11 @@
 #include <unistd.h>
 
 
-extern int TELL_WAIT(void);
-extern int WAIT_PARENT(void);
-extern int WAIT_CHILD(void);
-extern int TELL_PARENT(pid_t pid);
-extern int TELL_CHILD(pid_t pid);
+extern void TELL_WAIT(void);
+extern void WAIT_PARENT(void);
+extern void WAIT_CHILD(void);
+extern void TELL_PARENT(pid_t pid);
+extern void TELL_CHILD(pid_t pid);
 
 
 #endif //__SYNC_H__

@@ -4,6 +4,8 @@
 
 #include <unistd.h>
 
+#include "sync.h"
+
 
 #define UNUSED(x)           ((void)x)
 
