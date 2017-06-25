@@ -7,26 +7,25 @@
 
 static int parentfd[2], childfd[2];
 
-int TELL_WAIT(void)
+void TELL_WAIT(void)
 {
     if (pipe(parentfd) < 0 || pipe(childfd) < 0)
     {
         perror("pipe failure: ");
-        return EXIT_FAILURE;
+        return;
     }
-
-    return EXIT_SUCCESS;
 }
 
-int WAIT_PARENT(void)
+void WAIT_PARENT(void)
 {
     char token;
 
-    read();
+    read(parentfd[0], &token, 1);
 }
 
 int WAIT_CHILD(void)
 {
+
 }
 
 int TELL_PARENT(pid_t pid)
