@@ -41,14 +41,19 @@ int main(int argc, char *argv[])
     else if (pid == 0)
     {
         int i = 0;
+        pid = getpid();
 
         for (i = 0; i < 1000; i+=2)
         {
+            WAIT_PARENT();
+
             if (update(&i) != i)
             {
                 fprintf(stderr, "process sync failure, i = %d\n", i);
                 return EXIT_FAILURE;
             }
+
+            TELL_CHILD(pid);
         }
     }
     else
