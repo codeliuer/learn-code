@@ -22,6 +22,7 @@ int WAIT_PARENT(void)
 {
     char token;
 
+    read();
 }
 
 int WAIT_CHILD(void)
