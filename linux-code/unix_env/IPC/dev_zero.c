@@ -49,12 +49,13 @@ int main(int argc, char *argv[])
 
         for (i = 0; i < 1000; i+=2)
         {
-            if (update(&i) != i)
+            if (update((int *)addr) != i)
             {
-                fprintf(stderr, "process sync failure, i = %d\n", i);
+                fprintf(stderr, "child process sync failure, i = %d\n", i);
                 return EXIT_FAILURE;
             }
 
+            printf("child start ##############\n");
             TELL_PARENT(pid);
             WAIT_PARENT();
         }
@@ -67,16 +68,19 @@ int main(int argc, char *argv[])
         for (i = 1; i < 1000; i+=2)
         {
             WAIT_CHILD();
+            printf("parent start   @@@@@@@@@@@@@@\n");
 
-            if (update(&i) != i)
+            if (update((int *)addr) != i)
             {
-                fprintf(stderr, "process sync failure, i = %d\n", i);
+                fprintf(stderr, "parent process sync failure, i = %d\n", i);
                 return EXIT_FAILURE;
             }
 
             TELL_CHILD(pid);
         }
     }
+
+    munmap(addr, sizeof(int));
 
     return EXIT_SUCCESS;
 }
