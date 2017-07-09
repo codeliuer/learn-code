@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     printf(" *******\n");
     printf("  *****\n");
     printf("    *\n");
-    putc(1633028);
+    printf("1633028\n");
 
     return EXIT_SUCCESS;
 }
