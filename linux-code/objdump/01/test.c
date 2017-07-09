@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    printf("1633028\n");
+    printf("  *   *");
 
     return EXIT_SUCCESS;
 }
