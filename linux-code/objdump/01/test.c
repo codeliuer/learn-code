@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    int a = 1633028;
+    printf("1633028\n");
 
     return EXIT_SUCCESS;
 }
